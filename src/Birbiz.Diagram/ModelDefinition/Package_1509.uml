@@ -1553,7 +1553,7 @@
           </property>
           <property
             Id="86a800ab-ab20-4102-ac71-fb1820414eec"
-            name="ProductAttributes"
+            name="Attributes"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -2263,9 +2263,9 @@
             isComposite="false">
             <type_NamedElement>
               <undefinedTypeMoniker
-                Id="f74758cd-8db9-4b52-8c5c-6d11cd8b3999"
-                LastKnownName="Double"
-                LastKnownLocation="Birbiz.Diagram.uml" />
+                Id="409c8817-2aaa-474d-a755-b6c7568a301c"
+                LastKnownName="Decimal"
+                LastKnownLocation="Package_1509.uml" />
             </type_NamedElement>
           </property>
           <property
@@ -2302,24 +2302,6 @@
                 Id="f6338f21-b162-46f3-b366-635af9d63de2"
                 LastKnownName="Shop"
                 LastKnownLocation="Birbiz.Diagram.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="69894336-9221-4dfc-ba07-5e4eeadfc3a7"
-            name="DiscountId"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="a420d522-bea2-4ce8-8016-6b6c578cc8ee"
-                LastKnownName="Integer?"
-                LastKnownLocation="Package_1509.uml" />
             </type_NamedElement>
           </property>
           <property
@@ -2492,8 +2474,8 @@
             isComposite="false">
             <type_NamedElement>
               <undefinedTypeMoniker
-                Id="ca94e293-6453-4705-9245-ce3f99cc0c75"
-                LastKnownName="DateTime"
+                Id="33e7821c-7729-49bc-b09e-3b6c1ea8e0c3"
+                LastKnownName="DateTime?"
                 LastKnownLocation="Birbiz.Diagram.uml" />
             </type_NamedElement>
           </property>
@@ -2517,7 +2499,7 @@
           </property>
           <property
             Id="e6774df3-8e54-47f9-a7a8-822c984db080"
-            name="Product"
+            name="ShopProduct"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -2768,6 +2750,11 @@
       <undefinedType
         Id="8c17fb03-83db-491b-9a56-b0f3f8aeef60"
         name="ProductOrder" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="409c8817-2aaa-474d-a755-b6c7568a301c"
+        name="Decimal" />
     </packageHasNamedElement>
   </packagedElements>
 </package>

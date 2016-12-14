@@ -1038,8 +1038,8 @@
             isComposite="false">
             <type_NamedElement>
               <primitiveTypeMoniker
-                Id="220a3521-e091-4221-bae9-3ef9018e845c"
-                LastKnownName="Integer"
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
                 LastKnownLocation="Birbiz.Diagram.uml" />
             </type_NamedElement>
           </property>
@@ -1261,7 +1261,7 @@
           </property>
           <property
             Id="136d1e43-2b8e-4ba1-b9f5-3f7c70d882f5"
-            name="About"
+            name="AboutMe"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1422,7 +1422,7 @@
           </property>
           <property
             Id="abfdaedf-f4ad-473c-9cf7-7a46b544acc8"
-            name="ProfileUser"
+            name="User"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1567,7 +1567,7 @@
           </property>
           <property
             Id="c83517c6-8734-43cc-945f-ab4bd7441e7b"
-            name="ProfileUser"
+            name="User"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1650,7 +1650,7 @@
         <ownedAttributesInternal>
           <property
             Id="1e0aacca-2046-4f28-a417-18c881ec8ccf"
-            name="Message"
+            name="Text"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1704,7 +1704,7 @@
           </property>
           <property
             Id="e473d698-74fa-443f-a8bb-b3ca70189652"
-            name="ProfileUser"
+            name="User"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -2040,6 +2040,24 @@
                 Id="a469a3b4-c7c1-4d45-8942-5ed77420409b"
                 LastKnownName="File"
                 LastKnownLocation="Birbiz.Diagram.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="8856be4c-21ad-4c0d-a1fc-7459e0cf24e2"
+            name="ParentFolderId"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="a420d522-bea2-4ce8-8016-6b6c578cc8ee"
+                LastKnownName="Integer?"
+                LastKnownLocation="Package_1509.uml" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
