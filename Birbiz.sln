@@ -24,6 +24,8 @@ Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "Birbiz.Diagram", "src\Birbi
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Birbiz.Common.Entities", "src\Birbiz.Common.Entities\Birbiz.Common.Entities.xproj", "{0AF4412A-5537-4DC2-9B84-FD6E841E46D4}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Birbiz.DataAccess.DataContracts", "src\Birbiz.DataAccess.DataContracts\Birbiz.DataAccess.DataContracts.xproj", "{3E853544-C0F6-4138-8833-7C055A5AD233}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{0AF4412A-5537-4DC2-9B84-FD6E841E46D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0AF4412A-5537-4DC2-9B84-FD6E841E46D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0AF4412A-5537-4DC2-9B84-FD6E841E46D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E853544-C0F6-4138-8833-7C055A5AD233}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E853544-C0F6-4138-8833-7C055A5AD233}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E853544-C0F6-4138-8833-7C055A5AD233}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E853544-C0F6-4138-8833-7C055A5AD233}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,5 +60,6 @@ Global
 		{BCC9FBFC-276D-4EB6-B5FC-A31A67A00E17} = {F73783CD-6CB6-4A4B-8909-CCA5AD1CE82F}
 		{55639A1D-C6C9-49A6-BF30-1702C96C8AFD} = {F73783CD-6CB6-4A4B-8909-CCA5AD1CE82F}
 		{0AF4412A-5537-4DC2-9B84-FD6E841E46D4} = {3A9B6713-81FF-426B-BAE9-FC6227B56C0F}
+		{3E853544-C0F6-4138-8833-7C055A5AD233} = {4CFDAB21-1915-4678-A378-A3B46FD5E7B0}
 	EndGlobalSection
 EndGlobal
