@@ -699,12 +699,6 @@
               <referencedTypeMoniker Id="0a51f5f4-17a9-4adc-bab1-1365d1a29987" LastKnownName="LikeType" />
             </type_NamedElement>
           </property>
-          <property Id="a849f3cb-06f1-47ca-a78f-546cfac36850" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="abfdaedf-f4ad-473c-9cf7-7a46b544acc8" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="1b51d3b3-4d54-4bfd-9d7d-61cd5f89d47c" LastKnownName="ProfileUser" />
-            </type_NamedElement>
-          </property>
         </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -2837,11 +2831,6 @@
     <packageHasNamedElement>
       <referencedType Id="740612a9-c2d8-4812-abd4-6b5ebfa270dd" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
         <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="1b51d3b3-4d54-4bfd-9d7d-61cd5f89d47c" name="ProfileUser" isAbstract="false" isLeaf="false" cachedFullName="ProfileUser">
-        <elementDefinition Id="a29845de-d090-4462-8495-7b1d6f45423e" />
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>

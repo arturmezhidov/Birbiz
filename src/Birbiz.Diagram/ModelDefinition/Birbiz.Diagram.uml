@@ -1420,24 +1420,6 @@
                 LastKnownLocation="Birbiz.Diagram.uml" />
             </type_NamedElement>
           </property>
-          <property
-            Id="abfdaedf-f4ad-473c-9cf7-7a46b544acc8"
-            name="User"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="a29845de-d090-4462-8495-7b1d6f45423e"
-                LastKnownName="ProfileUser"
-                LastKnownLocation="Birbiz.Diagram.uml" />
-            </type_NamedElement>
-          </property>
         </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
