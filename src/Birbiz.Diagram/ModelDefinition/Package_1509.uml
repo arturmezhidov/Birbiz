@@ -1212,24 +1212,6 @@
         </targetEnds>
         <ownedAttributesInternal>
           <property
-            Id="2a514c1c-b9ff-4990-b6e5-6bad76d4e507"
-            name="RangeValueId"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <primitiveTypeMoniker
-                Id="220a3521-e091-4221-bae9-3ef9018e845c"
-                LastKnownName="Integer"
-                LastKnownLocation="Birbiz.Diagram.uml" />
-            </type_NamedElement>
-          </property>
-          <property
             Id="21749c50-d0ba-49d5-8b78-027e41d8c0d1"
             name="RangeValue"
             isLeaf="false"

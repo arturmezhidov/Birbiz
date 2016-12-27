@@ -1709,12 +1709,6 @@
                 </association>
               </targetEnds>
               <ownedAttributesInternal>
-                <property Id="450bfaf4-6bcc-4e26-958b-2d1800ad04a4" name="RangeValueId" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="2a514c1c-b9ff-4990-b6e5-6bad76d4e507" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="8fdefce4-6492-4ccc-8e91-1bec504b2711" LastKnownName="Integer" />
-                  </type_NamedElement>
-                </property>
                 <property Id="6557a2e8-ee7f-4937-93ee-cfbf5b3df6ac" name="RangeValue" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
                   <elementDefinition Id="21749c50-d0ba-49d5-8b78-027e41d8c0d1" />
                   <type_NamedElement>

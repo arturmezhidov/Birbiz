@@ -14,9 +14,9 @@ namespace Birbiz.Common.Entities.Catalog
 
         public virtual ProductAttributeGroup AttributeGroup { get; set; }
 
-        public virtual ProductAttributeEnumValue AttributeEnumValue { get; set; }
+        public virtual ICollection<ProductAttributeEnumValue> AttributeEnumValue { get; set; } = new HashSet<ProductAttributeEnumValue>();
 
-        public virtual ProductAttributeRangeValue AttributeRangeValue { get; set; }
+        public virtual ICollection<ProductAttributeRangeValue> AttributeRangeValue { get; set; } = new HashSet<ProductAttributeRangeValue>();
 
         public virtual ICollection<ProductAttribute> ProductAttributes { get; set; } = new HashSet<ProductAttribute>();
     }
