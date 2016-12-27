@@ -4,7 +4,7 @@
     {
         public string Text { get; set; }
 
-        public CommentType Type { get; set; }
+        public CommentTargetType Type { get; set; }
 
         public int ParentId { get; set; }
 

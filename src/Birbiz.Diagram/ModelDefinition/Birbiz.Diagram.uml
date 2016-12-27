@@ -1309,7 +1309,7 @@
     <packageHasNamedElement>
       <enumeration
         Id="2bbeb184-d417-4315-8f3c-425ee01e3dc1"
-        name="LikeType"
+        name="LikeTargetType"
         isAbstract="false"
         isLeaf="false">
         <ownedLiterals>
@@ -1416,7 +1416,7 @@
             <type_NamedElement>
               <enumerationMoniker
                 Id="2bbeb184-d417-4315-8f3c-425ee01e3dc1"
-                LastKnownName="LikeType"
+                LastKnownName="LikeTargetType"
                 LastKnownLocation="Birbiz.Diagram.uml" />
             </type_NamedElement>
           </property>
@@ -1436,7 +1436,7 @@
     <packageHasNamedElement>
       <enumeration
         Id="5d3c58eb-5fca-441f-8b64-d93bc6f6b1bb"
-        name="FavoriteType"
+        name="FavoriteTargetType"
         isAbstract="false"
         isLeaf="false">
         <ownedLiterals>
@@ -1543,7 +1543,7 @@
             <type_NamedElement>
               <enumerationMoniker
                 Id="5d3c58eb-5fca-441f-8b64-d93bc6f6b1bb"
-                LastKnownName="FavoriteType"
+                LastKnownName="FavoriteTargetType"
                 LastKnownLocation="Birbiz.Diagram.uml" />
             </type_NamedElement>
           </property>
@@ -1680,7 +1680,7 @@
             <type_NamedElement>
               <enumerationMoniker
                 Id="365772e9-173f-4c62-b2a9-30bfbe2f56a8"
-                LastKnownName="CommentType"
+                LastKnownName="CommentTargetType"
                 LastKnownLocation="Birbiz.Diagram.uml" />
             </type_NamedElement>
           </property>
@@ -1726,7 +1726,7 @@
     <packageHasNamedElement>
       <enumeration
         Id="365772e9-173f-4c62-b2a9-30bfbe2f56a8"
-        name="CommentType"
+        name="CommentTargetType"
         isAbstract="false"
         isLeaf="false">
         <ownedLiterals>
@@ -2356,7 +2356,7 @@
     <packageHasNamedElement>
       <enumeration
         Id="e2eec037-049d-44d7-9040-c782e0307b45"
-        name="RatingType"
+        name="RatingTargetType"
         isAbstract="false"
         isLeaf="false">
         <ownedLiterals>
@@ -2499,7 +2499,7 @@
             <type_NamedElement>
               <enumerationMoniker
                 Id="e2eec037-049d-44d7-9040-c782e0307b45"
-                LastKnownName="RatingType"
+                LastKnownName="RatingTargetType"
                 LastKnownLocation="Birbiz.Diagram.uml" />
             </type_NamedElement>
           </property>

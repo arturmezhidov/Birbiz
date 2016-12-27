@@ -2,7 +2,7 @@
 {
     public class Rating : BaseEntity
     {
-        public RatingType Type { get; set; }
+        public RatingTargetType Type { get; set; }
 
         public int Value { get; set; }
 

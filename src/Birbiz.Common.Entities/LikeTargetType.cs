@@ -1,11 +1,9 @@
 ﻿namespace Birbiz.Common.Entities
 {
-    public enum CommentType
+    public enum LikeTargetType
     {
         Comment,
 
-        Product,
-
-        Shop
+        Product
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Birbiz.Common.Entities
 {
-    public enum FavoriteType
+    public enum FavoriteTargetType
     {
         Product,
 

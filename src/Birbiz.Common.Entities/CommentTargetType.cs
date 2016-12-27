@@ -1,7 +1,9 @@
 ﻿namespace Birbiz.Common.Entities
 {
-    public enum RatingType
+    public enum CommentTargetType
     {
+        Comment,
+
         Product,
 
         Shop

@@ -643,7 +643,7 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <enumeration Id="8c081c24-a526-4db9-b8c4-ab6b471865bd" name="LikeType" isAbstract="false" isLeaf="false">
+      <enumeration Id="8c081c24-a526-4db9-b8c4-ab6b471865bd" name="LikeTargetType" isAbstract="false" isLeaf="false">
         <elementDefinition Id="2bbeb184-d417-4315-8f3c-425ee01e3dc1" />
         <ownedLiterals>
           <enumerationLiteral Id="f4486fd9-2e11-4be1-9fd8-88639ea9cc48" name="Comment">
@@ -696,7 +696,7 @@
           <property Id="0be2640b-9a22-48b5-934a-32a39f6b5fd6" name="Type" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="c7b7510a-a65f-4a51-a906-06e538b407d2" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="0a51f5f4-17a9-4adc-bab1-1365d1a29987" LastKnownName="LikeType" />
+              <referencedTypeMoniker Id="0a51f5f4-17a9-4adc-bab1-1365d1a29987" LastKnownName="LikeTargetType" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -713,7 +713,7 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="0a51f5f4-17a9-4adc-bab1-1365d1a29987" name="LikeType" isAbstract="false" isLeaf="false" cachedFullName="Birbiz.Diagram::LikeType">
+      <referencedType Id="0a51f5f4-17a9-4adc-bab1-1365d1a29987" name="LikeTargetType" isAbstract="false" isLeaf="false" cachedFullName="Birbiz.Diagram::LikeTargetType">
         <elementDefinition Id="2bbeb184-d417-4315-8f3c-425ee01e3dc1" />
       </referencedType>
     </packageHasNamedElement>
@@ -738,7 +738,7 @@
       </referencedType>
     </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
-      <enumeration Id="d4bd4584-177f-429a-bb3a-a81a2b741693" name="FavoriteType" isAbstract="false" isLeaf="false">
+      <enumeration Id="d4bd4584-177f-429a-bb3a-a81a2b741693" name="FavoriteTargetType" isAbstract="false" isLeaf="false">
         <elementDefinition Id="5d3c58eb-5fca-441f-8b64-d93bc6f6b1bb" />
         <ownedLiterals>
           <enumerationLiteral Id="1ffa661b-76b5-4120-aee7-bc5f1a0584ec" name="Product">
@@ -791,7 +791,7 @@
           <property Id="62f26ed3-a048-4472-be52-49d73f6acb98" name="Type" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="c686e134-f225-4cd0-b0eb-cbb9d0e0f53a" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="a0862290-4a09-4f7a-9f6c-cafe07caab6a" LastKnownName="FavoriteType" />
+              <referencedTypeMoniker Id="a0862290-4a09-4f7a-9f6c-cafe07caab6a" LastKnownName="FavoriteTargetType" />
             </type_NamedElement>
           </property>
           <property Id="311671ef-b10f-457f-9e49-81cbfc1d6f26" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -804,7 +804,7 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <packageHasNamedElement>
-      <referencedType Id="a0862290-4a09-4f7a-9f6c-cafe07caab6a" name="FavoriteType" isAbstract="false" isLeaf="false" cachedFullName="Birbiz.Diagram::FavoriteType">
+      <referencedType Id="a0862290-4a09-4f7a-9f6c-cafe07caab6a" name="FavoriteTargetType" isAbstract="false" isLeaf="false" cachedFullName="Birbiz.Diagram::FavoriteTargetType">
         <elementDefinition Id="5d3c58eb-5fca-441f-8b64-d93bc6f6b1bb" />
       </referencedType>
     </packageHasNamedElement>
@@ -855,7 +855,7 @@
           <property Id="05d4fc44-7417-4a9b-ac9b-cc6954ca77c4" name="Type" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="5bbac556-8a7d-49dd-b285-6e03fdc4420d" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="a5a24093-2ce6-451d-9423-88cabaec7959" LastKnownName="CommentType" />
+              <referencedTypeMoniker Id="a5a24093-2ce6-451d-9423-88cabaec7959" LastKnownName="CommentTargetType" />
             </type_NamedElement>
           </property>
           <property Id="293ce673-888b-40cd-b150-6206175629fc" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -879,7 +879,7 @@
       </referencedType>
     </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
-      <enumeration Id="022fda69-d94b-4b0d-9137-3ad01a024ee6" name="CommentType" isAbstract="false" isLeaf="false">
+      <enumeration Id="022fda69-d94b-4b0d-9137-3ad01a024ee6" name="CommentTargetType" isAbstract="false" isLeaf="false">
         <elementDefinition Id="365772e9-173f-4c62-b2a9-30bfbe2f56a8" />
         <ownedLiterals>
           <enumerationLiteral Id="f8cbd309-1097-47fc-af82-89a54273b004" name="Shop">
@@ -2510,12 +2510,12 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="a5a24093-2ce6-451d-9423-88cabaec7959" name="CommentType" isAbstract="false" isLeaf="false" cachedFullName="Birbiz.Diagram::CommentType">
+      <referencedType Id="a5a24093-2ce6-451d-9423-88cabaec7959" name="CommentTargetType" isAbstract="false" isLeaf="false" cachedFullName="Birbiz.Diagram::CommentTargetType">
         <elementDefinition Id="365772e9-173f-4c62-b2a9-30bfbe2f56a8" />
       </referencedType>
     </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
-      <enumeration Id="24a59824-1128-469d-96ce-74e200cee488" name="RatingType" isAbstract="false" isLeaf="false">
+      <enumeration Id="24a59824-1128-469d-96ce-74e200cee488" name="RatingTargetType" isAbstract="false" isLeaf="false">
         <elementDefinition Id="e2eec037-049d-44d7-9040-c782e0307b45" />
         <ownedLiterals>
           <enumerationLiteral Id="cdb86bc1-1f0e-493d-9d85-2c4f1421bb3a" name="Shop">
@@ -2580,14 +2580,14 @@
           <property Id="cd13f6e0-f8d0-4658-b273-69fdff4be4ff" name="Type" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="97e61fbc-d9bc-4aee-90be-e4090a7e7025" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="76e9c32f-85b3-4a1a-a7fc-20b00bbcf48c" LastKnownName="RatingType" />
+              <referencedTypeMoniker Id="76e9c32f-85b3-4a1a-a7fc-20b00bbcf48c" LastKnownName="RatingTargetType" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <packageHasNamedElement>
-      <referencedType Id="76e9c32f-85b3-4a1a-a7fc-20b00bbcf48c" name="RatingType" isAbstract="false" isLeaf="false" cachedFullName="Birbiz.Diagram::RatingType">
+      <referencedType Id="76e9c32f-85b3-4a1a-a7fc-20b00bbcf48c" name="RatingTargetType" isAbstract="false" isLeaf="false" cachedFullName="Birbiz.Diagram::RatingTargetType">
         <elementDefinition Id="e2eec037-049d-44d7-9040-c782e0307b45" />
       </referencedType>
     </packageHasNamedElement>
