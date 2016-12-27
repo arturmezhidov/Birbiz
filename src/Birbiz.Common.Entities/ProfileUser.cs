@@ -21,7 +21,7 @@ namespace Birbiz.Common.Entities
 
         public virtual Flat Flat { get; set; }
 
-        public virtual ICollection<Like> Likes { get; set; } = new HashSet<Like>();
+        public virtual ICollection<ProductLike> ProductLikes { get; set; } = new HashSet<ProductLike>();
 
         public virtual ICollection<Favorite> Favorites { get; set; } = new HashSet<Favorite>();
 

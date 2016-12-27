@@ -1045,7 +1045,7 @@
           </property>
           <property
             Id="62b4bb0d-138d-4631-9f2c-8b72b8907591"
-            name="Likes"
+            name="ProductLikes"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1068,9 +1068,9 @@
             </upperValueInternal>
             <type_NamedElement>
               <undefinedTypeMoniker
-                Id="a98a2166-7e56-452b-a2ac-908bd4a3edc8"
-                LastKnownName="Like"
-                LastKnownLocation="Birbiz.Diagram.uml" />
+                Id="5e29c042-661e-426c-a647-cf99297004eb"
+                LastKnownName="ProductLike"
+                LastKnownLocation="Package_1509.uml" />
             </type_NamedElement>
           </property>
           <property
@@ -2962,6 +2962,35 @@
       <undefinedType
         Id="196aa4f1-d95f-4a26-bf40-50540bf52f5e"
         name="Flat" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="7f1e2e43-f1fa-409f-85bb-cc52d020b8af"
+        name="BaseLike"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="7e7fd1f5-18ff-420d-ab93-fc060069101a"
+            name="ProfileUser"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="a29845de-d090-4462-8495-7b1d6f45423e"
+                LastKnownName="ProfileUser"
+                LastKnownLocation="Birbiz.Diagram.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

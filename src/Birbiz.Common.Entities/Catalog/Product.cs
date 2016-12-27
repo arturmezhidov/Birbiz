@@ -21,5 +21,7 @@ namespace Birbiz.Common.Entities.Catalog
         public virtual ICollection<ShopProduct> ShopProducts { get; set; } = new HashSet<ShopProduct>();
 
         public virtual ICollection<ProductOrder> Orders { get; set; } = new HashSet<ProductOrder>();
+
+        public virtual ICollection<ProductLike> ProductLikes { get; set; } = new HashSet<ProductLike>();
     }
 }
