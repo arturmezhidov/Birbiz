@@ -519,7 +519,7 @@
               <referencedTypeMoniker Id="46966cd8-d212-4f15-afc0-16c74e6b0a3b" LastKnownName="String" />
             </type_NamedElement>
           </property>
-          <property Id="182a442b-929a-4ce8-88f4-242ebbf764de" name="ProductLikes" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="182a442b-929a-4ce8-88f4-242ebbf764de" name="Likes" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <lowerValueInternal>
               <literalString Id="1672be35-b4ad-4166-96e4-79fd79913237" name="Lower" value="*">
                 <elementDefinition Id="b27e788e-dcc4-4d0a-a6b2-2d7ff912684b" />
@@ -532,7 +532,7 @@
             </upperValueInternal>
             <elementDefinition Id="62b4bb0d-138d-4631-9f2c-8b72b8907591" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="e4d427bb-c54f-4dcf-bd19-223a75fd30d9" LastKnownName="ProductLike" />
+              <referencedTypeMoniker Id="c729807e-bef8-46df-89be-a23f55697b43" LastKnownName="Like" />
             </type_NamedElement>
           </property>
           <property Id="5ab03549-ab69-4409-b0db-fe458113a5fd" name="Favorites" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -642,6 +642,66 @@
         </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <enumeration Id="8c081c24-a526-4db9-b8c4-ab6b471865bd" name="LikeType" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2bbeb184-d417-4315-8f3c-425ee01e3dc1" />
+        <ownedLiterals>
+          <enumerationLiteral Id="f4486fd9-2e11-4be1-9fd8-88639ea9cc48" name="Comment">
+            <elementDefinition Id="12b244cc-cbc5-42dd-82d5-c3c28a046289" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="b1b144f9-9692-45da-97dd-c80176bcd4b0" name="Product">
+            <elementDefinition Id="40f3deab-d566-4219-954c-c499d4e95946" />
+          </enumerationLiteral>
+        </ownedLiterals>
+      </enumeration>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="71dd886a-a545-463e-83b4-96dded3cefec" name="Like : BaseEntity" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="72fdfeea-6077-49b2-a59f-a2b6256dda58" />
+        <targetEnds>
+          <association Id="d69f73c9-808e-41bd-92bc-369ac6b01374" isDerived="false" sourceEndRoleName="Like : BaseEntity" targetEndRoleName="ProfileUser : BaseEntity" isLeaf="false" isAbstract="false">
+            <classMoniker Id="302bbe82-19b8-42e0-b57a-5ce71ec1172c" LastKnownName="ProfileUser : BaseEntity" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c70b972a-df70-40b0-bdf2-a394bffe1671" name="Like : BaseEntity" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="11e27a5a-c912-434f-8bc5-ef56aca04fce" name="Lower" value="*">
+                      <elementDefinition Id="1a2801ca-2a0e-4c8c-a954-56aa70d78f38" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="cac02c31-3eaf-40c7-b6b1-419a745e55f7" name="Upper" value="*">
+                      <elementDefinition Id="88f35a37-c16e-4424-b23b-0be85f2fa9ba" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="d563ed55-3ba5-4fbe-98d9-80de06555f19" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="93315798-8b33-41fe-8efd-6a9024864a5d" name="ProfileUser : BaseEntity" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="7147614d-aab8-4805-b344-385851f7fcbe" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="4f3844c7-3a9b-4a5d-8f45-6b1ccbbb0af9" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="55605c61-92a5-4c49-8c56-923395189bf3" name="TargetId" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="03f8d61d-2dc9-4609-9261-000aea767c28" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="8fdefce4-6492-4ccc-8e91-1bec504b2711" LastKnownName="Integer" />
+            </type_NamedElement>
+          </property>
+          <property Id="0be2640b-9a22-48b5-934a-32a39f6b5fd6" name="Type" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c7b7510a-a65f-4a51-a906-06e538b407d2" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0a51f5f4-17a9-4adc-bab1-1365d1a29987" LastKnownName="LikeType" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
     <packageHasNamedElement>
       <referencedType Id="4ba93a6a-4541-47aa-a1b2-3b20ad7f776d" name="ProfileUser" isAbstract="false" isLeaf="false" cachedFullName="ProfileUser">
         <elementDefinition Id="a29845de-d090-4462-8495-7b1d6f45423e" />
@@ -650,6 +710,11 @@
     <packageHasNamedElement>
       <referencedType Id="8fdefce4-6492-4ccc-8e91-1bec504b2711" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
         <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="0a51f5f4-17a9-4adc-bab1-1365d1a29987" name="LikeType" isAbstract="false" isLeaf="false" cachedFullName="Birbiz.Diagram::LikeType">
+        <elementDefinition Id="2bbeb184-d417-4315-8f3c-425ee01e3dc1" />
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -665,6 +730,11 @@
     <packageHasNamedElement>
       <referencedType Id="9db18843-32a3-4a29-bf55-8438c5147eee" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
         <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="c729807e-bef8-46df-89be-a23f55697b43" name="Like" isAbstract="false" isLeaf="false" cachedFullName="Like">
+        <elementDefinition Id="a98a2166-7e56-452b-a2ac-908bd4a3edc8" />
       </referencedType>
     </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
@@ -1828,22 +1898,6 @@
                     <referencedTypeMoniker Id="03727dcc-664b-4c00-9fce-c3df7592a981" LastKnownName="ProductOrder" />
                   </type_NamedElement>
                 </property>
-                <property Id="40aae085-b628-46df-a26e-b5c6d95fe81e" name="ProductLikes" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <lowerValueInternal>
-                    <literalString Id="bf198741-1530-4042-8a94-ef7045d82065" name="Lower" value="*">
-                      <elementDefinition Id="17f7c6b7-3a6f-40b0-ad90-11968c01b3b5" />
-                    </literalString>
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString Id="7c50c772-b9fb-45c3-8f89-5b478d80a441" name="Upper" value="*">
-                      <elementDefinition Id="ffe82b60-7b68-43e2-94bf-d10d69a396f0" />
-                    </literalString>
-                  </upperValueInternal>
-                  <elementDefinition Id="94063ba9-80e8-4606-8671-839a9b877ae7" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="7736a17f-a681-45bd-bab5-f5455d3568df" LastKnownName="ProductLike" />
-                  </type_NamedElement>
-                </property>
               </ownedAttributesInternal>
             </class>
           </packageHasNamedElement>
@@ -2347,73 +2401,6 @@
               </ownedAttributesInternal>
             </class>
           </packageHasNamedElement>
-          <packageHasNamedElement>
-            <class Id="2dafb53c-7e14-4fe6-a56a-fde68343b224" name="ProductLike : BaseLike" isAbstract="false" isLeaf="false" isActiveClass="false">
-              <elementDefinition Id="c654c2a9-ec31-4d97-9b35-e1211fcc6525" />
-              <targetEnds>
-                <association Id="2fe1a206-d770-4fd4-9f18-4b915f89c17d" isDerived="false" sourceEndRoleName="ProductLike : BaseLike" targetEndRoleName="Product : BaseEntity" isLeaf="false" isAbstract="false">
-                  <classMoniker Id="2467eedf-7747-497e-94fb-9e966e47accd" LastKnownName="Product : BaseEntity" />
-                  <relationshipOwnedElementsInternal>
-                    <associationHasOwnedEnds>
-                      <memberEnd Id="eacb367b-eee3-4e8e-99d8-b6b7db6074b6" name="ProductLike : BaseLike" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                        <lowerValueInternal>
-                          <literalString Id="175a9834-ed94-477a-9c50-cd58618bb4f3" name="Lower" value="*">
-                            <elementDefinition Id="9b8f2c4f-5a83-442f-bf64-418e10ddeb1c" />
-                          </literalString>
-                        </lowerValueInternal>
-                        <upperValueInternal>
-                          <literalString Id="3106d6cc-bae2-48b5-91d7-54054d2405bd" name="Upper" value="*">
-                            <elementDefinition Id="d3f3581e-a7a6-4217-9257-9e2850fe7356" />
-                          </literalString>
-                        </upperValueInternal>
-                        <elementDefinition Id="c7d14121-82bf-40e6-b6d3-c4cc927a1686" />
-                      </memberEnd>
-                    </associationHasOwnedEnds>
-                    <associationHasOwnedEnds>
-                      <memberEnd Id="332e9dab-abfb-49fe-9df2-58e7338d7830" name="Product : BaseEntity" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                        <elementDefinition Id="e8cec3c4-0be7-4f89-9a98-fdd74448f512" />
-                      </memberEnd>
-                    </associationHasOwnedEnds>
-                  </relationshipOwnedElementsInternal>
-                  <elementDefinition Id="b45b4b3b-2acb-4055-92aa-40d813233889" />
-                </association>
-                <association Id="3bb41752-6a19-4573-855d-7e82616c5b13" isDerived="false" sourceEndRoleName="ProductLike : BaseLike" targetEndRoleName="ProfileUser : BaseEntity" isLeaf="false" isAbstract="false">
-                  <classMoniker Id="302bbe82-19b8-42e0-b57a-5ce71ec1172c" LastKnownName="ProfileUser : BaseEntity" />
-                  <relationshipOwnedElementsInternal>
-                    <associationHasOwnedEnds>
-                      <memberEnd Id="84fb5341-4d24-4756-9aec-70e387291c54" name="ProductLike : BaseLike" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                        <lowerValueInternal>
-                          <literalString Id="a2c5efaf-cf52-4ca5-bf0d-6548f858260d" name="Lower" value="*">
-                            <elementDefinition Id="5a7bc614-05cf-4bc5-8b05-995b4043468e" />
-                          </literalString>
-                        </lowerValueInternal>
-                        <upperValueInternal>
-                          <literalString Id="4ebbb237-e9ef-446c-bd49-355820b61f14" name="Upper" value="*">
-                            <elementDefinition Id="83a0827a-5767-4f4e-a3d3-aa5ec7ea46f1" />
-                          </literalString>
-                        </upperValueInternal>
-                        <elementDefinition Id="2d2191d7-1a95-4f04-a116-17a213248875" />
-                      </memberEnd>
-                    </associationHasOwnedEnds>
-                    <associationHasOwnedEnds>
-                      <memberEnd Id="8ea41f76-aca3-49a1-bf23-25cff165d02a" name="ProfileUser : BaseEntity" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                        <elementDefinition Id="40b2ca60-1368-4192-bd0d-916566f74d31" />
-                      </memberEnd>
-                    </associationHasOwnedEnds>
-                  </relationshipOwnedElementsInternal>
-                  <elementDefinition Id="21a2a290-7bef-4719-b8f7-238d9d4b1c91" />
-                </association>
-              </targetEnds>
-              <ownedAttributesInternal>
-                <property Id="ff084454-6bd4-4dc4-b145-249898edcf3d" name="Product" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="e5a5d074-7002-41d1-ae89-3c615bf202b3" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="63ceb39e-42bb-43a6-81eb-a3eef4b6a9b5" LastKnownName="Product" />
-                  </type_NamedElement>
-                </property>
-              </ownedAttributesInternal>
-            </class>
-          </packageHasNamedElement>
         </packagedElements>
       </package>
     </logicalClassDesignerModelHasPackages>
@@ -2884,29 +2871,6 @@
     <packageHasNamedElement>
       <referencedType Id="3bb63230-dfd1-4e9c-b348-4bb843c0c007" name="ShopProduct" isAbstract="false" isLeaf="false" cachedFullName="ShopProduct">
         <elementDefinition Id="e474cbd5-3f35-4caf-8b2e-afc4b44622ed" />
-      </referencedType>
-    </packageHasNamedElement>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="7f456e64-9df1-487d-9554-a2ae58c12160" name="BaseLike" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="7f1e2e43-f1fa-409f-85bb-cc52d020b8af" />
-        <ownedAttributesInternal>
-          <property Id="18ace242-9727-43e4-b336-f06b58f3bea3" name="ProfileUser" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="7e7fd1f5-18ff-420d-ab93-fc060069101a" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="4ba93a6a-4541-47aa-a1b2-3b20ad7f776d" LastKnownName="ProfileUser" />
-            </type_NamedElement>
-          </property>
-        </ownedAttributesInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <packageHasNamedElement>
-      <referencedType Id="7736a17f-a681-45bd-bab5-f5455d3568df" name="ProductLike" isAbstract="false" isLeaf="false" cachedFullName="ProductLike">
-        <elementDefinition Id="5e29c042-661e-426c-a647-cf99297004eb" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="e4d427bb-c54f-4dcf-bd19-223a75fd30d9" name="ProductLike" isAbstract="false" isLeaf="false" cachedFullName="ProductLike">
-        <elementDefinition Id="5e29c042-661e-426c-a647-cf99297004eb" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

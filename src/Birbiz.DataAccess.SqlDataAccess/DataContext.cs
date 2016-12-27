@@ -23,6 +23,7 @@ namespace Birbiz.DataAccess.SqlDataAccess
         public DbSet<Message> Messages { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Favorite> Favorites { get; set; }
+        public DbSet<Like> Likes { get; set; }
         public DbSet<Rating> Ratings { get; set; }
 
         public DbSet<EnumValue> EnumValues { get; set; }
@@ -41,7 +42,6 @@ namespace Birbiz.DataAccess.SqlDataAccess
         public DbSet<ProductGroup> ProductGroups { get; set; }
         public DbSet<ProductSchema> ProductSchemas { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<ProductLike> ProductLikes { get; set; }
 
         public DbSet<ProductAttributeGroup> ProductAttributeGroups { get; set; }
         public DbSet<ProductAttributeSchema> ProductAttributeSchemas { get; set; }
