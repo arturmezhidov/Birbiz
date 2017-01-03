@@ -2,16 +2,22 @@
   "version": "1.0.0-*",
 
   "dependencies": {
+    "Microsoft.NETCore.App": {
+      "version": "1.0.1",
+      "type": "platform"
+    },
     "Birbiz.DataAccess.DataContracts": "1.0.0-*",
     "Birbiz.DataAccess.SqlDataAccess": "1.0.0-*",
     "Microsoft.EntityFrameworkCore.SqlServer": "1.1.0",
-    "Microsoft.Extensions.DependencyInjection.Abstractions": "1.1.0",
-    "NETStandard.Library": "1.6.0"
+    "Microsoft.Extensions.DependencyInjection.Abstractions": "1.1.0"
   },
 
   "frameworks": {
-    "netstandard1.6": {
-      "imports": "dnxcore50"
+    "netcoreapp1.0": {
+      "imports": [
+        "dotnet5.6",
+        "portable-net45+win8"
+      ]
     }
   }
 }
