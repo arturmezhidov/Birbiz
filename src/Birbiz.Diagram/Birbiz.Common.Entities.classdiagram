@@ -1593,7 +1593,7 @@
             </class>
           </packageHasNamedElement>
           <packageHasNamedElement>
-            <class Id="c94c80d8-472a-474d-bf92-4ed352b9b680" name="ProductAttributeEnumValue" isAbstract="false" isLeaf="false" isActiveClass="false">
+            <class Id="c94c80d8-472a-474d-bf92-4ed352b9b680" name="ProductAttributeEnumValue : BaseEntity" isAbstract="false" isLeaf="false" isActiveClass="false">
               <elementDefinition Id="97f96c21-1e03-4d19-826d-4974fe4ade73" />
               <targetEnds>
                 <association Id="eff1f976-2bdf-400e-804e-675db1f4a9e7" isDerived="false" sourceEndRoleName="ProductAttributeEnumValue : BaseEntity" targetEndRoleName="EnumValue : BaseEntity" isLeaf="false" isAbstract="false">
@@ -1662,7 +1662,7 @@
             </class>
           </packageHasNamedElement>
           <packageHasNamedElement>
-            <class Id="a7c9b1ea-36bd-470b-91ab-aa4f84b46c06" name="ProductAttributeRangeValue" isAbstract="false" isLeaf="false" isActiveClass="false">
+            <class Id="a7c9b1ea-36bd-470b-91ab-aa4f84b46c06" name="ProductAttributeRangeValue : BaseEntity" isAbstract="false" isLeaf="false" isActiveClass="false">
               <elementDefinition Id="3512f19d-ca70-4868-956e-21fec4e6a597" />
               <targetEnds>
                 <association Id="91d5af18-cdd3-4004-b46c-a0df442c5864" isDerived="false" sourceEndRoleName="ProductAttributeRangeValue" targetEndRoleName="RangeValue : BaseEntity" isLeaf="false" isAbstract="false">

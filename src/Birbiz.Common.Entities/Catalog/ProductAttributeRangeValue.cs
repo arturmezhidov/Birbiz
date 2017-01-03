@@ -1,6 +1,6 @@
 ﻿namespace Birbiz.Common.Entities.Catalog
 {
-    public class ProductAttributeRangeValue
+    public class ProductAttributeRangeValue : BaseEntity
     {
         public virtual RangeValue RangeValue { get; set; }
 

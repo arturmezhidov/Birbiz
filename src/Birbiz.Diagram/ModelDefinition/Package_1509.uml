@@ -940,7 +940,7 @@
     <packageHasNamedElement>
       <class
         Id="97f96c21-1e03-4d19-826d-4974fe4ade73"
-        name="ProductAttributeEnumValue"
+        name="ProductAttributeEnumValue : BaseEntity"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -1113,7 +1113,7 @@
     <packageHasNamedElement>
       <class
         Id="3512f19d-ca70-4868-956e-21fec4e6a597"
-        name="ProductAttributeRangeValue"
+        name="ProductAttributeRangeValue : BaseEntity"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">

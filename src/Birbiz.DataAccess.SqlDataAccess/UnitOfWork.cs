@@ -12,9 +12,9 @@ namespace Birbiz.DataAccess.SqlDataAccess
         private readonly Dictionary<string, object> repositories;
         private bool disposed;
 
-        public UnitOfWork(string connectionString)
+        public UnitOfWork(DataContext dataContext)
         {
-            context = new DataContext();
+            context = dataContext;
             repositories = new Dictionary<string, object>();
         }
 

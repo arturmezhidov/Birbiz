@@ -3,7 +3,7 @@ using Birbiz.Common.Entities.Catalog;
 
 namespace Birbiz.Common.Entities
 {
-    public class ProfileUser
+    public class ProfileUser : BaseEntity
     {
         public string FirstName { get; set; }
 

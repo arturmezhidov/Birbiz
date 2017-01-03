@@ -1,6 +1,6 @@
 ﻿namespace Birbiz.Common.Entities.Catalog
 {
-    public class ProductAttributeEnumValue
+    public class ProductAttributeEnumValue : BaseEntity
     {
         public virtual EnumValue EnumValue { get; set; }
 
