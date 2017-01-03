@@ -16,7 +16,7 @@ namespace Birbiz.DataAccess.SqlDataAccessTest
 {
     public class UnitOfWorkTest
     {
-        private const string connectionStringName = "DefaultConnection";
+        private const string connectionStringName = "TestConnection";
         protected IUnitOfWork UnitOfWork { get; set; }
 
         public UnitOfWorkTest()
