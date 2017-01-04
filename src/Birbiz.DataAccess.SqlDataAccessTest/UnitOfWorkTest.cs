@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
-using System.Threading;
 using Birbiz.DataAccess.DataContracts;
 using Birbiz.Common.DependencyInjection;
 using Birbiz.Common.Entities;
-using Birbiz.DataAccess.SqlDataAccess;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
-using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.Extensions.Configuration;
 
 namespace Birbiz.DataAccess.SqlDataAccessTest
@@ -54,6 +49,29 @@ namespace Birbiz.DataAccess.SqlDataAccessTest
             UnitOfWork.Save();
 
             Assert.True(country != null && country.Id > 0);
+        }
+
+        [Fact]
+        public void AddRegionTest()
+        {
+            var repo = UnitOfWork.GetRepository<Region>();
+            var country = UnitOfWork.GetRepository<Country>().GetById(1);
+
+            var region = repo.Create(new Region
+            {
+                IsDeleted = false,
+                CreatedBy = 1,
+                CreatedDate = DateTime.Now,
+                LastUpdatedDate = DateTime.Now,
+                Name = "Region",
+                UpdatedBy = 1,
+                Country = country,
+                CountryId = country.Id
+            });
+
+            UnitOfWork.Save();
+
+            Assert.True(region != null && region.Id > 0);
         }
     }
 }

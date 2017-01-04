@@ -24,6 +24,8 @@ namespace Birbiz.Common.Entities
 
         public string SHA1Hash { get; set; }
 
+        public int FolderId { get; set; }
+
         public virtual Folder Folder { get; set; }
     }
 }

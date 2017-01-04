@@ -6,6 +6,12 @@ namespace Birbiz.Common.Entities.Catalog
     {
         public string Name { get; set; }
 
+        public int CurrencyId { get; set; }
+
+        public int AddressId { get; set; }
+
+        public int ProfileUserId { get; set; }
+
         public virtual Currency Currency { get; set; }
 
         public virtual Flat Address { get; set; }

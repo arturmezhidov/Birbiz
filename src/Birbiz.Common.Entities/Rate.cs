@@ -6,8 +6,8 @@
 
         public double Coefficient { get; set; }
 
-        public virtual Currency FirstCurrency { get; set; }
+        public int FirstCurrencyId { get; set; }
 
-        public virtual Currency SecondCurrency { get; set; }
+        public int SecondCurrencyId { get; set; }
     }
 }

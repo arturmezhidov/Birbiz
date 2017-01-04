@@ -19,7 +19,7 @@ namespace Birbiz.Common.Entities
 
         public virtual ApplicationUser ApplicationUser { get; set; }
 
-        public virtual Flat Flat { get; set; }
+        public virtual ICollection<UserAddress> Addresses { get; set; } = new HashSet<UserAddress>();
 
         public virtual ICollection<Like> Likes { get; set; } = new HashSet<Like>();
 

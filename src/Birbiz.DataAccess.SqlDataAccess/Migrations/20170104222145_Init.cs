@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Birbiz.DataAccess.SqlDataAccess.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -214,6 +214,27 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Rates",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Coefficient = table.Column<double>(nullable: false),
+                    CreatedBy = table.Column<int>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    FirstCurrencyId = table.Column<int>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
+                    Ratio = table.Column<double>(nullable: false),
+                    SecondCurrencyId = table.Column<int>(nullable: false),
+                    UpdatedBy = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Rates", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
                 {
@@ -239,6 +260,35 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProfileUsers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AboutMe = table.Column<string>(nullable: true),
+                    ApplicationUserId = table.Column<string>(nullable: true),
+                    CreatedBy = table.Column<int>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    FirstName = table.Column<string>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    LastName = table.Column<string>(nullable: true),
+                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
+                    MiddleName = table.Column<string>(nullable: true),
+                    UpdatedBy = table.Column<int>(nullable: false),
+                    WebSiteUrl = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProfileUsers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ProfileUsers_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -288,7 +338,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CategoryId = table.Column<int>(nullable: true),
+                    CategoryId = table.Column<int>(nullable: false),
                     CreatedBy = table.Column<int>(nullable: false),
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     Description = table.Column<string>(nullable: true),
@@ -306,7 +356,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                         column: x => x.CategoryId,
                         principalTable: "ProductCategories",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -315,7 +365,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CountryId = table.Column<int>(nullable: true),
+                    CountryId = table.Column<int>(nullable: false),
                     CreatedBy = table.Column<int>(nullable: false),
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     IsDeleted = table.Column<bool>(nullable: false),
@@ -331,40 +381,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                         column: x => x.CountryId,
                         principalTable: "Countries",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Rates",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Coefficient = table.Column<double>(nullable: false),
-                    CreatedBy = table.Column<int>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    FirstCurrencyId = table.Column<int>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
-                    Ratio = table.Column<double>(nullable: false),
-                    SecondCurrencyId = table.Column<int>(nullable: true),
-                    UpdatedBy = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Rates", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Rates_Currencies_FirstCurrencyId",
-                        column: x => x.FirstCurrencyId,
-                        principalTable: "Currencies",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Rates_Currencies_SecondCurrencyId",
-                        column: x => x.SecondCurrencyId,
-                        principalTable: "Currencies",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -379,7 +396,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                     EnablePublishPeriod = table.Column<bool>(nullable: false),
                     Extension = table.Column<string>(nullable: true),
                     FileName = table.Column<string>(nullable: true),
-                    FolderId = table.Column<int>(nullable: true),
+                    FolderId = table.Column<int>(nullable: false),
                     IsDeleted = table.Column<bool>(nullable: false),
                     LastUpdatedDate = table.Column<DateTime>(nullable: false),
                     PublishedEndDate = table.Column<DateTime>(nullable: true),
@@ -398,7 +415,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                         column: x => x.FolderId,
                         principalTable: "Folders",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -447,406 +464,6 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProductSchemas",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CreatedBy = table.Column<int>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    Description = table.Column<string>(nullable: true),
-                    DisplayName = table.Column<string>(nullable: true),
-                    FriendlyName = table.Column<string>(nullable: true),
-                    GroupId = table.Column<int>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
-                    UpdatedBy = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ProductSchemas", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ProductSchemas_ProductGroups_GroupId",
-                        column: x => x.GroupId,
-                        principalTable: "ProductGroups",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Cities",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CreatedBy = table.Column<int>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    RegionId = table.Column<int>(nullable: true),
-                    UpdatedBy = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Cities", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Cities_Regions_RegionId",
-                        column: x => x.RegionId,
-                        principalTable: "Regions",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Products",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CountryId = table.Column<int>(nullable: true),
-                    CreatedBy = table.Column<int>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    DisplayName = table.Column<string>(nullable: true),
-                    HelpInfo = table.Column<string>(nullable: true),
-                    HtmlContent = table.Column<string>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
-                    ManufactureId = table.Column<int>(nullable: true),
-                    SchemaId = table.Column<int>(nullable: true),
-                    UpdatedBy = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Products", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Products_Countries_CountryId",
-                        column: x => x.CountryId,
-                        principalTable: "Countries",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Products_Companies_ManufactureId",
-                        column: x => x.ManufactureId,
-                        principalTable: "Companies",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Products_ProductSchemas_SchemaId",
-                        column: x => x.SchemaId,
-                        principalTable: "ProductSchemas",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ProductAttributeGroups",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CreatedBy = table.Column<int>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    DisplayName = table.Column<string>(nullable: true),
-                    HelpInfo = table.Column<string>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
-                    ProductSchemaId = table.Column<int>(nullable: true),
-                    UpdatedBy = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ProductAttributeGroups", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ProductAttributeGroups_ProductSchemas_ProductSchemaId",
-                        column: x => x.ProductSchemaId,
-                        principalTable: "ProductSchemas",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Streets",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CityId = table.Column<int>(nullable: true),
-                    CreatedBy = table.Column<int>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    UpdatedBy = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Streets", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Streets_Cities_CityId",
-                        column: x => x.CityId,
-                        principalTable: "Cities",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ProductAttributeSchemas",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    AttributeGroupId = table.Column<int>(nullable: true),
-                    CreatedBy = table.Column<int>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    DisplayName = table.Column<string>(nullable: true),
-                    HelpInfo = table.Column<string>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
-                    MeasurementUnitId = table.Column<int>(nullable: true),
-                    UpdatedBy = table.Column<int>(nullable: false),
-                    ValueType = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ProductAttributeSchemas", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ProductAttributeSchemas_ProductAttributeGroups_AttributeGroupId",
-                        column: x => x.AttributeGroupId,
-                        principalTable: "ProductAttributeGroups",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_ProductAttributeSchemas_MeasurementUnits_MeasurementUnitId",
-                        column: x => x.MeasurementUnitId,
-                        principalTable: "MeasurementUnits",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Homes",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Block = table.Column<string>(nullable: true),
-                    CreatedBy = table.Column<int>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
-                    Latitude = table.Column<double>(nullable: false),
-                    Longitude = table.Column<double>(nullable: false),
-                    Number = table.Column<int>(nullable: false),
-                    StreetId = table.Column<int>(nullable: true),
-                    UpdatedBy = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Homes", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Homes_Streets_StreetId",
-                        column: x => x.StreetId,
-                        principalTable: "Streets",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ProductAttributes",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CreatedBy = table.Column<int>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
-                    ProductId = table.Column<int>(nullable: true),
-                    SchemaId = table.Column<int>(nullable: true),
-                    UpdatedBy = table.Column<int>(nullable: false),
-                    Value = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ProductAttributes", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ProductAttributes_Products_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_ProductAttributes_ProductAttributeSchemas_SchemaId",
-                        column: x => x.SchemaId,
-                        principalTable: "ProductAttributeSchemas",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ProductAttributeEnumValues",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    AttributeSchemaId = table.Column<int>(nullable: true),
-                    CreatedBy = table.Column<int>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    EnumValueId = table.Column<int>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
-                    UpdatedBy = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ProductAttributeEnumValues", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ProductAttributeEnumValues_ProductAttributeSchemas_AttributeSchemaId",
-                        column: x => x.AttributeSchemaId,
-                        principalTable: "ProductAttributeSchemas",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_ProductAttributeEnumValues_EnumValues_EnumValueId",
-                        column: x => x.EnumValueId,
-                        principalTable: "EnumValues",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ProductAttributeRangeValues",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    AttributeSchemaId = table.Column<int>(nullable: true),
-                    CreatedBy = table.Column<int>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
-                    RangeValueId = table.Column<int>(nullable: true),
-                    UpdatedBy = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ProductAttributeRangeValues", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ProductAttributeRangeValues_ProductAttributeSchemas_AttributeSchemaId",
-                        column: x => x.AttributeSchemaId,
-                        principalTable: "ProductAttributeSchemas",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_ProductAttributeRangeValues_RangeValues_RangeValueId",
-                        column: x => x.RangeValueId,
-                        principalTable: "RangeValues",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Flats",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CreatedBy = table.Column<int>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    HomeId = table.Column<int>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
-                    Number = table.Column<int>(nullable: false),
-                    UpdatedBy = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Flats", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Flats_Homes_HomeId",
-                        column: x => x.HomeId,
-                        principalTable: "Homes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ProfileUsers",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    AboutMe = table.Column<string>(nullable: true),
-                    ApplicationUserId = table.Column<string>(nullable: true),
-                    CreatedBy = table.Column<int>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    FirstName = table.Column<string>(nullable: true),
-                    FlatId = table.Column<int>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    LastName = table.Column<string>(nullable: true),
-                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
-                    MiddleName = table.Column<string>(nullable: true),
-                    UpdatedBy = table.Column<int>(nullable: false),
-                    WebSiteUrl = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ProfileUsers", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ProfileUsers_AspNetUsers_ApplicationUserId",
-                        column: x => x.ApplicationUserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_ProfileUsers_Flats_FlatId",
-                        column: x => x.FlatId,
-                        principalTable: "Flats",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Shops",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    AddressId = table.Column<int>(nullable: true),
-                    CreatedBy = table.Column<int>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    CurrencyId = table.Column<int>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    ProfileUserId = table.Column<int>(nullable: true),
-                    UpdatedBy = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Shops", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Shops_Flats_AddressId",
-                        column: x => x.AddressId,
-                        principalTable: "Flats",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Shops_Currencies_CurrencyId",
-                        column: x => x.CurrencyId,
-                        principalTable: "Currencies",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Shops_ProfileUsers_ProfileUserId",
-                        column: x => x.ProfileUserId,
-                        principalTable: "ProfileUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Comments",
                 columns: table => new
                 {
@@ -861,7 +478,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                     Text = table.Column<string>(nullable: true),
                     Type = table.Column<int>(nullable: false),
                     UpdatedBy = table.Column<int>(nullable: false),
-                    UserId = table.Column<int>(nullable: true)
+                    UserId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -871,7 +488,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                         column: x => x.UserId,
                         principalTable: "ProfileUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -887,7 +504,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                     TargetId = table.Column<int>(nullable: false),
                     Type = table.Column<int>(nullable: false),
                     UpdatedBy = table.Column<int>(nullable: false),
-                    UserId = table.Column<int>(nullable: true)
+                    UserId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -897,7 +514,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                         column: x => x.UserId,
                         principalTable: "ProfileUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -939,7 +556,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                     TargetId = table.Column<int>(nullable: false),
                     Type = table.Column<int>(nullable: false),
                     UpdatedBy = table.Column<int>(nullable: false),
-                    UserId = table.Column<int>(nullable: true),
+                    UserId = table.Column<int>(nullable: false),
                     Value = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -950,7 +567,402 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                         column: x => x.UserId,
                         principalTable: "ProfileUsers",
                         principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProductSchemas",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CreatedBy = table.Column<int>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    Description = table.Column<string>(nullable: true),
+                    DisplayName = table.Column<string>(nullable: true),
+                    FriendlyName = table.Column<string>(nullable: true),
+                    GroupId = table.Column<int>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
+                    UpdatedBy = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductSchemas", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ProductSchemas_ProductGroups_GroupId",
+                        column: x => x.GroupId,
+                        principalTable: "ProductGroups",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Cities",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CreatedBy = table.Column<int>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    RegionId = table.Column<int>(nullable: false),
+                    UpdatedBy = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cities", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Cities_Regions_RegionId",
+                        column: x => x.RegionId,
+                        principalTable: "Regions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Products",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CountryId = table.Column<int>(nullable: false),
+                    CreatedBy = table.Column<int>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    DisplayName = table.Column<string>(nullable: true),
+                    HelpInfo = table.Column<string>(nullable: true),
+                    HtmlContent = table.Column<string>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
+                    ManufactureId = table.Column<int>(nullable: false),
+                    SchemaId = table.Column<int>(nullable: false),
+                    UpdatedBy = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Products", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Products_Countries_CountryId",
+                        column: x => x.CountryId,
+                        principalTable: "Countries",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Products_Companies_ManufactureId",
+                        column: x => x.ManufactureId,
+                        principalTable: "Companies",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Products_ProductSchemas_SchemaId",
+                        column: x => x.SchemaId,
+                        principalTable: "ProductSchemas",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProductAttributeGroups",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CreatedBy = table.Column<int>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    DisplayName = table.Column<string>(nullable: true),
+                    HelpInfo = table.Column<string>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
+                    ProductSchemaId = table.Column<int>(nullable: false),
+                    UpdatedBy = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductAttributeGroups", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ProductAttributeGroups_ProductSchemas_ProductSchemaId",
+                        column: x => x.ProductSchemaId,
+                        principalTable: "ProductSchemas",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Streets",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CityId = table.Column<int>(nullable: false),
+                    CreatedBy = table.Column<int>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    UpdatedBy = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Streets", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Streets_Cities_CityId",
+                        column: x => x.CityId,
+                        principalTable: "Cities",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProductAttributeSchemas",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AttributeGroupId = table.Column<int>(nullable: false),
+                    CreatedBy = table.Column<int>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    DisplayName = table.Column<string>(nullable: true),
+                    HelpInfo = table.Column<string>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
+                    MeasurementUnitId = table.Column<int>(nullable: false),
+                    UpdatedBy = table.Column<int>(nullable: false),
+                    ValueType = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductAttributeSchemas", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ProductAttributeSchemas_ProductAttributeGroups_AttributeGroupId",
+                        column: x => x.AttributeGroupId,
+                        principalTable: "ProductAttributeGroups",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ProductAttributeSchemas_MeasurementUnits_MeasurementUnitId",
+                        column: x => x.MeasurementUnitId,
+                        principalTable: "MeasurementUnits",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Homes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Block = table.Column<string>(nullable: true),
+                    CreatedBy = table.Column<int>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
+                    Latitude = table.Column<double>(nullable: false),
+                    Longitude = table.Column<double>(nullable: false),
+                    Number = table.Column<int>(nullable: false),
+                    StreetId = table.Column<int>(nullable: false),
+                    UpdatedBy = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Homes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Homes_Streets_StreetId",
+                        column: x => x.StreetId,
+                        principalTable: "Streets",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProductAttributes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CreatedBy = table.Column<int>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
+                    ProductId = table.Column<int>(nullable: true),
+                    SchemaId = table.Column<int>(nullable: false),
+                    UpdatedBy = table.Column<int>(nullable: false),
+                    Value = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductAttributes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ProductAttributes_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ProductAttributes_ProductAttributeSchemas_SchemaId",
+                        column: x => x.SchemaId,
+                        principalTable: "ProductAttributeSchemas",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProductAttributeEnumValues",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AttributeSchemaId = table.Column<int>(nullable: false),
+                    CreatedBy = table.Column<int>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    EnumValueId = table.Column<int>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
+                    UpdatedBy = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductAttributeEnumValues", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ProductAttributeEnumValues_ProductAttributeSchemas_AttributeSchemaId",
+                        column: x => x.AttributeSchemaId,
+                        principalTable: "ProductAttributeSchemas",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ProductAttributeEnumValues_EnumValues_EnumValueId",
+                        column: x => x.EnumValueId,
+                        principalTable: "EnumValues",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProductAttributeRangeValues",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AttributeSchemaId = table.Column<int>(nullable: false),
+                    CreatedBy = table.Column<int>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
+                    RangeValueId = table.Column<int>(nullable: false),
+                    UpdatedBy = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductAttributeRangeValues", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ProductAttributeRangeValues_ProductAttributeSchemas_AttributeSchemaId",
+                        column: x => x.AttributeSchemaId,
+                        principalTable: "ProductAttributeSchemas",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ProductAttributeRangeValues_RangeValues_RangeValueId",
+                        column: x => x.RangeValueId,
+                        principalTable: "RangeValues",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Flats",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CreatedBy = table.Column<int>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    HomeId = table.Column<int>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
+                    Number = table.Column<int>(nullable: false),
+                    UpdatedBy = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Flats", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Flats_Homes_HomeId",
+                        column: x => x.HomeId,
+                        principalTable: "Homes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Shops",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AddressId = table.Column<int>(nullable: false),
+                    CreatedBy = table.Column<int>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    CurrencyId = table.Column<int>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    ProfileUserId = table.Column<int>(nullable: false),
+                    UpdatedBy = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Shops", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Shops_Flats_AddressId",
+                        column: x => x.AddressId,
+                        principalTable: "Flats",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Shops_Currencies_CurrencyId",
+                        column: x => x.CurrencyId,
+                        principalTable: "Currencies",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Shops_ProfileUsers_ProfileUserId",
+                        column: x => x.ProfileUserId,
+                        principalTable: "ProfileUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserAddress",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CreatedBy = table.Column<int>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    FlatId = table.Column<int>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    LastUpdatedDate = table.Column<DateTime>(nullable: false),
+                    UpdatedBy = table.Column<int>(nullable: false),
+                    UserId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserAddress", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_UserAddress_Flats_FlatId",
+                        column: x => x.FlatId,
+                        principalTable: "Flats",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserAddress_ProfileUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "ProfileUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -964,8 +976,8 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     IsDeleted = table.Column<bool>(nullable: false),
                     LastUpdatedDate = table.Column<DateTime>(nullable: false),
-                    ProductId = table.Column<int>(nullable: true),
-                    ProfileUserId = table.Column<int>(nullable: true),
+                    ProductId = table.Column<int>(nullable: false),
+                    ProfileUserId = table.Column<int>(nullable: false),
                     ShopId = table.Column<int>(nullable: true),
                     UpdatedBy = table.Column<int>(nullable: false)
                 },
@@ -977,13 +989,13 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ProductOrders_ProfileUsers_ProfileUserId",
                         column: x => x.ProfileUserId,
                         principalTable: "ProfileUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ProductOrders_Shops_ShopId",
                         column: x => x.ShopId,
@@ -1005,7 +1017,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                     LastUpdatedDate = table.Column<DateTime>(nullable: false),
                     Price = table.Column<decimal>(nullable: false),
                     ProductId = table.Column<int>(nullable: true),
-                    ShopId = table.Column<int>(nullable: true),
+                    ShopId = table.Column<int>(nullable: false),
                     UpdatedBy = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -1022,7 +1034,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                         column: x => x.ShopId,
                         principalTable: "Shops",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -1227,21 +1239,6 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProfileUsers_FlatId",
-                table: "ProfileUsers",
-                column: "FlatId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Rates_FirstCurrencyId",
-                table: "Rates",
-                column: "FirstCurrencyId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Rates_SecondCurrencyId",
-                table: "Rates",
-                column: "SecondCurrencyId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Ratings_UserId",
                 table: "Ratings",
                 column: "UserId");
@@ -1255,6 +1252,16 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                 name: "IX_Streets_CityId",
                 table: "Streets",
                 column: "CityId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserAddress_FlatId",
+                table: "UserAddress",
+                column: "FlatId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserAddress_UserId",
+                table: "UserAddress",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
@@ -1326,6 +1333,9 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                 name: "Ratings");
 
             migrationBuilder.DropTable(
+                name: "UserAddress");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
             migrationBuilder.DropTable(
@@ -1374,6 +1384,9 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                 name: "Companies");
 
             migrationBuilder.DropTable(
+                name: "Flats");
+
+            migrationBuilder.DropTable(
                 name: "Currencies");
 
             migrationBuilder.DropTable(
@@ -1383,22 +1396,19 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                 name: "ProductSchemas");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Homes");
 
             migrationBuilder.DropTable(
-                name: "Flats");
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "ProductGroups");
 
             migrationBuilder.DropTable(
-                name: "Homes");
+                name: "Streets");
 
             migrationBuilder.DropTable(
                 name: "ProductCategories");
-
-            migrationBuilder.DropTable(
-                name: "Streets");
 
             migrationBuilder.DropTable(
                 name: "Cities");

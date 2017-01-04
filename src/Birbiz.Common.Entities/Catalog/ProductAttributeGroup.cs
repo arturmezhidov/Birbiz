@@ -8,6 +8,8 @@ namespace Birbiz.Common.Entities.Catalog
 
         public string HelpInfo { get; set; }
 
+        public int ProductSchemaId { get; set; }
+
         public virtual ProductSchema ProductSchema { get; set; }
 
         public virtual ICollection<ProductAttributeSchema> AttributeSchemas { get; set; } = new HashSet<ProductAttributeSchema>();

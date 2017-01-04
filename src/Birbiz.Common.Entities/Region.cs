@@ -6,6 +6,8 @@ namespace Birbiz.Common.Entities
     {
         public string Name { get; set; }
 
+        public int CountryId { get; set; }
+
         public virtual Country Country { get; set; }
 
         public virtual ICollection<City> Cities { get; set; } = new HashSet<City>();

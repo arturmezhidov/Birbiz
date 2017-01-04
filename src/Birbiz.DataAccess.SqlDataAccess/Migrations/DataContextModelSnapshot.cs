@@ -103,7 +103,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("CountryId");
+                    b.Property<int>("CountryId");
 
                     b.Property<int>("CreatedBy");
 
@@ -119,9 +119,9 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
 
                     b.Property<DateTime>("LastUpdatedDate");
 
-                    b.Property<int?>("ManufactureId");
+                    b.Property<int>("ManufactureId");
 
-                    b.Property<int?>("SchemaId");
+                    b.Property<int>("SchemaId");
 
                     b.Property<int>("UpdatedBy");
 
@@ -151,7 +151,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
 
                     b.Property<int?>("ProductId");
 
-                    b.Property<int?>("SchemaId");
+                    b.Property<int>("SchemaId");
 
                     b.Property<int>("UpdatedBy");
 
@@ -171,13 +171,13 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("AttributeSchemaId");
+                    b.Property<int>("AttributeSchemaId");
 
                     b.Property<int>("CreatedBy");
 
                     b.Property<DateTime>("CreatedDate");
 
-                    b.Property<int?>("EnumValueId");
+                    b.Property<int>("EnumValueId");
 
                     b.Property<bool>("IsDeleted");
 
@@ -211,7 +211,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
 
                     b.Property<DateTime>("LastUpdatedDate");
 
-                    b.Property<int?>("ProductSchemaId");
+                    b.Property<int>("ProductSchemaId");
 
                     b.Property<int>("UpdatedBy");
 
@@ -227,7 +227,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("AttributeSchemaId");
+                    b.Property<int>("AttributeSchemaId");
 
                     b.Property<int>("CreatedBy");
 
@@ -237,7 +237,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
 
                     b.Property<DateTime>("LastUpdatedDate");
 
-                    b.Property<int?>("RangeValueId");
+                    b.Property<int>("RangeValueId");
 
                     b.Property<int>("UpdatedBy");
 
@@ -255,7 +255,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("AttributeGroupId");
+                    b.Property<int>("AttributeGroupId");
 
                     b.Property<int>("CreatedBy");
 
@@ -269,7 +269,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
 
                     b.Property<DateTime>("LastUpdatedDate");
 
-                    b.Property<int?>("MeasurementUnitId");
+                    b.Property<int>("MeasurementUnitId");
 
                     b.Property<int>("UpdatedBy");
 
@@ -315,7 +315,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("CategoryId");
+                    b.Property<int>("CategoryId");
 
                     b.Property<int>("CreatedBy");
 
@@ -355,9 +355,9 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
 
                     b.Property<DateTime>("LastUpdatedDate");
 
-                    b.Property<int?>("ProductId");
+                    b.Property<int>("ProductId");
 
-                    b.Property<int?>("ProfileUserId");
+                    b.Property<int>("ProfileUserId");
 
                     b.Property<int?>("ShopId");
 
@@ -389,7 +389,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
 
                     b.Property<string>("FriendlyName");
 
-                    b.Property<int?>("GroupId");
+                    b.Property<int>("GroupId");
 
                     b.Property<bool>("IsDeleted");
 
@@ -409,13 +409,13 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("AddressId");
+                    b.Property<int>("AddressId");
 
                     b.Property<int>("CreatedBy");
 
                     b.Property<DateTime>("CreatedDate");
 
-                    b.Property<int?>("CurrencyId");
+                    b.Property<int>("CurrencyId");
 
                     b.Property<bool>("IsDeleted");
 
@@ -423,7 +423,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<int?>("ProfileUserId");
+                    b.Property<int>("ProfileUserId");
 
                     b.Property<int>("UpdatedBy");
 
@@ -457,7 +457,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
 
                     b.Property<int?>("ProductId");
 
-                    b.Property<int?>("ShopId");
+                    b.Property<int>("ShopId");
 
                     b.Property<int>("UpdatedBy");
 
@@ -485,7 +485,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<int?>("RegionId");
+                    b.Property<int>("RegionId");
 
                     b.Property<int>("UpdatedBy");
 
@@ -519,7 +519,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
 
                     b.Property<int>("UpdatedBy");
 
-                    b.Property<int?>("UserId");
+                    b.Property<int>("UserId");
 
                     b.HasKey("Id");
 
@@ -639,7 +639,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
 
                     b.Property<int>("UpdatedBy");
 
-                    b.Property<int?>("UserId");
+                    b.Property<int>("UserId");
 
                     b.HasKey("Id");
 
@@ -665,7 +665,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
 
                     b.Property<string>("FileName");
 
-                    b.Property<int?>("FolderId");
+                    b.Property<int>("FolderId");
 
                     b.Property<bool>("IsDeleted");
 
@@ -701,7 +701,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
 
                     b.Property<DateTime>("CreatedDate");
 
-                    b.Property<int?>("HomeId");
+                    b.Property<int>("HomeId");
 
                     b.Property<bool>("IsDeleted");
 
@@ -765,7 +765,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
 
                     b.Property<int>("Number");
 
-                    b.Property<int?>("StreetId");
+                    b.Property<int>("StreetId");
 
                     b.Property<int>("UpdatedBy");
 
@@ -873,8 +873,6 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
 
                     b.Property<string>("FirstName");
 
-                    b.Property<int?>("FlatId");
-
                     b.Property<bool>("IsDeleted");
 
                     b.Property<string>("LastName");
@@ -891,8 +889,6 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
 
                     b.HasIndex("ApplicationUserId")
                         .IsUnique();
-
-                    b.HasIndex("FlatId");
 
                     b.ToTable("ProfileUsers");
                 });
@@ -932,7 +928,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
 
                     b.Property<DateTime>("CreatedDate");
 
-                    b.Property<int?>("FirstCurrencyId");
+                    b.Property<int>("FirstCurrencyId");
 
                     b.Property<bool>("IsDeleted");
 
@@ -940,15 +936,11 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
 
                     b.Property<double>("Ratio");
 
-                    b.Property<int?>("SecondCurrencyId");
+                    b.Property<int>("SecondCurrencyId");
 
                     b.Property<int>("UpdatedBy");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("FirstCurrencyId");
-
-                    b.HasIndex("SecondCurrencyId");
 
                     b.ToTable("Rates");
                 });
@@ -972,7 +964,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
 
                     b.Property<int>("UpdatedBy");
 
-                    b.Property<int?>("UserId");
+                    b.Property<int>("UserId");
 
                     b.Property<int>("Value");
 
@@ -988,7 +980,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("CountryId");
+                    b.Property<int>("CountryId");
 
                     b.Property<int>("CreatedBy");
 
@@ -1014,7 +1006,7 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("CityId");
+                    b.Property<int>("CityId");
 
                     b.Property<int>("CreatedBy");
 
@@ -1033,6 +1025,34 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                     b.HasIndex("CityId");
 
                     b.ToTable("Streets");
+                });
+
+            modelBuilder.Entity("Birbiz.Common.Entities.UserAddress", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("CreatedBy");
+
+                    b.Property<DateTime>("CreatedDate");
+
+                    b.Property<int>("FlatId");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<DateTime>("LastUpdatedDate");
+
+                    b.Property<int>("UpdatedBy");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FlatId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserAddress");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>
@@ -1154,15 +1174,18 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                 {
                     b.HasOne("Birbiz.Common.Entities.Country", "Country")
                         .WithMany()
-                        .HasForeignKey("CountryId");
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Birbiz.Common.Entities.Company", "Manufacture")
                         .WithMany()
-                        .HasForeignKey("ManufactureId");
+                        .HasForeignKey("ManufactureId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Birbiz.Common.Entities.Catalog.ProductSchema", "Schema")
                         .WithMany("Products")
-                        .HasForeignKey("SchemaId");
+                        .HasForeignKey("SchemaId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Birbiz.Common.Entities.Catalog.ProductAttribute", b =>
@@ -1173,65 +1196,76 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
 
                     b.HasOne("Birbiz.Common.Entities.Catalog.ProductAttributeSchema", "Schema")
                         .WithMany("ProductAttributes")
-                        .HasForeignKey("SchemaId");
+                        .HasForeignKey("SchemaId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Birbiz.Common.Entities.Catalog.ProductAttributeEnumValue", b =>
                 {
                     b.HasOne("Birbiz.Common.Entities.Catalog.ProductAttributeSchema", "AttributeSchema")
                         .WithMany("AttributeEnumValue")
-                        .HasForeignKey("AttributeSchemaId");
+                        .HasForeignKey("AttributeSchemaId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Birbiz.Common.Entities.EnumValue", "EnumValue")
                         .WithMany()
-                        .HasForeignKey("EnumValueId");
+                        .HasForeignKey("EnumValueId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Birbiz.Common.Entities.Catalog.ProductAttributeGroup", b =>
                 {
                     b.HasOne("Birbiz.Common.Entities.Catalog.ProductSchema", "ProductSchema")
                         .WithMany("AttributeGroups")
-                        .HasForeignKey("ProductSchemaId");
+                        .HasForeignKey("ProductSchemaId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Birbiz.Common.Entities.Catalog.ProductAttributeRangeValue", b =>
                 {
                     b.HasOne("Birbiz.Common.Entities.Catalog.ProductAttributeSchema", "AttributeSchema")
                         .WithMany("AttributeRangeValue")
-                        .HasForeignKey("AttributeSchemaId");
+                        .HasForeignKey("AttributeSchemaId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Birbiz.Common.Entities.RangeValue", "RangeValue")
                         .WithMany()
-                        .HasForeignKey("RangeValueId");
+                        .HasForeignKey("RangeValueId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Birbiz.Common.Entities.Catalog.ProductAttributeSchema", b =>
                 {
                     b.HasOne("Birbiz.Common.Entities.Catalog.ProductAttributeGroup", "AttributeGroup")
                         .WithMany("AttributeSchemas")
-                        .HasForeignKey("AttributeGroupId");
+                        .HasForeignKey("AttributeGroupId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Birbiz.Common.Entities.MeasurementUnit", "MeasurementUnit")
                         .WithMany()
-                        .HasForeignKey("MeasurementUnitId");
+                        .HasForeignKey("MeasurementUnitId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Birbiz.Common.Entities.Catalog.ProductGroup", b =>
                 {
                     b.HasOne("Birbiz.Common.Entities.Catalog.ProductCategory", "Category")
                         .WithMany("Groups")
-                        .HasForeignKey("CategoryId");
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Birbiz.Common.Entities.Catalog.ProductOrder", b =>
                 {
                     b.HasOne("Birbiz.Common.Entities.Catalog.Product", "Product")
                         .WithMany("Orders")
-                        .HasForeignKey("ProductId");
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Birbiz.Common.Entities.ProfileUser", "ProfileUser")
                         .WithMany("Orders")
-                        .HasForeignKey("ProfileUserId");
+                        .HasForeignKey("ProfileUserId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Birbiz.Common.Entities.Catalog.Shop", "Shop")
                         .WithMany("Orders")
@@ -1242,22 +1276,26 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                 {
                     b.HasOne("Birbiz.Common.Entities.Catalog.ProductGroup", "Group")
                         .WithMany("ProductSchemas")
-                        .HasForeignKey("GroupId");
+                        .HasForeignKey("GroupId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Birbiz.Common.Entities.Catalog.Shop", b =>
                 {
                     b.HasOne("Birbiz.Common.Entities.Flat", "Address")
                         .WithMany()
-                        .HasForeignKey("AddressId");
+                        .HasForeignKey("AddressId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Birbiz.Common.Entities.Currency", "Currency")
                         .WithMany()
-                        .HasForeignKey("CurrencyId");
+                        .HasForeignKey("CurrencyId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Birbiz.Common.Entities.ProfileUser", "ProfileUser")
                         .WithMany("Shops")
-                        .HasForeignKey("ProfileUserId");
+                        .HasForeignKey("ProfileUserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Birbiz.Common.Entities.Catalog.ShopProduct", b =>
@@ -1268,42 +1306,48 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
 
                     b.HasOne("Birbiz.Common.Entities.Catalog.Shop", "Shop")
                         .WithMany("Products")
-                        .HasForeignKey("ShopId");
+                        .HasForeignKey("ShopId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Birbiz.Common.Entities.City", b =>
                 {
                     b.HasOne("Birbiz.Common.Entities.Region", "Region")
                         .WithMany("Cities")
-                        .HasForeignKey("RegionId");
+                        .HasForeignKey("RegionId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Birbiz.Common.Entities.Comment", b =>
                 {
                     b.HasOne("Birbiz.Common.Entities.ProfileUser", "User")
                         .WithMany("Comments")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Birbiz.Common.Entities.Favorite", b =>
                 {
                     b.HasOne("Birbiz.Common.Entities.ProfileUser", "User")
                         .WithMany("Favorites")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Birbiz.Common.Entities.File", b =>
                 {
                     b.HasOne("Birbiz.Common.Entities.Folder", "Folder")
                         .WithMany("Files")
-                        .HasForeignKey("FolderId");
+                        .HasForeignKey("FolderId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Birbiz.Common.Entities.Flat", b =>
                 {
                     b.HasOne("Birbiz.Common.Entities.Home", "Home")
                         .WithMany("Flats")
-                        .HasForeignKey("HomeId");
+                        .HasForeignKey("HomeId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Birbiz.Common.Entities.Folder", b =>
@@ -1317,7 +1361,8 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                 {
                     b.HasOne("Birbiz.Common.Entities.Street", "Street")
                         .WithMany("Homes")
-                        .HasForeignKey("StreetId");
+                        .HasForeignKey("StreetId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Birbiz.Common.Entities.Like", b =>
@@ -1332,42 +1377,43 @@ namespace Birbiz.DataAccess.SqlDataAccess.Migrations
                     b.HasOne("Birbiz.Common.Entities.ApplicationUser", "ApplicationUser")
                         .WithOne("Profile")
                         .HasForeignKey("Birbiz.Common.Entities.ProfileUser", "ApplicationUserId");
-
-                    b.HasOne("Birbiz.Common.Entities.Flat", "Flat")
-                        .WithMany("Users")
-                        .HasForeignKey("FlatId");
-                });
-
-            modelBuilder.Entity("Birbiz.Common.Entities.Rate", b =>
-                {
-                    b.HasOne("Birbiz.Common.Entities.Currency", "FirstCurrency")
-                        .WithMany()
-                        .HasForeignKey("FirstCurrencyId");
-
-                    b.HasOne("Birbiz.Common.Entities.Currency", "SecondCurrency")
-                        .WithMany()
-                        .HasForeignKey("SecondCurrencyId");
                 });
 
             modelBuilder.Entity("Birbiz.Common.Entities.Rating", b =>
                 {
                     b.HasOne("Birbiz.Common.Entities.ProfileUser", "User")
                         .WithMany("Ratings")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Birbiz.Common.Entities.Region", b =>
                 {
                     b.HasOne("Birbiz.Common.Entities.Country", "Country")
                         .WithMany("Regions")
-                        .HasForeignKey("CountryId");
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Birbiz.Common.Entities.Street", b =>
                 {
                     b.HasOne("Birbiz.Common.Entities.City", "City")
                         .WithMany("Streets")
-                        .HasForeignKey("CityId");
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Birbiz.Common.Entities.UserAddress", b =>
+                {
+                    b.HasOne("Birbiz.Common.Entities.Flat", "Flat")
+                        .WithMany()
+                        .HasForeignKey("FlatId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Birbiz.Common.Entities.ProfileUser", "User")
+                        .WithMany("Addresses")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>

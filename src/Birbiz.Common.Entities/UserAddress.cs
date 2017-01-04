@@ -1,13 +1,13 @@
 ﻿namespace Birbiz.Common.Entities
 {
-    public class Favorite : BaseEntity
+    public class UserAddress : BaseEntity
     {
-        public FavoriteTargetType Type { get; set; }
-
-        public int TargetId { get; set; }
-
         public int UserId { get; set; }
 
+        public int FlatId { get; set; }
+
         public virtual ProfileUser User { get; set; }
+
+        public virtual Flat Flat { get; set; }
     }
 }

@@ -10,6 +10,10 @@ namespace Birbiz.Common.Entities.Catalog
 
         public AttributeValueType ValueType { get; set; }
 
+        public int MeasurementUnitId { get; set; }
+
+        public int AttributeGroupId { get; set; }
+
         public virtual MeasurementUnit MeasurementUnit { get; set; }
 
         public virtual ProductAttributeGroup AttributeGroup { get; set; }

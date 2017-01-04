@@ -10,6 +10,12 @@ namespace Birbiz.Common.Entities.Catalog
 
         public string HtmlContent { get; set; }
 
+        public int ManufactureId { get; set; }
+
+        public int CountryId { get; set; }
+
+        public int SchemaId { get; set; }
+
         public virtual Company Manufacture { get; set; }
 
         public virtual Country Country { get; set; }

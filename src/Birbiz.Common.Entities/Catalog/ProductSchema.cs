@@ -10,6 +10,8 @@ namespace Birbiz.Common.Entities.Catalog
 
         public string Description { get; set; }
 
+        public int GroupId { get; set; }
+
         public virtual ProductGroup Group { get; set; }
 
         public virtual ICollection<Product> Products { get; set; } = new HashSet<Product>();

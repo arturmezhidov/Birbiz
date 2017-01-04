@@ -12,6 +12,8 @@ namespace Birbiz.Common.Entities
 
         public double Longitude { get; set; }
 
+        public int StreetId { get; set; }
+
         public virtual Street Street { get; set; }
 
         public virtual ICollection<Flat> Flats { get; set; } = new HashSet<Flat>();

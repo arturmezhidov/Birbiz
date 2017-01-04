@@ -6,6 +6,10 @@
 
         public decimal Price { get; set; }
 
+        public int? ProductId { get; set; }
+
+        public int ShopId { get; set; }
+
         public virtual Discount Discount { get; set; }
 
         public virtual Product Product { get; set; }

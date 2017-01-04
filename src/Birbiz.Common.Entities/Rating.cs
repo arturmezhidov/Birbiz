@@ -8,6 +8,8 @@
 
         public int TargetId { get; set; }
 
+        public int UserId { get; set; }
+
         public virtual ProfileUser User { get; set; }
     }
 }
