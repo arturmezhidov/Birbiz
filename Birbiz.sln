@@ -32,6 +32,8 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Birbiz.Common.DependencyInj
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Birbiz.DataAccess.SqlDataAccessTest", "src\Birbiz.DataAccess.SqlDataAccessTest\Birbiz.DataAccess.SqlDataAccessTest.xproj", "{0BB956C5-0F61-4CE2-B46A-1FF1587DD003}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Birbiz.BusinessLogic.BusinessContracts", "src\Birbiz.BusinessLogic.BusinessContracts\Birbiz.BusinessLogic.BusinessContracts.xproj", "{F5CC25A1-DFBB-4A88-A992-2EE50F46CD86}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,6 +68,10 @@ Global
 		{0BB956C5-0F61-4CE2-B46A-1FF1587DD003}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BB956C5-0F61-4CE2-B46A-1FF1587DD003}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BB956C5-0F61-4CE2-B46A-1FF1587DD003}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5CC25A1-DFBB-4A88-A992-2EE50F46CD86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5CC25A1-DFBB-4A88-A992-2EE50F46CD86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5CC25A1-DFBB-4A88-A992-2EE50F46CD86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5CC25A1-DFBB-4A88-A992-2EE50F46CD86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,5 +88,6 @@ Global
 		{FB643392-A219-4715-89A9-19D900F7C0B7} = {4CFDAB21-1915-4678-A378-A3B46FD5E7B0}
 		{B0E9B741-C3B4-438E-950D-6A3A35834A79} = {3A9B6713-81FF-426B-BAE9-FC6227B56C0F}
 		{0BB956C5-0F61-4CE2-B46A-1FF1587DD003} = {4CFDAB21-1915-4678-A378-A3B46FD5E7B0}
+		{F5CC25A1-DFBB-4A88-A992-2EE50F46CD86} = {CAF7C973-B438-494D-8B69-B0D5B54172EA}
 	EndGlobalSection
 EndGlobal
