@@ -28,9 +28,9 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Birbiz.DataAccess.DataContr
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Birbiz.DataAccess.SqlDataAccess", "src\Birbiz.DataAccess.SqlDataAccess\Birbiz.DataAccess.SqlDataAccess.xproj", "{FB643392-A219-4715-89A9-19D900F7C0B7}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Birbiz.Common.DependencyInjection", "Birbiz.Common.DependencyInjection\Birbiz.Common.DependencyInjection.xproj", "{B0E9B741-C3B4-438E-950D-6A3A35834A79}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Birbiz.Common.DependencyInjection", "src\Birbiz.Common.DependencyInjection\Birbiz.Common.DependencyInjection.xproj", "{B0E9B741-C3B4-438E-950D-6A3A35834A79}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Birbiz.DataAccess.SqlDataAccessTest", "Birbiz.DataAccess.SqlDataAccessTest\Birbiz.DataAccess.SqlDataAccessTest.xproj", "{0BB956C5-0F61-4CE2-B46A-1FF1587DD003}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Birbiz.DataAccess.SqlDataAccessTest", "src\Birbiz.DataAccess.SqlDataAccessTest\Birbiz.DataAccess.SqlDataAccessTest.xproj", "{0BB956C5-0F61-4CE2-B46A-1FF1587DD003}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
