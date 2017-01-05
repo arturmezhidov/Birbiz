@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Birbiz.Common.Entities;
 
 namespace Birbiz.BusinessLogic.BusinessContracts
 {
-    public interface IEntityService
+    public interface IEntityService<TEntity> : IDataAccessService where TEntity : BaseEntity
     {
+        TEntity Create(TEntity entity);
     }
 }
