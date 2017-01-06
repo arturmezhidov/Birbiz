@@ -1,1 +1,178 @@
-﻿ 
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="94a5238a-6c99-4d19-9f61-b8fe6bd08d98" name="Birbiz.BusinessLogic.BusinessContracts" linkedPackageId="d8704612-1598-4461-863b-a7337ba45bef" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="c25f2b1b-be7d-42fc-bcab-230055448f4a">
+      <profileInstance Id="bf4d4007-d3d5-4e59-9671-6c7da142054f" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="5e31add1-736f-41a6-bc0b-464f365709e9">
+      <profileInstance Id="6daafe4c-593b-4b59-92a4-112fe728d834" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="3b56f150-730e-4f0b-a30b-bf93d0c8d97c" name="IDataAccessService" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="646b64aa-52c2-4117-a38a-ab3ab72ee0ca" />
+        <ownedAttributes>
+          <property Id="ba61eeae-b418-43d3-b038-a3228c74a067" name="DataContext" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="17a8f2ec-7801-4afb-9282-191092983ecf" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="78510396-1a0a-48a0-a6ff-92869410ee0f" LastKnownName="IUnitOfWork" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributes>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="78510396-1a0a-48a0-a6ff-92869410ee0f" name="IUnitOfWork" isAbstract="false" isLeaf="false" cachedFullName="IUnitOfWork">
+        <elementDefinition Id="abf725f3-e440-46c3-8551-700e5699f0c3" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="1791456a-a0d9-4fb6-b2ad-4f5d842dcaa8" name="IUserService.cs" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4eda431a-0a8f-435c-8fc8-2e15b96a520a" />
+        <ownedOperations>
+          <operation Id="18f1c84f-39ab-48d1-a59e-63d7bc009a55" name="GetCurrentUserName" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="72c20e4a-bd0f-4d33-92ec-20d011e98f12" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f9e2b717-573d-4a7b-96f3-09857245e97b" direction="Return" isUnique="false">
+                  <elementDefinition Id="e623bd2e-4bcb-4f02-a7fa-38c887b5d1c4" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b4cdfb04-7199-44e1-aa09-fdb3e81c4217" LastKnownName="string" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="b4cdfb04-7199-44e1-aa09-fdb3e81c4217" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
+        <elementDefinition Id="6f5098d1-3a09-4350-aae4-14d829414579" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="97d2a4c1-6ce0-44bd-8865-5d77b9625dba" name="IEntityService&lt;TEntity&gt;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ff01c0c9-7a38-4bfb-9d6a-ecf8cd8a01f6" />
+        <ownedOperations>
+          <operation Id="cac995d3-ceed-4aba-beec-c0b244b8d034" name="TEntity Create" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4c89e3e6-ee97-4564-97c8-a7cf01d438e4" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="cf8826c2-3da2-4875-b6c6-d87300a828c6" name="TEntity entity" direction="In" isUnique="false">
+                  <elementDefinition Id="2c51e908-bc1d-4e79-9e2e-04273002b75f" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="b097de88-0a33-49de-b4ae-79838629eb97" name="TEntity Update" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cac5f863-e1f5-4cf0-87d2-fbddbba97768" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f09706c1-9cfc-416a-8610-003eb1fbba43" name="TEntity entity" direction="In" isUnique="false">
+                  <elementDefinition Id="730ddcd5-04f5-47b2-8906-4e500ea28e12" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="21ab191d-20bb-47d6-90cd-311129a6b270" name="TEntity Delete" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4caf0e9e-5834-4287-81a9-d1ded47fdf6c" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="588ea143-c56a-406e-afa2-7a085fd97ae8" name="TEntity entity" direction="In" isUnique="false">
+                  <elementDefinition Id="523d4a13-6ec6-4052-a323-c71d960dcb7a" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="e9db2702-6c97-4f7e-a05c-ebfff39439e6" name="TEntity Delete" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="91650dd9-38d0-40d4-bec3-6b6a04a7cfec" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7b853ac5-14a9-4c5d-8d0b-53875230f49d" name="object entityId" direction="In" isUnique="false">
+                  <elementDefinition Id="60637e74-51e5-4610-962b-ee36e26aa522" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="1b4aa5eb-7219-4e32-9b0b-1c9c702727e5" name="TEntity Recovery" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a4ece1a4-24ef-480e-8c4a-cb99ad38a870" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b55a831e-9dee-4a9c-9b67-a8c91b7f7089" name="object entityId" direction="In" isUnique="false">
+                  <elementDefinition Id="0a2c3afb-332a-45fd-bc5c-2e61a11e33a6" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="38ee6a78-ece5-4fb7-8289-119a91578b16" name="TEntity GetById" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="32347759-05f7-4e4b-a83d-fc83ebd99df6" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="6a963f42-db8b-463d-bd43-51a15ecc4a49" name="object entityId" direction="In" isUnique="false">
+                  <elementDefinition Id="422660a4-113b-4779-aea0-04d7b227805d" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="9fc76729-8f2a-49e4-8f20-52639a104991" name="TEntity GetDeletedById" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="5021a151-62f9-4354-acce-abba44bd731c" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e245452e-ac18-4551-a630-49649ac0700c" name="object entityId" direction="In" isUnique="false">
+                  <elementDefinition Id="7c8d02d2-e2f1-44d4-8217-60ef38473b46" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="8f38543d-b594-4cd0-85f9-ed69e282a5b9" name="IQueryable&lt;TEntity&gt; GetAll" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="8e0f1bab-1205-40bd-b5dc-f9aeac6b7579" />
+          </operation>
+          <operation Id="601018d4-670c-4cf8-8f18-9cab83e6f57c" name="IQueryable&lt;TEntity&gt; GetDeletedAll" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="9f314d99-5e30-4905-9e49-9f414fd78c82" />
+          </operation>
+          <operation Id="0c222397-1f5d-418d-bad1-73d1dd8a6bd7" name="IQueryable&lt;TEntity&gt; Find" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="6f99a650-48df-4a94-bf7d-076c1f72378c" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="8c5d81a5-35a8-4118-a226-5bee05af6dfb" name="Expression&lt;Func&lt;TEntity" direction="In" isUnique="false">
+                  <elementDefinition Id="df1f565d-4038-41b9-87aa-8b8d2888f498" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c991f56e-e828-4dad-898d-5eaefdc29080" name="bool&gt;&gt; predicate" direction="In" isUnique="false">
+                  <elementDefinition Id="ef37348a-7c33-4809-9d4f-c1bd03da99ae" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="eb9ec282-b3d9-44f1-83ba-4ce9f33def99" name="IEntityServiceFactory" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1cc47969-154b-4b60-ac31-f7d62fc688fb" />
+        <ownedOperations>
+          <operation Id="dedc045f-f0a0-43f3-be64-b22ee2400c2d" name="IEntityService&lt;TEntity&gt; Create&lt;TEntity&gt;" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="01db3600-449c-4136-9ef8-f99b02992fd8" />
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="73df8e6a-a6ba-4adf-9778-970bafcf14e6" name="IAddressService" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="06223a76-acbd-41fe-922e-fcd4a2eec180" />
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="d8704612-1598-4461-863b-a7337ba45bef" name="Birbiz.Diagram">
+    <elementDefinition Id="6a6637bc-e40e-488d-a8f3-0e198da00897" />
+  </package>
+</logicalClassDesignerModel>

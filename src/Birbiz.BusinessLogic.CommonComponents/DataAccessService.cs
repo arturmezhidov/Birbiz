@@ -6,17 +6,17 @@ namespace Birbiz.BusinessLogic.CommonComponents
 {
     public class DataAccessService : IDataAccessService
     {
-        private readonly IUnitOfWork dataContext;
-        private bool disposed;
+        private readonly IUnitOfWork _dataContext;
+        private bool _disposed;
 
         public IUnitOfWork DataContext
         {
-            get { return dataContext; }
+            get { return _dataContext; }
         }
 
         public DataAccessService(IUnitOfWork dataContext)
         {
-            this.dataContext = dataContext;
+            _dataContext = dataContext;
         }
 
         public void Dispose()
@@ -27,13 +27,13 @@ namespace Birbiz.BusinessLogic.CommonComponents
 
         protected virtual void Dispose(bool disposing)
         {
-            if (!disposed)
+            if (!_disposed)
             {
                 if (disposing)
                 {
-                    dataContext.Dispose();
+                    _dataContext.Dispose();
                 }
-                disposed = true;
+                _disposed = true;
             }
         }
     }

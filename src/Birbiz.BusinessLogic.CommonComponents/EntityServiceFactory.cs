@@ -17,7 +17,8 @@ namespace Birbiz.BusinessLogic.CommonComponents
 
         public IEntityService<TEntity> Create<TEntity>() where TEntity : BaseEntity
         {
-            IEntityService<TEntity> service = new EntityService<TEntity>(_dataContext, _userService);
+            IRepository<TEntity> repository = _dataContext.GetRepository<TEntity>();
+            IEntityService<TEntity> service = new EntityService<TEntity>(repository, _userService);
             return service;
         }
     }

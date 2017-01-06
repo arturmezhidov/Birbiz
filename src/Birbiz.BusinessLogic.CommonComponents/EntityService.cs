@@ -7,14 +7,14 @@ using Birbiz.DataAccess.DataContracts;
 
 namespace Birbiz.BusinessLogic.CommonComponents
 {
-    public class EntityService<TEntity> : DataAccessService, IEntityService<TEntity> where TEntity : BaseEntity
+    public class EntityService<TEntity> : IEntityService<TEntity> where TEntity : BaseEntity
     {
         protected IRepository<TEntity> Repository { get; private set; }
         protected IUserService UserService { get; private set; }
 
-        public EntityService(IUnitOfWork dataContext, IUserService userService) : base(dataContext)
+        public EntityService(IRepository<TEntity> repository, IUserService userService)
         {
-            Repository = dataContext.GetRepository<TEntity>();
+            Repository = repository;
             UserService = userService;
         }
 

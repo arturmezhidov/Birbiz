@@ -2963,6 +2963,280 @@
         Id="196aa4f1-d95f-4a26-bf40-50540bf52f5e"
         name="Flat" />
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="646b64aa-52c2-4117-a38a-ab3ab72ee0ca"
+        name="IDataAccessService"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedAttributes>
+          <property
+            Id="17a8f2ec-7801-4afb-9282-191092983ecf"
+            name="DataContext"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="abf725f3-e440-46c3-8551-700e5699f0c3"
+                LastKnownName="IUnitOfWork"
+                LastKnownLocation="Birbiz.Diagram.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributes>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="abf725f3-e440-46c3-8551-700e5699f0c3"
+        name="IUnitOfWork" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="4eda431a-0a8f-435c-8fc8-2e15b96a520a"
+        name="IUserService.cs"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedOperations>
+          <operation
+            Id="72c20e4a-bd0f-4d33-92ec-20d011e98f12"
+            name="GetCurrentUserName"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e623bd2e-4bcb-4f02-a7fa-38c887b5d1c4"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="6f5098d1-3a09-4350-aae4-14d829414579"
+                      LastKnownName="string"
+                      LastKnownLocation="Birbiz.Diagram.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="6f5098d1-3a09-4350-aae4-14d829414579"
+        name="string" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="ff01c0c9-7a38-4bfb-9d6a-ecf8cd8a01f6"
+        name="IEntityService&lt;TEntity&gt;"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedOperations>
+          <operation
+            Id="4c89e3e6-ee97-4564-97c8-a7cf01d438e4"
+            name="TEntity Create"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2c51e908-bc1d-4e79-9e2e-04273002b75f"
+                  name="TEntity entity"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="cac5f863-e1f5-4cf0-87d2-fbddbba97768"
+            name="TEntity Update"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="730ddcd5-04f5-47b2-8906-4e500ea28e12"
+                  name="TEntity entity"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="4caf0e9e-5834-4287-81a9-d1ded47fdf6c"
+            name="TEntity Delete"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="523d4a13-6ec6-4052-a323-c71d960dcb7a"
+                  name="TEntity entity"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="91650dd9-38d0-40d4-bec3-6b6a04a7cfec"
+            name="TEntity Delete"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="60637e74-51e5-4610-962b-ee36e26aa522"
+                  name="object entityId"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="a4ece1a4-24ef-480e-8c4a-cb99ad38a870"
+            name="TEntity Recovery"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0a2c3afb-332a-45fd-bc5c-2e61a11e33a6"
+                  name="object entityId"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="32347759-05f7-4e4b-a83d-fc83ebd99df6"
+            name="TEntity GetById"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="422660a4-113b-4779-aea0-04d7b227805d"
+                  name="object entityId"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="5021a151-62f9-4354-acce-abba44bd731c"
+            name="TEntity GetDeletedById"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7c8d02d2-e2f1-44d4-8217-60ef38473b46"
+                  name="object entityId"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="8e0f1bab-1205-40bd-b5dc-f9aeac6b7579"
+            name="IQueryable&lt;TEntity&gt; GetAll"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="9f314d99-5e30-4905-9e49-9f414fd78c82"
+            name="IQueryable&lt;TEntity&gt; GetDeletedAll"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="6f99a650-48df-4a94-bf7d-076c1f72378c"
+            name="IQueryable&lt;TEntity&gt; Find"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="df1f565d-4038-41b9-87aa-8b8d2888f498"
+                  name="Expression&lt;Func&lt;TEntity"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ef37348a-7c33-4809-9d4f-c1bd03da99ae"
+                  name="bool&gt;&gt; predicate"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="1cc47969-154b-4b60-ac31-f7d62fc688fb"
+        name="IEntityServiceFactory"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedOperations>
+          <operation
+            Id="01db3600-449c-4136-9ef8-f99b02992fd8"
+            name="IEntityService&lt;TEntity&gt; Create&lt;TEntity&gt;"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="06223a76-acbd-41fe-922e-fcd4a2eec180"
+        name="IAddressService"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"
