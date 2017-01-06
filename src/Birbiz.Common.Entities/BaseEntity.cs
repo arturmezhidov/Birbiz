@@ -8,9 +8,9 @@ namespace Birbiz.Common.Entities
 
         public virtual bool IsDeleted { get; set; }
 
-        public virtual int CreatedBy { get; set; }
+        public virtual string CreatedBy { get; set; }
 
-        public virtual int UpdatedBy { get; set; }
+        public virtual string UpdatedBy { get; set; }
 
         public virtual DateTime CreatedDate { get; set; }
 

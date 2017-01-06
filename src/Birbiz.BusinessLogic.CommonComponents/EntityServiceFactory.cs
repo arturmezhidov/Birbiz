@@ -6,16 +6,18 @@ namespace Birbiz.BusinessLogic.CommonComponents
 {
     public class EntityServiceFactory : IEntityServiceFactory
     {
-        private readonly IUnitOfWork dataContext;
+        private readonly IUnitOfWork _dataContext;
+        private readonly IUserService _userService;
 
-        public EntityServiceFactory(IUnitOfWork dataContext)
+        public EntityServiceFactory(IUnitOfWork dataContext, IUserService userService)
         {
-            this.dataContext = dataContext;
+            _dataContext = dataContext;
+            _userService = userService;
         }
 
         public IEntityService<TEntity> Create<TEntity>() where TEntity : BaseEntity
         {
-            IEntityService<TEntity> service = new EntityService<TEntity>(dataContext);
+            IEntityService<TEntity> service = new EntityService<TEntity>(_dataContext, _userService);
             return service;
         }
     }

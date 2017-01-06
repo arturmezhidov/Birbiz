@@ -10,10 +10,12 @@ namespace Birbiz.BusinessLogic.CommonComponents
     public class EntityService<TEntity> : DataAccessService, IEntityService<TEntity> where TEntity : BaseEntity
     {
         protected IRepository<TEntity> Repository { get; private set; }
+        protected IUserService UserService { get; private set; }
 
-        public EntityService(IUnitOfWork dataContext) : base(dataContext)
+        public EntityService(IUnitOfWork dataContext, IUserService userService) : base(dataContext)
         {
             Repository = dataContext.GetRepository<TEntity>();
+            UserService = userService;
         }
 
         public virtual TEntity Create(TEntity entity)
@@ -23,6 +25,8 @@ namespace Birbiz.BusinessLogic.CommonComponents
                 throw new ArgumentNullException(nameof(entity));
             }
 
+            entity.CreatedBy = UserService.GetCurrentUserName();
+            entity.UpdatedBy = UserService.GetCurrentUserName();
             entity.IsDeleted = false;
             entity.CreatedDate = DateTime.Now;
             entity.LastUpdatedDate = DateTime.Now;
@@ -39,6 +43,7 @@ namespace Birbiz.BusinessLogic.CommonComponents
                 throw new ArgumentNullException(nameof(entity));
             }
 
+            entity.UpdatedBy = UserService.GetCurrentUserName();
             entity.LastUpdatedDate = DateTime.Now;
 
             entity = Repository.Update(entity);
