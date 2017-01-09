@@ -39,11 +39,11 @@ namespace Birbiz.DataAccess.SqlDataAccessTest
             var country = repo.Create(new Country()
             {
                 IsDeleted = false,
-                CreatedBy = 1,
+                CreatedBy = "dsds",
                 CreatedDate = DateTime.Now,
                 LastUpdatedDate = DateTime.Now,
                 Name = "dsdasdas",
-                UpdatedBy = 1
+                UpdatedBy = "dsds"
             });
 
             UnitOfWork.Save();
@@ -60,11 +60,11 @@ namespace Birbiz.DataAccess.SqlDataAccessTest
             var region = repo.Create(new Region
             {
                 IsDeleted = false,
-                CreatedBy = 1,
+                CreatedBy = "dsds",
                 CreatedDate = DateTime.Now,
                 LastUpdatedDate = DateTime.Now,
                 Name = "Region",
-                UpdatedBy = 1,
+                UpdatedBy = "dsds",
                 Country = country,
                 CountryId = country.Id
             });
