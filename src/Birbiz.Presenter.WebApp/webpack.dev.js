@@ -14,9 +14,9 @@ module.exports = {
         hints: false
     },
     entry: {
-        polyfills: './ClientApplication/src/polyfills.ts',
-        vendor: './ClientApplication/src/vendor.ts',
-        main: './ClientApplication/src/main.ts'
+        polyfills: './src/polyfills.ts',
+        vendor: './src/vendor.ts',
+        main: './src/main.ts'
     },
 
     output: {
@@ -85,11 +85,11 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             inject: 'body',
-            template: './ClientApplication/src/index.html'
+            template: './src/index.html'
         }),
 
         new CopyWebpackPlugin([
-            { from: './ClientApplication/src/assets/*.*', to: "assets/", flatten: true }
+            { from: './src/assets/*.*', to: "assets/", flatten: true }
         ])
     ]
 

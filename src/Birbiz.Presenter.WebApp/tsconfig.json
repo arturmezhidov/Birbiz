@@ -18,8 +18,8 @@
     ]
   },
   "files": [
-    "ClientApplication/src/app/app.module.ts",
-    "ClientApplication/src/main.ts"
+    "src/app/app.module.ts",
+    "src/main.ts"
   ],
   "awesomeTypescriptLoaderOptions": {
     "useWebpackText": true
