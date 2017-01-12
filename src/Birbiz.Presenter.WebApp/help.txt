@@ -1,0 +1,2 @@
+﻿/// Help
+Project init structure url: https://damienbod.com/2016/06/12/asp-net-core-angular2-with-webpack-and-visual-studio/
