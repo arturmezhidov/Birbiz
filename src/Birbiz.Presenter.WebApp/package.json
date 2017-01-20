@@ -34,7 +34,8 @@
     "@angular/compiler-cli": "2.4.1",
     "@angular/platform-server": "~2.4.1",
     "bootstrap": "^3.3.7",
-    "ie-shim": "^0.1.0"
+    "ie-shim": "^0.1.0",
+    "metro-ui":  "3.0.15" 
   },
   "devDependencies": {
     "@types/node": "^6.0.52",
