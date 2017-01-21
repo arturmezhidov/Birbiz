@@ -8,5 +8,9 @@ namespace Birbiz.BusinessLogic.CommonComponents
         {
             
         }
+
+        public void Dispose()
+        {
+        }
     }
 }
