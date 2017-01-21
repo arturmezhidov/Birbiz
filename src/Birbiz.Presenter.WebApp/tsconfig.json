@@ -17,9 +17,9 @@
       "node"
     ]
   },
-  "files": [
-    "src/app/app.module.ts",
-    "src/main.ts"
+  "exclude": [
+    "typings/index.d.ts",
+    "node_modules"
   ],
   "awesomeTypescriptLoaderOptions": {
     "useWebpackText": true
