@@ -15,6 +15,20 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
+    "IIS Express (Staging)": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Staging"
+      }
+    },
+    "IIS Express (Production)": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      }
+    },
     "Birbiz.Presenter.WebUI": {
       "commandName": "Project",
       "launchBrowser": true,
