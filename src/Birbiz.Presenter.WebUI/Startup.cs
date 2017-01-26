@@ -51,6 +51,8 @@ namespace Birbiz.Presenter.WebUI
                 app.UseBrowserLink();
             }
 
+            app.UseStaticFiles();
+
             app.UseMvcWithDefaultRoute();
         }
     }

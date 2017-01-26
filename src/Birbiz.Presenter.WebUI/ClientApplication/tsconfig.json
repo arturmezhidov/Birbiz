@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "removeComments": false,
+    "noImplicitAny": true, // When the noImplicitAny flag is false (the default), and if the compiler cannot infer the variable type based on how it's used, the compiler silently defaults the type to any.
+    "suppressImplicitAnyIndexErrors": true,
+    "noEmitOnError": true, // Do not emit outputs if any errors were reported.
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "outDir": "./../wwwroot/dist",
+    "rootDir": "./src",
+    "sourceRoot": "",
+    "skipLibCheck": true,
+    "lib": [
+      "es2015",
+      "dom"
+    ],
+    "types": [
+      "node"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "typings/index.d.ts",
+    "wwwroot",
+    "**/*-aot.ts"
+  ],
+  "compileOnSave": true,
+  "buildOnSave": true
+}
