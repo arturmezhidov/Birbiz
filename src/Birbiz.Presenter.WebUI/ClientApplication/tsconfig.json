@@ -12,7 +12,6 @@
     "experimentalDecorators": true,
     "outDir": "./../wwwroot/dist",
     "rootDir": "./src",
-    "sourceRoot": "",
     "skipLibCheck": true,
     "lib": [
       "es2015",
