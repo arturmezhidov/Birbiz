@@ -10,8 +10,8 @@
     "noEmitOnError": true, // Do not emit outputs if any errors were reported.
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "outDir": "./../wwwroot/dist",
-    "rootDir": "./src",
+    "outDir": "./wwwroot/app",
+    "rootDir": "./ClientApplication/src",
     "skipLibCheck": true,
     "lib": [
       "es2015",
@@ -27,6 +27,6 @@
     "wwwroot",
     "**/*-aot.ts"
   ],
-  "compileOnSave": true,
-  "buildOnSave": true
+  "compileOnSave": false,
+  "buildOnSave": false
 }

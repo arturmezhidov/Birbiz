@@ -50,14 +50,7 @@ namespace Birbiz.Presenter.WebUI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
-
-                app.UseStaticFiles(new StaticFileOptions()
-                {
-                    FileProvider = new PhysicalFileProvider(
-                    Path.Combine(Directory.GetCurrentDirectory(), @"ClientApplication")),
-                    RequestPath = new PathString("/ClientApplication")
-                });
+                // app.UseBrowserLink();
             }
 
             app.UseStaticFiles();
