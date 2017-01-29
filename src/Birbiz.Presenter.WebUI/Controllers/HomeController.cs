@@ -13,5 +13,10 @@ namespace Birbiz.Presenter.WebUI.Controllers
         {
             return View();
         }
+
+        public IActionResult Test()
+        {
+            return View();
+        }
     }
 }
