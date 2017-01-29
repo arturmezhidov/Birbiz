@@ -45,6 +45,7 @@
     "angular2-template-loader": "^0.5.0",
     "angular2-load-children-loader": "^0.1.0",
     "awesome-typescript-loader": "^2.2.4",
+    "es6-promise-loader": "^1.0.1",
 
     "concurrently": "^3.1.0",
 

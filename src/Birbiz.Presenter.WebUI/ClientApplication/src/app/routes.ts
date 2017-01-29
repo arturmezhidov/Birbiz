@@ -1,9 +1,9 @@
 ﻿import { Routes } from '@angular/router';
 
-import { HomeContainer, AboutUsContainer } from './shared/containers/index';
+import { HomeContainer } from './shared/containers/index';
 
 export const AppRoutes: Routes = [
     { path: '', component: HomeContainer },
-    { path: 'about', component: AboutUsContainer },
+    { path: "dashboard", loadChildren: "es6-promise!./modules/dashboard/dashboard.module#DashboardModule" },
     { path: '**', component: HomeContainer }
 ];

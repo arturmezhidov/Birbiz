@@ -14,7 +14,8 @@ module.exports = {
           {
               test: /\.ts$/,
               //exclude: /\/node_modules\//,
-              loader: "awesome-typescript-loader!angular2-template-loader!angular2-load-children-loader"
+              loader: "awesome-typescript-loader!angular2-template-loader!angular2-load-children-loader",
+            //  include: /ClientApplication/
           },
             {
                 test: /\.html$/,
@@ -28,11 +29,12 @@ module.exports = {
     context: __dirname + "/ClientApplication",
     entry: {
         polyfills: './src/polyfills',
-        vendor: './src/vendor',
+       // vendor: './src/vendor',
         main: './src/main'
     },
     output: {
         path: path.resolve(__dirname, "wwwroot/app"),
+        publicPath: "/app/",
         filename: "[name].js",
         chunkFilename: "[name].chunk.js"
     },
