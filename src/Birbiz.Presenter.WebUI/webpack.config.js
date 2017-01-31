@@ -1,6 +1,8 @@
 ﻿var webpack = require("webpack");
 var path = require("path");
 var ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 console.log('@@@@@@@@@@@@@@@ START WEBPACK BUILD @@@@@@@@@@@@@@@');
 
@@ -40,7 +42,25 @@ module.exports = {
     },
 
     plugins: [
-      new ForkCheckerPlugin()
+
+        new CleanWebpackPlugin([
+            './wwwroot/app',
+            './wwwroot/assets'
+        ]),
+
+        new ForkCheckerPlugin(),
+
+        new CopyWebpackPlugin([
+            { from: './src/assets/', to: "../assets/" }
+        ], {
+            ignore: [  
+                '*.scss'
+            ],
+            // By default, we only copy modified files during
+            // a watch or webpack-dev-server build. Setting this
+            // to `true` copies all files.
+            copyUnmodified: false
+        })
     ]
 
     //#region Watching

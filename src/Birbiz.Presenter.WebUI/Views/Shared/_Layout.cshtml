@@ -4,10 +4,10 @@
     <meta name="viewport" content="width=device-width" />
     <title>Birbiz - @ViewBag.Title</title>
     <base href="/"/>
+    @Html.Partial("_JQuery")
+    @Html.Partial("_MetroUI")
 </head>
 <body>
-<a href="/Home/Test">/Home/Test</a> <br/>
-<a href="/about">/about</a>
 <div>
     @RenderBody()
 </div>
