@@ -3,13 +3,14 @@ var path = require("path");
 var ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 console.log('@@@@@@@@@@@@@@@ START WEBPACK BUILD @@@@@@@@@@@@@@@');
 
 module.exports = {
 
     resolve: {
-        extensions: ["", ".js", ".ts", ".html"]
+        extensions: ["", ".js", ".ts", ".html", ".css", ".scss"]
     },
     module: {
         loaders: [
@@ -22,6 +23,16 @@ module.exports = {
             {
                 test: /\.html$/,
                 loader: 'raw-loader'
+            },
+            {
+                test: /\.css$/,
+                include: /ClientApplication/,
+                loader: 'style-loader!css-loader'
+            },
+            {
+                test: /\.scss$/,
+                include: /ClientApplication/,
+                loader: ExtractTextPlugin.extract('css!sass')
             }
         ],
         //noParse: [
@@ -32,7 +43,8 @@ module.exports = {
     entry: {
         polyfills: './src/polyfills',
        // vendor: './src/vendor',
-        main: './src/main'
+        main: './src/main',
+        styles: './src/assets/sass/main'
     },
     output: {
         path: path.resolve(__dirname, "wwwroot/app"),
@@ -49,6 +61,10 @@ module.exports = {
         ]),
 
         new ForkCheckerPlugin(),
+
+        new ExtractTextPlugin('../assets/css/[name].css', {
+            allChunks: true
+        }),
 
         new CopyWebpackPlugin([
             { from: './src/assets/', to: "../assets/" }
