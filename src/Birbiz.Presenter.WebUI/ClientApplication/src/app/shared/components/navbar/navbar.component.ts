@@ -3,6 +3,6 @@ import { NavbarItemComponent } from './navbar-item.component';
 
 @Component({
     selector: 'navbar',
-    templateUrl: './navbar.template.html'
+    templateUrl: './navbar.component.html'
 })
 export class NavbarComponent { }

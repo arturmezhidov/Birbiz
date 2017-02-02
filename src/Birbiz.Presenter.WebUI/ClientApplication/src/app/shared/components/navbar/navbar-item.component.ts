@@ -2,7 +2,7 @@
 
 @Component({
     selector: 'navbar-item',
-    templateUrl: './navbar-item.template.html'
+    templateUrl: './navbar-item.component.html'
 })
 export class NavbarItemComponent {
     @Input() link: Array<string>;

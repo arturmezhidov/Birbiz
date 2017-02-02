@@ -2,8 +2,8 @@
 
 @Component({
     selector: 'home-container',
-    template: `<div class="home-container">
-      <h1>home page</h1>
+    template: `<div>
+      <h1>HomeContainer</h1>
     </div>
   `
 })

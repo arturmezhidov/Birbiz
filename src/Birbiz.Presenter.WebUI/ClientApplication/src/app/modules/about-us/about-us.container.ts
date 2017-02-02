@@ -2,8 +2,8 @@
 
 @Component({
     selector: 'about-us-container',
-    template: `<div class="about-us-container">
-      <h1>about page</h1>
+    template: `<div>
+      <h1>AboutUsContainer</h1>
     </div>
   `
 })
