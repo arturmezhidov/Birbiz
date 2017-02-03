@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Birbiz</title>
+    <base href="/" />
+    @Html.Partial("_JQuery")
+    @Html.Partial("_MetroUI")
+    @Html.Partial("_Styles")
+</head>
+<body>
+    <app>
+        @RenderBody()
+    </app>
+    @Html.Partial("_AngularApplication")
+</body>
+</html>
