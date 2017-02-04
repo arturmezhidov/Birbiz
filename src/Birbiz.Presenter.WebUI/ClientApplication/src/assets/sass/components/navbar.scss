@@ -1,0 +1,51 @@
+﻿.app-bar {
+    .tile,
+    .tile-small,
+    .tile-square,
+    .tile-wide,
+    .tile-large,
+    .tile-wide {
+        margin: 0;
+        outline: none;
+        .tile-underline {
+            display: none;
+            width: 100%;
+            height: 3px;
+            position: absolute;
+            bottom: -5px;
+        }
+        &:hover {
+            outline: none;
+            .tile-underline {
+                display: block;
+            }
+        }
+        &.active {
+            .tile-underline {
+                display: block;
+            }
+        }
+    }
+    .tile-small {
+        width: 100px;
+        height: 100px;
+        &.tile-logo {
+            width: 140px;
+            .image-container {
+                padding: 30px 5px;
+            }
+        }
+        .icon {
+            width: 35px;
+            height: 35px;
+            font-size: 35px;
+            top: 42%;
+        }
+        .tile-label {
+            text-align: center;
+            display: block;
+            position: static;
+            margin-top: 60px;
+        }
+    }
+}

@@ -1,1 +1,7 @@
-﻿<a [routerLink]="link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">{{text}}</a>
+﻿<div class="tile-small bg-{{background}}  fg-{{color}}" data-role="tile" [routerLink]="link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <div class="tile-content iconic">
+        <span class="icon mif-{{icon}}"></span>
+        <span class="tile-label">{{text}}</span>
+    </div>
+    <div class="tile-underline bg-{{background}}"></div>
+</div>
