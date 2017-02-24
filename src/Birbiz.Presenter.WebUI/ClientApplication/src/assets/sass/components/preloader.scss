@@ -1,0 +1,25 @@
+﻿.preloader-container {
+    display: table;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 50px;
+
+    .preloader-inner {
+        display: table-cell;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        vertical-align: middle;
+
+        h1 {
+            margin-top: 50px;
+        }
+        h6 {
+            margin-bottom: 100px;
+        }
+
+        .preloader-cycle {
+            margin: auto;
+        }
+    }
+}
