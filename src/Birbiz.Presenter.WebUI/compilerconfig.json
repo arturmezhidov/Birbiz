@@ -1,0 +1,6 @@
+﻿[
+  {
+    "outputFile": "wwwroot/assets/css/styles.css",
+    "inputFile": "ClientApplication/src/assets/sass/main.scss"
+  }
+]
