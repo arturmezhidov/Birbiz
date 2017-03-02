@@ -1,6 +1,13 @@
 ﻿[
   {
     "outputFile": "wwwroot/assets/css/styles.css",
-    "inputFile": "ClientApplication/src/assets/sass/main.scss"
+    "inputFile": "ClientApplication/src/sass/main.scss",
+    "minify": {
+      "enabled": true
+    },
+    "includeInProject": true,
+    "options": {
+      "sourceMap": true
+    }
   }
 ]

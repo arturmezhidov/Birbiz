@@ -11,11 +11,13 @@ var distRoot = 'wwwroot/app';
 console.log('@@@@@@@@@@@@@@@ START WEBPACK BUILD - DEVELOPMENT @@@@@@@@@@@@@@@');
 
 module.exports = {
+    cache: true,
+    devtool: 'source-map',
     performance: {
         hints: false
     },
     resolve: {
-        extensions: ["", ".js", ".ts", ".json", ".html" /* , ".css", ".scss" */]
+        extensions: ["", ".js", ".ts", ".json", ".html" /* , ".css", ".scss" */ ]
     },
     devServer: {
         historyApiFallback: true,
@@ -32,9 +34,9 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, distRoot),
         publicPath: "/app/",
-        filename: "[name].min.js",
+        filename: "[name].js",
         sourceMapFilename: '[name].map',
-        chunkFilename: "[name].chunk.min.js"
+        chunkFilename: "[name].js"
     },
 
     module: {
@@ -75,25 +77,23 @@ module.exports = {
 
     plugins: [
 
+        new webpack.NoErrorsPlugin(),
+
+        new webpack.optimize.CommonsChunkPlugin({ name: ['polyfills', 'vendor', 'main'].reverse(), minChunks: Infinity }),
+
         new CleanWebpackPlugin([
             path.resolve(__dirname, distRoot)
         ]),
 
-        new webpack.NoErrorsPlugin(),
+        new ForkCheckerPlugin(),
 
-        // *when using new UglifyJsPlugin and --opimize-minimize (or -p) you are adding the UglifyJsPlugin twice. 
-        //new webpack.optimize.UglifyJsPlugin({
-        //    compress: {
-        //        warnings: false
-        //    },
-        //    output: {
-        //        comments: false
-        //    },
-        //    //sourceMap: false
-        //}),
-
-        new webpack.optimize.CommonsChunkPlugin({ name: ['polyfills', 'vendor'].reverse(), minChunks: Infinity }),
-
-        new ForkCheckerPlugin()
+        //new ExtractTextPlugin('../assets/css/[name].css', {
+        //    allChunks: true
+        //})
     ]
+
+    //watch: true,
+    //watchOptions: {
+    //    aggregateTimeout: 300 // 300 default
+    //}
 };

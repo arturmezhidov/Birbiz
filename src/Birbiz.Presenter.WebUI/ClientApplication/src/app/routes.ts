@@ -12,12 +12,16 @@ export const AppRoutes: Routes = [
         loadChildren: "es6-promise!./modules/catalog/catalog.module#CatalogModule"
     },
     {
-        path: "fleamarket",
-        loadChildren: "es6-promise!./modules/fleamarket/fleamarket.module#FleamarketModule"
-    },
-    {
         path: "auction",
         loadChildren: "es6-promise!./modules/auction/auction.module#AuctionModule"
+    },
+    {
+        path: "automobile",
+        loadChildren: "es6-promise!./modules/automobile/automobile.module#AutomobileModule"
+    },
+    {
+        path: "real-estate",
+        loadChildren: "es6-promise!./modules/real-estate/real-estate.module#RealEstateModule"
     },
     {
         path: "forum",
@@ -30,10 +34,6 @@ export const AppRoutes: Routes = [
     {
         path: "news",
         loadChildren: "es6-promise!./modules/news/news.module#NewsModule"
-    },
-    {
-        path: 'aboutus',
-        loadChildren: "es6-promise!./modules/about-us/about-us.module#AboutUsModule"
     },
     {
         path: "dashboard",

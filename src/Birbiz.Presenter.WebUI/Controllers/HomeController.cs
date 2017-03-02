@@ -14,7 +14,7 @@ namespace Birbiz.Presenter.WebUI.Controllers
             return View();
         }
 
-        public IActionResult Test()
+        public IActionResult Error()
         {
             return View();
         }

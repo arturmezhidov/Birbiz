@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Birbiz.Presenter.WebUI.Controllers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 
 namespace Birbiz.Presenter.WebUI
@@ -24,34 +20,46 @@ namespace Birbiz.Presenter.WebUI
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddEnvironmentVariables(prefix: "ASPNETCORE_");
+                .AddEnvironmentVariables();
 
             if (env.IsDevelopment())
             {
-                // For more details on using the user secret store see http://go.microsoft.com/fwlink/?LinkID=532709
-                //builder.AddUserSecrets();
-
                 // This will push telemetry data through Application Insights pipeline faster, allowing you to view results immediately.
-                //builder.AddApplicationInsightsSettings(developerMode: true);
+                builder.AddApplicationInsightsSettings(developerMode: true);
             }
-
             Configuration = builder.Build();
         }
+
         
+
+        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Add framework services.
+            services.AddApplicationInsightsTelemetry(Configuration);
+
             services.AddMvc();
         }
-        
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            // loggerFactory.AddConsole();
+            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            loggerFactory.AddDebug();
+
+            app.UseApplicationInsightsRequestTelemetry();
 
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 // app.UseBrowserLink();
             }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
+
+            app.UseApplicationInsightsExceptionTelemetry();
 
             app.UseStaticFiles();
 

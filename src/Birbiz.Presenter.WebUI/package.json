@@ -5,7 +5,6 @@
   "author": "",
   "license": "ISC",
   "private": true,
-  "main": "wwwroot/index.html",
   "scripts": {
     "ngc": "ngc -p ./tsconfig-aot.json",
     "start": "concurrently \"webpack-dev-server --inline --progress --port 8080\" \"dotnet run\" ",
@@ -18,52 +17,51 @@
     "publish-for-iis": "npm run build-production && dotnet publish -c Release"
   },
   "dependencies": {
-    "@angular/common": "~2.4.1",
-    "@angular/compiler": "~2.4.1",
-
     "@angular/core": "~2.4.1",
+    "@angular/common": "~2.4.1",
     "@angular/forms": "~2.4.1",
     "@angular/http": "~2.4.1",
-    "@angular/platform-browser": "~2.4.1",
-    "@angular/platform-browser-dynamic": "~2.4.1",
-
     "@angular/router": "~3.4.1",
     "@angular/upgrade": "~2.4.1",
-    "angular-in-memory-web-api": "~0.2.3",
-    "core-js": "^2.4.1",
-    "ie-shim": "^0.1.0",
-    "reflect-metadata": "^0.1.8",
-    "rxjs": "5.0.1",
-    "zone.js": "^0.7.4",
+    "@angular/platform-server": "~2.4.1",
+    "@angular/platform-browser": "~2.4.1",
+    "@angular/platform-browser-dynamic": "~2.4.1",
+    "@angular/compiler": "~2.4.1",
     "@angular/compiler-cli": "2.4.1",
-    "@angular/platform-server": "~2.4.1"
+
+    "angular-in-memory-web-api": "~0.2.3",
+
+    "core-js": "^2.4.1",
+    "zone.js": "^0.7.4",
+    "rxjs": "5.0.1",
+    "reflect-metadata": "^0.1.8",
+
+    "ie-shim": "^0.1.0"
   },
   "devDependencies": {
     "@types/node": "^6.0.46",
     "@types/core-js": "^0.9.35",
     "typescript": "~2.0.10",
-    "angular2-template-loader": "^0.5.0",
-    "angular2-load-children-loader": "^0.1.0",
-    "awesome-typescript-loader": "^2.2.4",
-    "es6-promise-loader": "^1.0.1",
-
-    "concurrently": "^3.1.0",
-
-    "css-loader": "^0.23.0",
-    "postcss-loader": "1.2.2",
-    "file-loader": "^0.8.4",
-
-    "jquery": "^2.2.0",
-    "json-loader": "^0.5.3",
-    "node-sass": "^3.10.1",
-    "raw-loader": "^0.5.1",
-    "rimraf": "^2.5.2",
-    "sass-loader": "^4.0.2",
-    "source-map-loader": "^0.1.5",
-    "style-loader": "^0.13.0",
-    "ts-helpers": "^1.1.1",
     "tslint": "^4.2.0",
     "tslint-loader": "^3.3.0",
+    "ts-helpers": "^1.1.1",
+    "awesome-typescript-loader": "^2.2.4",
+    "angular2-template-loader": "^0.5.0",
+    "angular2-load-children-loader": "^0.1.0",
+    "es6-promise-loader": "^1.0.1",
+    "concurrently": "^3.1.0",
+
+    "style-loader": "^0.13.0",
+    "css-loader": "^0.23.0",
+    "postcss-loader": "1.2.2",
+    "sass-loader": "^4.0.2",
+    "node-sass": "^3.10.1",
+
+    "file-loader": "^0.8.4",
+    "json-loader": "^0.5.3",
+    "raw-loader": "^0.5.1",
+    "to-string-loader": "^1.1.4",
+    "source-map-loader": "^0.1.5",
     "url-loader": "^0.5.6",
 
     "webpack": "^1.13.1",
@@ -74,12 +72,12 @@
     "html-webpack-plugin": "^2.8.1",
     "extract-text-webpack-plugin": "1.0.1",
 
+    "rimraf": "^2.5.2",
     "jasmine-core": "^2.4.1",
     "karma": "^1.1.1",
     "karma-chrome-launcher": "^1.0.1",
     "karma-jasmine": "^1.0.2",
-    "karma-mocha-reporter": "^2.0.4",
-    "to-string-loader": "^1.1.4"
+    "karma-mocha-reporter": "^2.0.4"
   },
   "-vs-binding": {
     "ProjectOpened": [
