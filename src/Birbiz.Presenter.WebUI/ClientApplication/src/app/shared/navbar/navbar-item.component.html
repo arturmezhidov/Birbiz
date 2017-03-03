@@ -1,0 +1,16 @@
+﻿<div class="tile-small"
+     data-role="tile"
+     [style.color]="color"
+     [style.background-color]="background"
+     [routerLink]="link"
+     routerLinkActive="active"
+     [routerLinkActiveOptions]="{ exact: isLinkExact }">
+    
+    <div class="tile-content iconic">
+        <span [class]="icon"></span>
+        <span class="tile-label">{{text}}</span>
+    </div>
+
+    <div class="tile-underline" [style.background-color]="background"></div>
+
+</div>
