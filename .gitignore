@@ -24,8 +24,11 @@ bld/
 
 # Visual Studio 2015 cache/options directory
 .vs/
-# Uncomment if you have tasks that create the project's static files in wwwroot
-wwwroot/
+
+# wwwroot
+/src/Birbiz.Presenter.WebUI/wwwroot/app/
+/src/Birbiz.Presenter.WebUI/wwwroot/assets/lib/
+/src/Birbiz.Presenter.WebUI/wwwroot/assets/css/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
