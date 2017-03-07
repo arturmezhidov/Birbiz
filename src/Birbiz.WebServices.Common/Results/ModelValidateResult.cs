@@ -1,22 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Birbiz.WebServices.Common.Results
 {
-    public class FormValidateResult : ErrorResult
+    public class ModelValidateResult : ErrorResult
     {
+        public override int StatusCode { get { return (int)HttpStatusCode.BadRequest; } }
+
         public override bool HasError { get { return Errors.Any(); } }
 
         public Dictionary<string, List<string>> Errors { get; set; }
 
-        public FormValidateResult()
+        public ModelValidateResult()
         {
             Errors = new Dictionary<string, List<string>>();
         }
 
-        public FormValidateResult(ModelStateDictionary state) : this()
+        public ModelValidateResult(ModelStateDictionary state) : this()
         {
             if (state == null)
             {
