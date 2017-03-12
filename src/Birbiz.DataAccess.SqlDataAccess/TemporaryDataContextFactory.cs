@@ -10,7 +10,7 @@ namespace Birbiz.DataAccess.SqlDataAccess
 {
     public class TemporaryDataContextFactory : IDbContextFactory<DataContext>
     {
-        private const string ConnectionStringName = "TestConnection";
+        private const string ConnectionStringName = "ConnectionStringDev";
 
         public DataContext Create(DbContextFactoryOptions options)
         {
