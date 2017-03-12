@@ -1,1 +1,1 @@
-﻿///<binding BeforeBuild='ClientApplication/src/sass/main.scss' />
+﻿///<binding ProjectOpened='ClientApplication/src/sass/main.scss' />
