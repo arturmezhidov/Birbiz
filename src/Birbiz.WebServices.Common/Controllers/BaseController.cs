@@ -13,6 +13,12 @@ namespace Birbiz.WebServices.Common.Controllers
         }
 
         [NonAction]
+        public virtual JsonResult Json(BaseResult result)
+        {
+            return new JsonActionResult(result);
+        }
+
+        [NonAction]
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             if (!ModelState.IsValid)
