@@ -1,4 +1,4 @@
-/// <binding BeforeBuild='Run - Development' />
+/// <binding ProjectOpened='Run - Development' />
 var isProd = (process.env.NODE_ENV === 'production');
 
 if (!isProd) {
