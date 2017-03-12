@@ -5,6 +5,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Birbiz.Common.Entities;
 using Birbiz.WebServices.Auth.Models.AccountViewModels;
+using Birbiz.WebServices.Auth.Results;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -35,29 +36,25 @@ namespace Birbiz.WebServices.Auth.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody]LoginViewModel model)
         {
-            if (ModelState.IsValid)
+            var result = await signInManager.PasswordSignInAsync(model.Login, model.Password, model.RememberMe, lockoutOnFailure: false);
+
+            if (result.Succeeded)
             {
-                // This doesn't count login failures towards account lockout
-                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await signInManager.PasswordSignInAsync(model.Login, model.Password, model.RememberMe, lockoutOnFailure: false);
-
-                if (result.Succeeded)
-                {
-                    logger.LogInformation(1, "User logged in.");
-
-                    return Ok(result);
-                }
-                if (result.IsLockedOut)
-                {
-                    logger.LogWarning(2, "User account locked out.");
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                }
+                return Ok(result);
             }
 
-            return BadRequest(ModelState);
+            ErrorLoginResult errorLoginResult = new ErrorLoginResult(result);
+
+            if (errorLoginResult.IsLockedOut)
+            {
+                errorLoginResult.Add("isLockedOut", new []{ "Аккаунт заблокирован." });
+            }
+            else
+            {
+                errorLoginResult.Add("", new[] { "Неправильный логин или пароль." });
+            }
+
+            return Json(errorLoginResult);
         }
 
         [HttpPost]
@@ -90,11 +87,5 @@ namespace Birbiz.WebServices.Auth.Controllers
 
             return Json(ModelState);
         }
-
-        //[NonAction]
-        //public override void OnActionExecuting(ActionExecutingContext context)
-        //{
-        //    context.
-        //}
     }
 }

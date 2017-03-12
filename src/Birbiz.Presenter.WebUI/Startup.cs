@@ -7,12 +7,16 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Birbiz.Common.DependencyInjection;
+using Birbiz.WebServices.Common.Filters;
 
 namespace Birbiz.Presenter.WebUI
 {
     public class Startup
     {
         public IConfigurationRoot Configuration { get; }
+
+        public bool IsDevelopment { get; set; }
 
         public Startup(IHostingEnvironment env)
         {
@@ -24,24 +28,30 @@ namespace Birbiz.Presenter.WebUI
 
             if (env.IsDevelopment())
             {
-                // This will push telemetry data through Application Insights pipeline faster, allowing you to view results immediately.
                 builder.AddApplicationInsightsSettings(developerMode: true);
             }
+
             Configuration = builder.Build();
+            IsDevelopment = env.IsDevelopment();
         }
 
-        
-
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 
-            services.AddMvc();
+            services.AddDataAccess(Configuration.GetConnectionString(Config.ConnectionStringDevName));
+
+            services.AddIdentity();
+
+            services.AddMvc(options =>
+            {
+                if (!IsDevelopment)
+                {
+                    options.Filters.Add(new ExceptionFilterAttribute("Ошибка при выполнении операции. Пожалуйста, попробуйте позже."));
+                }
+            });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
@@ -49,19 +59,16 @@ namespace Birbiz.Presenter.WebUI
 
             app.UseApplicationInsightsRequestTelemetry();
 
-            if (env.IsDevelopment())
+            if (IsDevelopment)
             {
                 app.UseDeveloperExceptionPage();
-                // app.UseBrowserLink();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
             }
 
             app.UseApplicationInsightsExceptionTelemetry();
 
             app.UseStaticFiles();
+
+            app.UseIdentity();
 
             app.UseMvc(routes =>
             {
