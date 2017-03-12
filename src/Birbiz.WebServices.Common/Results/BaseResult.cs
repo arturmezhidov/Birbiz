@@ -2,10 +2,15 @@
 {
     public abstract class BaseResult
     {
-        public virtual int StatusCode { get; set; }
+        public int StatusCode { get; set; }
 
         public virtual bool IsSuccess { get; set; }
 
         public virtual bool HasError { get; set; }
+
+        protected BaseResult(int statusCode)
+        {
+            StatusCode = statusCode;
+        }
     }
 }

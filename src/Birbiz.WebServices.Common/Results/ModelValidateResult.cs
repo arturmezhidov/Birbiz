@@ -6,17 +6,11 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Birbiz.WebServices.Common.Results
 {
-    public class ModelValidateResult : ErrorResult
+    public class ModelValidateResult : BaseErrorResult
     {
-        public override int StatusCode { get { return (int)HttpStatusCode.BadRequest; } }
-
-        public override bool HasError { get { return Errors.Any(); } }
-
-        public Dictionary<string, List<string>> Errors { get; set; }
-
-        public ModelValidateResult()
+        public ModelValidateResult() : base((int)HttpStatusCode.BadRequest)
         {
-            Errors = new Dictionary<string, List<string>>();
+
         }
 
         public ModelValidateResult(ModelStateDictionary state) : this()
@@ -28,10 +22,7 @@ namespace Birbiz.WebServices.Common.Results
 
             foreach (KeyValuePair<string, ModelStateEntry> entry in state)
             {
-                Errors.Add(
-                    entry.Key, 
-                    entry.Value.Errors.Select(error => error.ErrorMessage).ToList()
-                );
+                Add(entry.Key, entry.Value.Errors.Select(error => error.ErrorMessage));
             }
         }
     }

@@ -6,9 +6,24 @@ namespace Birbiz.WebServices.Common.Filters
 {
     public class ExceptionFilterAttribute : Attribute, IExceptionFilter
     {
+        public string ErrorMessage { get; set; }
+
+        public ExceptionFilterAttribute()
+        {
+        }
+
+        public ExceptionFilterAttribute(string errorMessage)
+        {
+            ErrorMessage = errorMessage;
+        }
+
         public void OnException(ExceptionContext context)
         {
-            context.Result = new JsonActionResult(new ExceptionResult(context.Exception));
+            InternalServerError error = String.IsNullOrEmpty(ErrorMessage)
+                ? new InternalServerError(context.Exception)
+                : new InternalServerError(ErrorMessage);
+
+            context.Result = new JsonActionResult(error);
 
             context.ExceptionHandled = true;
         }
