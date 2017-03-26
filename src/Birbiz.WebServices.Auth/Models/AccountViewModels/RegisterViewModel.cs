@@ -1,19 +1,22 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Birbiz.WebServices.Auth.Configuration;
+using Birbiz.WebServices.Auth.Resources;
 
 namespace Birbiz.WebServices.Auth.Models.AccountViewModels
 {
     public class RegisterViewModel
     {
-        [Required(ErrorMessage = "Поле обязательно для заполнения")]
+        [Required(ErrorMessage = ErrorMessages.LoginRequired)]
         public string Login { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "Длина пароля должна быть не менее {2} символов и не более {1}", MinimumLength = 6)]
+        [Required(ErrorMessage = ErrorMessages.PasswordRequired)]
+        [MinLength(AuthOptions.PasswordMinLength, ErrorMessage = ErrorMessages.PasswordMinLength)]
+        [MaxLength(AuthOptions.PasswordMaxLength, ErrorMessage = ErrorMessages.PasswordMaxLength)]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
+        [Compare("Password", ErrorMessage = ErrorMessages.PasswordUnequal)]
         [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "Пароли не совпадают")]
         public string ConfirmPassword { get; set; }
     }
 }
