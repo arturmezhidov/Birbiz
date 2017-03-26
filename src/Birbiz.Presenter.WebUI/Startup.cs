@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Birbiz.Common.DependencyInjection;
+using Birbiz.WebServices.Auth.Extensions;
 using Birbiz.WebServices.Common.Filters;
 
 namespace Birbiz.Presenter.WebUI
@@ -41,7 +38,7 @@ namespace Birbiz.Presenter.WebUI
 
             services.AddDataAccess(Configuration.GetConnectionString(Config.ConnectionStringDevName));
 
-            services.AddIdentity();
+            services.AddAuthOpenId();
 
             services.AddMvc(options =>
             {
@@ -68,7 +65,7 @@ namespace Birbiz.Presenter.WebUI
 
             app.UseStaticFiles();
 
-            app.UseIdentity();
+            app.UseAuthOpenId();
 
             app.UseMvc(routes =>
             {
