@@ -7,18 +7,18 @@ namespace Birbiz.WebServices.Common.Results
     {
         public override bool IsSuccess { get { return false; } }
 
-        public virtual bool HasError { get { return Errors.Any(); } }
+        public override bool HasError { get { return Errors.Any(); } }
 
-        public Dictionary<string, List<string>> Errors { get; set; }
+        public Dictionary<string, string> Errors { get; set; }
 
         protected BaseErrorResult(int statusCode) : base(statusCode)
         {
-            Errors = new Dictionary<string, List<string>>();
+            Errors = new Dictionary<string, string>();
         }
 
-        public void Add(string key, IEnumerable<string> errors)
+        public void Add(string key, string errorMessage)
         {
-            Errors.Add(key, errors.ToList());
+            Errors.Add(key, errorMessage);
         }
     }
 }

@@ -22,7 +22,15 @@ namespace Birbiz.WebServices.Common.Results
 
             foreach (KeyValuePair<string, ModelStateEntry> entry in state)
             {
-                Add(entry.Key, entry.Value.Errors.Select(error => error.ErrorMessage));
+                if (entry.Value.Errors.Any())
+                {
+                    ModelError error = entry.Value.Errors.FirstOrDefault();
+
+                    if (error != null)
+                    {
+                        Add(entry.Key, error.ErrorMessage);
+                    }
+                }
             }
         }
     }

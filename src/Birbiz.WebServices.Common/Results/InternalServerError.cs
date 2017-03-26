@@ -7,7 +7,7 @@ namespace Birbiz.WebServices.Common.Results
     {
         public InternalServerError(string message) : base((int)HttpStatusCode.InternalServerError)
         {
-            Add("", new [] { message });
+            Add(nameof(message), message);
         }
 
         public InternalServerError(Exception exception) : this(exception.Message)
