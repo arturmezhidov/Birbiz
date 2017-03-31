@@ -39,13 +39,5 @@ namespace Birbiz.WebServices.Auth.Controllers
 
             return Json(new RegisterErrorResult(result));
         }
-
-        [HttpGet]
-        public IActionResult UserInfo()
-        {
-            UserInfoResult result = new UserInfoResult(User.Identity.Name);
-
-            return Json(result);
-        }
     }
 }
