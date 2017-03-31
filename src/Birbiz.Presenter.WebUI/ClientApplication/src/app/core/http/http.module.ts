@@ -1,11 +1,11 @@
 ﻿import { NgModule } from '@angular/core';
 import { HttpModule as NgHttpModule } from '@angular/http';
 
-import { StoragesModule } from '../storages';
+import { TokenService } from './index';
 import { HttpService } from './http.service';
 
 @NgModule({
-    imports: [NgHttpModule, StoragesModule],
-    providers: [HttpService]
+    imports: [NgHttpModule],
+    providers: [HttpService, TokenService]
 })
 export class HttpModule { }
