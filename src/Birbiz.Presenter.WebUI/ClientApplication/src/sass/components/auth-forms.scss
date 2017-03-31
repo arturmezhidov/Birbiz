@@ -1,0 +1,17 @@
+﻿.auth-form {
+    h6 {
+        margin: 0 0 -8px;
+        font-size: 13px;
+        line-height: 12px !important;
+    }
+}
+.preloader-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-top: 50%;
+    z-index: 9999999;
+    background-color: rgba(255, 255, 255, 0.8);
+}
