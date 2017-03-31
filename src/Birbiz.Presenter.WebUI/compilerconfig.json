@@ -5,7 +5,6 @@
     "minify": {
       "enabled": true
     },
-    "includeInProject": true,
     "options": {
       "sourceMap": true
     }
