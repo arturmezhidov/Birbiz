@@ -26,7 +26,8 @@
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
     "Birbiz.WebServices.Auth": "1.0.0-*",
-    "Birbiz.Common.DependencyInjection": "1.0.0-*"
+    "Birbiz.Common.DependencyInjection": "1.0.0-*",
+    "Birbiz.WebServices.UserService": "1.0.0-*"
   },
 
   "tools": {
