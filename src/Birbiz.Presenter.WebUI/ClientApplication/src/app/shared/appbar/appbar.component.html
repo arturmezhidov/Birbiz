@@ -2,13 +2,17 @@
     <div class="container">
         <appbar-logo link="/" image="/assets/img/logo.jpeg"></appbar-logo>
         <div class="place-right">
-            <appbar-dropdown text="Регистрация" icon="mif-user-plus">
-                <signup-form></signup-form>
-            </appbar-dropdown>
-            <div class="app-bar-divider"></div>
-            <appbar-dropdown text="Войти" icon="mif-enter">
-                <signin-form></signin-form>
-            </appbar-dropdown>
+            <div *ngIf="!isAuthenticated()">
+                <appbar-dropdown text="Регистрация" icon="mif-user-plus">
+                    <signup-form></signup-form>
+                </appbar-dropdown>
+                <div class="app-bar-divider"></div>
+                <appbar-dropdown text="Войти" icon="mif-enter">
+                    <signin-form></signin-form>
+                </appbar-dropdown>
+            </div>
+            <appbar-user *ngIf="isAuthenticated()" icon="mif-user">
+            </appbar-user>
         </div>
     </div>
 </div>

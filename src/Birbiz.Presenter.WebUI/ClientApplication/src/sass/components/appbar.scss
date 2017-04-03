@@ -8,21 +8,81 @@
             width: 100px;
         }
     }
+
     .app-bar-element {
         &:hover {
             background: none !important;
         }
+
         a {
             color: $menu-item-color;
+
             &:before {
                 border-color: $menu-item-color;
             }
         }
     }
+
     .app-bar-divider {
         margin-top: 10px;
         margin-left: -4px;
         height: 2rem;
         background-color: #AAA;
+    }
+
+    .user-icon {
+        padding: 2px;
+        border: 2px solid #777;
+        border-radius: 50%;
+        vertical-align: initial;
+    }
+
+    .user-menu {
+
+        .tile-small {
+            margin: 0;
+
+            &:hover {
+                outline: none;
+
+                .tile-underline {
+                    display: block;
+                }
+            }
+
+            .icon {
+                font-size: 26px;
+            }
+
+            .tile-label {
+                line-height: initial;
+                font-size: 12px;
+                padding: 0;
+                text-align: center;
+                display: block;
+                left: initial;
+                width: 100%;
+                margin-bottom: 6px;
+            }
+        }
+    }
+
+    .preloader-container {
+        margin-right: 20px;
+
+        .preloader-ring {
+            width: 24px;
+            height: 24px;
+
+            .wrap {
+                width: 22px;
+                height: 22px;
+
+                .circle {
+                    width: 22px;
+                    height: 22px;
+                }
+            }
+        }
     }
 }
