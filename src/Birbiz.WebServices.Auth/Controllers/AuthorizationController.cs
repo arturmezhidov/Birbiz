@@ -37,25 +37,25 @@ namespace Birbiz.WebServices.Auth.Controllers
                 var user = await userManager.FindByNameAsync(request.Username);
                 if (user == null)
                 {
-                    return Json(new LoginErrorResult(ErrorMessages.InvalidLoginOrPassword));
+                    return Error(ErrorMessages.InvalidLoginOrPassword);
                 }
 
                 // Ensure the user is allowed to sign in.
                 if (!await signInManager.CanSignInAsync(user))
                 {
-                    return Json(new LoginErrorResult(ErrorMessages.CannotSignIn));
+                    return Error(ErrorMessages.CannotSignIn);
                 }
 
                 // Reject the token request if two-factor authentication has been enabled by the user.
                 if (userManager.SupportsUserTwoFactor && await userManager.GetTwoFactorEnabledAsync(user))
                 {
-                    return Json(new LoginErrorResult(ErrorMessages.TwoFactor));
+                    return Error(ErrorMessages.TwoFactor);
                 }
 
                 // Ensure the user is not already locked out.
                 if (userManager.SupportsUserLockout && await userManager.IsLockedOutAsync(user))
                 {
-                    return Json(new LoginErrorResult(ErrorMessages.Lockout));
+                    return Error(ErrorMessages.Lockout);
                 }
 
                 // Ensure the password is valid.
@@ -66,7 +66,7 @@ namespace Birbiz.WebServices.Auth.Controllers
                         await userManager.AccessFailedAsync(user);
                     }
 
-                    return Json(new LoginErrorResult(ErrorMessages.InvalidLoginOrPassword));
+                    return Error(ErrorMessages.InvalidLoginOrPassword);
                 }
 
                 if (userManager.SupportsUserLockout)
@@ -80,7 +80,7 @@ namespace Birbiz.WebServices.Auth.Controllers
                 return SignIn(ticket.Principal, ticket.Properties, ticket.AuthenticationScheme);
             }
 
-            return Json(new LoginErrorResult(ErrorMessages.PasswordGrantType));
+            return Error(ErrorMessages.PasswordGrantType);
         }
 
         private async Task<AuthenticationTicket> CreateTicketAsync(OpenIdConnectRequest request, ApplicationUser user)
@@ -121,6 +121,11 @@ namespace Birbiz.WebServices.Auth.Controllers
             }.Intersect(request.GetScopes()));
 
             return ticket;
+        }
+
+        private IActionResult Error(string message)
+        {
+            return JsonBadRequest(new LoginErrorResultValue(message));
         }
     }
 }

@@ -1,5 +1,3 @@
-﻿import { BaseResponse } from './base-response';
-
-export class ErrorResponse extends BaseResponse {
+﻿export class ErrorResponse {
     public errors: any;
 }

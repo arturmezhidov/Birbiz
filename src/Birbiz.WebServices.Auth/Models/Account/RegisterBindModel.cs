@@ -2,9 +2,9 @@
 using Birbiz.WebServices.Auth.Configuration;
 using Birbiz.WebServices.Auth.Resources;
 
-namespace Birbiz.WebServices.Auth.Models.AccountViewModels
+namespace Birbiz.WebServices.Auth.Models.Account
 {
-    public class RegisterViewModel
+    public class RegisterBindModel
     {
         [Required(ErrorMessage = ErrorMessages.LoginRequired)]
         public string Login { get; set; }

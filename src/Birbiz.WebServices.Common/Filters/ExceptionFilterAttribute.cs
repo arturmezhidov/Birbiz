@@ -19,11 +19,9 @@ namespace Birbiz.WebServices.Common.Filters
 
         public void OnException(ExceptionContext context)
         {
-            InternalServerError error = String.IsNullOrEmpty(ErrorMessage)
-                ? new InternalServerError(context.Exception)
-                : new InternalServerError(ErrorMessage);
-
-            context.Result = new JsonActionResult(error);
+            context.Result = String.IsNullOrEmpty(ErrorMessage)
+                ? new JsonInternalServerErrorResult(new ExceptionResultValue(context.Exception))
+                : new JsonInternalServerErrorResult(new MessageResultValue(ErrorMessage, MessageType.Error));
 
             context.ExceptionHandled = true;
         }

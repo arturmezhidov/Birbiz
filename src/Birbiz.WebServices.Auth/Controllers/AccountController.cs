@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Birbiz.Common.Entities;
 using Birbiz.WebServices.Common.Controllers;
-using Birbiz.WebServices.Auth.Models.AccountViewModels;
+using Birbiz.WebServices.Auth.Models.Account;
 using Birbiz.WebServices.Auth.Results;
 
 namespace Birbiz.WebServices.Auth.Controllers
@@ -26,7 +26,7 @@ namespace Birbiz.WebServices.Auth.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Register([FromBody]RegisterViewModel model)
+        public async Task<IActionResult> Register([FromBody]RegisterBindModel model)
         {
             var user = new ApplicationUser { UserName = model.Login };
 
@@ -34,10 +34,10 @@ namespace Birbiz.WebServices.Auth.Controllers
 
             if(result.Succeeded)
             {
-                return Json(new RegisterResult());
+                return JsonOk();
             }
 
-            return Json(new RegisterErrorResult(result));
+            return JsonBadRequest(new RegisterErrorResultValue(result));
         }
     }
 }

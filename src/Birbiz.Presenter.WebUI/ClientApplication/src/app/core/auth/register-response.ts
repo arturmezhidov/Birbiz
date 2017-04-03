@@ -1,5 +1,3 @@
-﻿import { BaseResponse } from '../http';
-
-export class RegisterResponse extends BaseResponse {
+﻿export class RegisterResponse {
 
 }

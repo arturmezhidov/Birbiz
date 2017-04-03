@@ -1,26 +1,28 @@
 ﻿using System;
-using System.Net;
+using Microsoft.AspNetCore.Identity;
 using Birbiz.WebServices.Auth.Validation;
 using Birbiz.WebServices.Common.Results;
-using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Birbiz.WebServices.Auth.Results
 {
-    public class RegisterErrorResult : BaseErrorResult
+    public class RegisterErrorResultValue : ErrorResultValue
     {
-        public RegisterErrorResult(IdentityResult result) : base((int)HttpStatusCode.BadRequest)
+        private readonly IdentityResult identity;
+
+        public RegisterErrorResultValue(IdentityResult result)
         {
             if (result == null)
             {
                 throw new ArgumentNullException(nameof(result));
             }
 
-            Init(result);
+            identity = result;
         }
 
-        protected void Init(IdentityResult result)
+        protected override void OnExecuting(ActionContext context)
         {
-            foreach (IdentityError error in result.Errors)
+            foreach (IdentityError error in identity.Errors)
             {
                 switch (error.Code)
                 {

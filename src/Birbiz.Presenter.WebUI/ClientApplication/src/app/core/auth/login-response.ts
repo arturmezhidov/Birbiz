@@ -1,5 +1,5 @@
-﻿import { BaseResponse, Token } from '../http';
+﻿import { Token } from '../http';
 
-export class LoginResponse extends BaseResponse {
+export class LoginResponse {
     public token: Token;
 }

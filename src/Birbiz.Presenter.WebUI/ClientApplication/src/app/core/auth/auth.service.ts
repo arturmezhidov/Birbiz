@@ -28,7 +28,7 @@ export class AuthService  {
         let observable: Observable<LoginResponse> = Observable.create((observer: Observer<any>) => {
             this.http.post(HttpConfig.TOKEN_ENDPOINT, body, { isForm: true }).subscribe((token: Token) => {
                 this.tokenService.setToken(token);
-                let response: LoginResponse = this.createSuccessLoginResult();
+                let response: LoginResponse = new LoginResponse();
                 response.token = token;
                 observer.next(response);
             }, (response: ErrorResponse) => {
@@ -62,13 +62,5 @@ export class AuthService  {
     private createLoginBody(model: Login): string {
         let body = `username=${(model.login || "")}&password=${(model.password || "")}&grant_type=password`;
         return body;
-    }
-
-    private createSuccessLoginResult(): LoginResponse {
-        let response: LoginResponse = new LoginResponse();
-        response.statusCode = 200;
-        response.isSuccess = true;
-        response.hasError = false;
-        return response;
     }
 }
