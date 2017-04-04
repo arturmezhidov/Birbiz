@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { CustomValidators } from '../../core/forms';
 import { ResourcesService, ResourcesKeys } from '../../core/resx';
-import { AuthService, Register, RegisterResponse, RegisterErrors, Login } from '../../core/auth';
+import { AuthService, Register, RegisterResponse, RegisterErrors, Login, LoginResponse, LoginErrors } from '../../core/auth';
 
 @Component({
     selector: 'signup-form',
@@ -38,13 +38,20 @@ export class SignupFormComponent {
 
     private submit() {
         this.isBusy = true;
-        this.authService.register(<Register>this.signupForm.value).subscribe((response: RegisterResponse) => {
-                this.clearForm();
+        let registerModel: Register = <Register>this.signupForm.value;
+        this.authService.register(registerModel).subscribe((response: RegisterResponse) => {
+            this.clearForm();
+            let login: Login = this.convertToLoginModel(registerModel);
+            this.authService.login(login).subscribe((loginResponse: LoginResponse) => {
                 this.isBusy = false;
-            }, (errors: RegisterErrors) => {
-                this.errors = errors;
+            }, (loginErrors: LoginErrors) => {
+                this.errors.loginError = loginErrors.loginError;
                 this.isBusy = false;
             });
+        }, (errors: RegisterErrors) => {
+            this.errors = errors;
+            this.isBusy = false;
+        });
     }
 
     private createForm(): FormGroup {
@@ -118,5 +125,12 @@ export class SignupFormComponent {
         this.errors.passwordError = '';
         this.errors.confirmPasswordError = '';
         this.signupForm.reset();
+    }
+
+    private convertToLoginModel(model: Register): Login {
+        let login: Login = new Login();
+        login.login = model.login;
+        login.password = model.password;
+        return login;
     }
 }
