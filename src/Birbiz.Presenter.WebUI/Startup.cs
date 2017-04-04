@@ -38,13 +38,15 @@ namespace Birbiz.Presenter.WebUI
 
             services.AddDataAccess(Configuration.GetConnectionString(Config.ConnectionStringDevName));
 
+            services.AddBusinessComponents();
+
             services.AddAuthOpenId();
 
             services.AddMvc(options =>
             {
                 if (!IsDevelopment)
                 {
-                    options.Filters.Add(new ExceptionFilterAttribute("Ошибка при выполнении операции. Пожалуйста, попробуйте позже."));
+                    // options.Filters.Add(new ExceptionFilterAttribute("Ошибка при выполнении операции. Пожалуйста, попробуйте позже."));
                 }
             });
         }

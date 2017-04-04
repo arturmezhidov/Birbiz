@@ -37,6 +37,16 @@ namespace Birbiz.DataAccess.SqlDataAccess
             context.SaveChanges();
         }
 
+        public void EnsureCreated()
+        {
+            context.Database.EnsureCreated();
+        }
+
+        public void Migrate()
+        {
+            context.Database.Migrate();
+        }
+
         public void Dispose()
         {
             Dispose(true);

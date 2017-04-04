@@ -8,5 +8,9 @@ namespace Birbiz.DataAccess.DataContracts
         IRepository<TEntity> GetRepository<TEntity>() where TEntity : BaseEntity;
 
         void Save();
+
+        void EnsureCreated();
+
+        void Migrate();
     }
 }

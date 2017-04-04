@@ -9,7 +9,9 @@
     "Birbiz.DataAccess.DataContracts": "1.0.0-*",
     "Birbiz.DataAccess.SqlDataAccess": "1.0.0-*",
     "Microsoft.EntityFrameworkCore.SqlServer": "1.1.0",
-    "Microsoft.Extensions.DependencyInjection.Abstractions": "1.1.0"
+    "Microsoft.Extensions.DependencyInjection.Abstractions": "1.1.0",
+    "Birbiz.BusinessLogic.CommonComponents": "1.0.0-*",
+    "Birbiz.BusinessLogic.BusinessContracts": "1.0.0-*"
   },
 
   "frameworks": {
