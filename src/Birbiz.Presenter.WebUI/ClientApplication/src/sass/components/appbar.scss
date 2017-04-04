@@ -86,3 +86,31 @@
         }
     }
 }
+
+@media(max-width: 992px) {
+    .app-bar-top {
+        .app-bar-drop-container {
+            margin-right: 20px;
+        }
+    }
+}
+
+@media(max-width: 640px) {
+    .app-bar-top {
+        .logo {
+            img {
+                width: 85px;
+            }
+        }
+    }
+}
+
+@media(max-width: 400px) {
+    .app-bar-top {
+        .logo {
+            img {
+                width: 70px;
+            }
+        }
+    }
+}

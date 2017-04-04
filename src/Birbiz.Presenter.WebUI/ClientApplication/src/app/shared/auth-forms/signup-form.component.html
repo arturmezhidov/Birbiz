@@ -15,7 +15,7 @@
     <h6 *ngIf="errors.confirmPasswordError">{{errors.confirmPasswordError}}</h6>
     <div class="input-control text">
         <span class="mif-lock prepend-icon"></span>
-        <input type="password" placeholder="Повтор пароля" name="confirmPassword" formControlName="confirmPassword">
+        <input type="password" placeholder="Повтор пароля" name="confirmPassword" formControlName="confirmPassword" [class.ng-invalid]="!!errors.confirmPasswordError">
         <button class="button helper-button reveal"><span class="mif-looks"></span></button>
     </div>
     <div class="form-actions">

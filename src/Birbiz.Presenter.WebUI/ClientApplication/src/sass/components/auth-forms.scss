@@ -4,6 +4,9 @@
         font-size: 13px;
         line-height: 12px !important;
     }
+    input.ng-dirty.ng-invalid {
+        border-color: #ce352c;
+    }
 }
 .preloader-overlay {
     position: absolute;
@@ -14,4 +17,31 @@
     padding-top: 50%;
     z-index: 9999999;
     background-color: rgba(255, 255, 255, 0.8);
+}
+
+@media(max-width: 800px) {
+    .auth-form {
+        h4 {
+            margin: 0 0 12px;
+        }
+        h6 {
+            margin: 0 0 -4px;
+        }
+    }
+}
+
+@media(max-width: 640px) {
+    .auth-form {
+        h4 {
+            margin: 0 0 12px;
+        }
+        h6 {
+            font-size: 11px;
+        }
+        .form-actions {
+            .button.link {
+                padding: 0 0.5rem;
+            }
+        }
+    }
 }
