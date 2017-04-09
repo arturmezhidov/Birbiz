@@ -1,11 +1,13 @@
-﻿using Birbiz.Common.Entities;
+﻿using System.Linq;
+using Birbiz.Common.Entities;
 using Birbiz.Common.Entities.Catalog;
+using Birbiz.DataAccess.DataContracts.Initializers;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Birbiz.DataAccess.SqlDataAccess
 {
-    public class DataContext : IdentityDbContext<ApplicationUser>
+    public class DataContext : IdentityDbContext<ApplicationUser>, IInitializable
     {
         /* COMMON */
 
@@ -65,6 +67,28 @@ namespace Birbiz.DataAccess.SqlDataAccess
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
+        }
+
+        public void Init(IDatabaseInitializer initializer)
+        {
+            SetInit<IdentityRole>(initializer);
+
+            SaveChanges();
+        }
+
+        protected virtual void SetInit<TEntity>(IDatabaseInitializer initializer) where TEntity: class
+        {
+            DbSet<TEntity> set = Set<TEntity>();
+
+            if (set != null)
+            {
+                IInitializerEntityCollection<TEntity> entities = initializer.GetEntityCollection<TEntity>();
+
+                if (entities != null && entities.Any())
+                {
+                    set.AddRange(entities);
+                }
+            }
         }
     }
 }

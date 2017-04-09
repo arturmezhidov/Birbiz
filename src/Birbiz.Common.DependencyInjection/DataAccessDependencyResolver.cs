@@ -1,7 +1,9 @@
-﻿using Birbiz.DataAccess.DataContracts;
-using Birbiz.DataAccess.SqlDataAccess;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Birbiz.DataAccess.DataContracts;
+using Birbiz.DataAccess.DataContracts.Initializers;
+using Birbiz.DataAccess.SqlDataAccess;
+using Birbiz.DataAccess.StartData;
 
 namespace Birbiz.Common.DependencyInjection
 {
@@ -11,6 +13,7 @@ namespace Birbiz.Common.DependencyInjection
         {
             services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString));
 
+            services.AddSingleton<IDatabaseInitializer, DatabaseInitializer>();
             services.AddSingleton<IUnitOfWork, UnitOfWork>();
 
             return services;

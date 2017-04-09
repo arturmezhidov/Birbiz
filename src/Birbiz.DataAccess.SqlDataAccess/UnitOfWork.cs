@@ -1,20 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using Birbiz.Common.Entities;
 using Birbiz.DataAccess.DataContracts;
-using Microsoft.EntityFrameworkCore;
+using Birbiz.DataAccess.DataContracts.Initializers;
 
 namespace Birbiz.DataAccess.SqlDataAccess
 {
     public class UnitOfWork : IUnitOfWork
     {
         private readonly DbContext context;
+        private readonly IDatabaseInitializer databaseInitializer;
         private readonly Dictionary<string, object> repositories;
         private bool disposed;
 
-        public UnitOfWork(DataContext dataContext)
+        public UnitOfWork(DataContext dataContext, IDatabaseInitializer databaseInitializer)
         {
             context = dataContext;
+            this.databaseInitializer = databaseInitializer;
             repositories = new Dictionary<string, object>();
         }
 
@@ -39,7 +42,14 @@ namespace Birbiz.DataAccess.SqlDataAccess
 
         public void EnsureCreated()
         {
-            context.Database.EnsureCreated();
+            bool isCreated = context.Database.EnsureCreated();
+
+            if (isCreated)
+            {
+                IInitializable initializable = context as IInitializable;
+
+                initializable?.Init(databaseInitializer);
+            }
         }
 
         public void Migrate()

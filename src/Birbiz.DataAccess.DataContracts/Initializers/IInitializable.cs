@@ -2,6 +2,6 @@
 {
     public interface IInitializable
     {
-        void Seed(IDatabaseInitializer initializer);
+        void Init(IDatabaseInitializer initializer);
     }
 }
