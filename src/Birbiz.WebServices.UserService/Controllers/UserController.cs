@@ -10,12 +10,14 @@ namespace Birbiz.WebServices.UserService.Controllers
     {
         public IActionResult UserInfo()
         {
-            UserInfoViewModel vm = new UserInfoViewModel
+            UserInfo userInfo = new UserInfo
             {
-                Login = User.Identity?.Name
+                UserName = ApplicationUser.UserName,
+                Email = ApplicationUser.Email,
+                Roles = UserManager.GetRolesAsync(ApplicationUser).Result
             };
 
-            return JsonOk(vm);
-        }
+            return JsonOk(userInfo);
+        }        
     }
 }

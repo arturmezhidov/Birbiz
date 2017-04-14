@@ -29,7 +29,7 @@ export class AppbarUserComponent implements AfterViewInit {
         if (this.userService.isAuthenticated()) {
             this.isLoading.next(true);
             this.userService.getUserInfo().subscribe((userInfo: UserInfo) => {
-                this.userName = userInfo.login;
+                this.userName = userInfo.userName;
                 this.isLoading.next(false);
             });
         }

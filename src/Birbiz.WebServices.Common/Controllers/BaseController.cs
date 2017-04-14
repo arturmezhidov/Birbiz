@@ -1,11 +1,43 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.AspNetCore.Identity;
+using Birbiz.Common.Entities;
 using Birbiz.WebServices.Common.Results;
+
 
 namespace Birbiz.WebServices.Common.Controllers
 {
     public abstract class BaseController : Controller
     {
+        private UserManager<ApplicationUser> userManager;
+        private ApplicationUser applicationUser;
+
+        protected virtual UserManager<ApplicationUser> UserManager
+        {
+            get
+            {
+                if (userManager == null)
+                {
+                    userManager = HttpContext.RequestServices.GetService(typeof(UserManager<ApplicationUser>)) as UserManager<ApplicationUser>;
+                }
+
+                return userManager;
+            }
+        }
+
+        protected virtual ApplicationUser ApplicationUser
+        {
+            get
+            {
+                if (applicationUser == null)
+                {
+                    applicationUser = UserManager.FindByNameAsync(User.Identity.Name).Result;
+                }
+
+                return applicationUser;
+            }
+        }
+
         [NonAction]
         public override void OnActionExecuting(ActionExecutingContext context)
         {
