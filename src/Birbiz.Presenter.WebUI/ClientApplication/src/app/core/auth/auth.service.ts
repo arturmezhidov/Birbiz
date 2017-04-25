@@ -1,62 +1,43 @@
 ﻿import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Observer } from 'rxjs/Observer';
 
-import { HttpConfig } from '../../config/http.config'
-import { HttpService, ErrorResponse, TokenService, Token } from '../http'
+import { HttpConfig } from '../../config/http.config';
+import { HttpService, ErrorResponse } from '../http'
 
-import { Login } from './login';
-import { LoginResponse } from './login-response';
+import { Login, Register, Token } from './auth.models';
+import { RegisterResponse, LoginResponse } from './responses';
 import { LoginErrors } from './login-errors';
-import { Register } from './register';
-import { RegisterResponse } from './register-response';
 import { RegisterErrors } from './register-errors';
 
 @Injectable()
 export class AuthService  {
 
     private http: HttpService;
-    private tokenService: TokenService;
 
-    constructor(http: HttpService, tokenService: TokenService) {
+    constructor(http: HttpService) {
         this.http = http;
-        this.tokenService = tokenService;
     }
 
-    public login(model: Login): Observable<LoginResponse> {
+    public login(model: Login): Observable<Token> {
         let body: string = this.createLoginBody(model);
-        let observable: Observable<LoginResponse> = Observable.create((observer: Observer<any>) => {
-            this.http.post(HttpConfig.TOKEN_ENDPOINT, body, { isForm: true }).subscribe((token: Token) => {
-                this.tokenService.setToken(token);
-                let response: LoginResponse = new LoginResponse();
-                response.token = token;
-                observer.next(response);
-            }, (response: ErrorResponse) => {
-                let error: LoginErrors = LoginErrors.parse(response);
-                observer.error(error);
-            });
+        return this.http.post(HttpConfig.TOKEN_ENDPOINT, body, { isForm: true }).map((response: LoginResponse) => {
+            let token: Token = new Token();
+            token.accessToken = response.access_token;
+            token.refreshToken = response.refresh_token;
+            token.tokenType = response.token_type;
+            token.expiresIn = response.expires_in;
+            return token;
+        }).catch((response: ErrorResponse) => {
+            let error: LoginErrors = LoginErrors.parse(response);
+            return Observable.throw(error);
         });
-        return observable;
     }
 
     public register(model: Register): Observable<RegisterResponse> {
-        let observable: Observable<RegisterResponse> = Observable.create((observer: Observer<any>) => {
-            this.http.post(HttpConfig.REGISTER_URL, model).subscribe((response: RegisterResponse) => {
-                observer.next(response);
-            }, (response: ErrorResponse) => {
-                let error: RegisterErrors = RegisterErrors.parse(response);
-                observer.error(error);
-            });
+        return this.http.post(HttpConfig.REGISTER_URL, model).catch((response: ErrorResponse) => {
+            let error: RegisterErrors = RegisterErrors.parse(response);
+            return Observable.throw(error);
         });
-        return observable;
-    }
-
-    public logout(): void {
-        this.tokenService.removeToken();
-    }
-
-    public isLoggedIn(): boolean {
-        return this.tokenService.hasToken();
     }
 
     private createLoginBody(model: Login): string {

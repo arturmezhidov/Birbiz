@@ -2,18 +2,15 @@
 import { Observable } from 'rxjs/Observable';
 import { Http, Headers, Response, RequestOptions, RequestOptionsArgs } from '@angular/http';
 
-import { TokenService } from './token/token.service';
 import { IRequestOptions } from './request-options';
-import { ErrorResponse } from './error-response';
+import { ErrorResponse } from './responses';
 
 export abstract class BaseHttpService {
 
     protected http: Http;
-    protected tokenService: TokenService;
 
-    constructor(http: Http, tokenService: TokenService) {
+    constructor(http: Http) {
         this.http = http;
-        this.tokenService = tokenService;
     }
 
     protected query<T>(requestArgs: RequestOptionsArgs, additionalOptions?: IRequestOptions): Observable<any> {
@@ -45,11 +42,7 @@ export abstract class BaseHttpService {
         if (options) {
 
             if (options.isSecure) {
-
-                let token: string = options.token
-                    ? this.tokenService.getBearerTokenFrom(options.token)
-                    : this.tokenService.getBearerToken();
-
+                let token = this.getToken();
                 headers.append('Authorization', 'Bearer ' + token);
             }
 
@@ -88,4 +81,6 @@ export abstract class BaseHttpService {
         let error: ErrorResponse = <ErrorResponse>response.json();
         return Observable.throw(error);
     }
+
+    protected abstract getToken(): string;
 }

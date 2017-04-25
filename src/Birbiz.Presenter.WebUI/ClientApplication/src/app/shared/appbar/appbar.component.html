@@ -2,7 +2,7 @@
     <div class="container">
         <appbar-logo link="/" image="/assets/img/logo.jpeg"></appbar-logo>
         <div class="place-right">
-            <div *ngIf="!isAuthenticated()">
+            <div *ngIf="!(auth$ | async).isAuthenticated">
                 <appbar-dropdown text="Регистрация" icon="mif-user-plus">
                     <signup-form></signup-form>
                 </appbar-dropdown>
@@ -11,7 +11,7 @@
                     <signin-form></signin-form>
                 </appbar-dropdown>
             </div>
-            <appbar-user *ngIf="isAuthenticated()" icon="mif-user">
+            <appbar-user *ngIf="(auth$ | async).isAuthenticated" icon="mif-user" [user]="user$ | async">
             </appbar-user>
         </div>
     </div>

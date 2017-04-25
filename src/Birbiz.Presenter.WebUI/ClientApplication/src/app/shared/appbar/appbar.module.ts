@@ -2,7 +2,6 @@
 import { CommonModule } from '@angular/common';  
 import { RouterModule } from '@angular/router';
 
-import { UserModule } from '../../core/user';
 import { AuthFormsModule } from '../auth-forms';
 
 import { AppbarComponent } from './appbar.component';
@@ -11,7 +10,7 @@ import { AppbarDropdownComponent } from './appbar-dropdown.component';
 import { AppbarUserComponent } from './appbar-user.component';
 
 @NgModule({
-    imports: [CommonModule, RouterModule, UserModule, AuthFormsModule],
+    imports: [CommonModule, RouterModule, AuthFormsModule],
     declarations: [AppbarComponent, AppbarLogoComponent, AppbarDropdownComponent, AppbarUserComponent],
     exports: [AppbarComponent]
 })

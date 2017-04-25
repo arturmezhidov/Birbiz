@@ -1,3 +1,2 @@
-﻿export { UserModule } from './user.module';
-export { UserInfo } from './user-info';
+﻿export { UserInfo } from './user.models';
 export { UserService } from './user.service';

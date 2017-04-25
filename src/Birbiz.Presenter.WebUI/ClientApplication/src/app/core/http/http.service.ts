@@ -1,16 +1,20 @@
 ﻿import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Http, RequestMethod } from '@angular/http';
+import { NgRedux } from 'ng2-redux';
 
-import { TokenService } from './token/token.service';
+import { IAppState } from '../state';
 import { BaseHttpService } from './base-http.service';
 import { IRequestOptions } from './request-options';
 
 @Injectable()
 export class HttpService extends BaseHttpService {
 
-    constructor(http: Http, tokenService: TokenService) {
-        super(http, tokenService);
+    private ngRedux: NgRedux<IAppState>;
+
+    constructor(http: Http, ngRedux: NgRedux<IAppState>) {
+        super(http);
+        this.ngRedux = ngRedux;
     }
 
     public get<T>(url: string, options?: IRequestOptions): Observable<T> {
@@ -27,5 +31,10 @@ export class HttpService extends BaseHttpService {
 
     public delete<T>(url: string, options?: IRequestOptions): Observable<T> {
         return this.query<T>({ url: url, method: RequestMethod.Delete }, options);
+    }
+
+    protected getToken(): string {
+        let state: IAppState = this.ngRedux.getState();
+        return state.auth.token.accessToken;
     }
 }

@@ -1,37 +1,24 @@
-﻿import { Component, Input, AfterViewInit } from '@angular/core';
-import { Subject, BehaviorSubject } from 'rxjs/Rx';
+﻿import { Component, Input } from '@angular/core';
 
-import { UserService, UserInfo } from '../../core/user';
+import { IUserState } from '../../core/state/user';
+import { AuthActions } from '../../core/state/auth';
 
 @Component({
     selector: 'appbar-user',
     templateUrl: './appbar-user.component.html'
 })
-export class AppbarUserComponent implements AfterViewInit {
+export class AppbarUserComponent {
 
     @Input() icon: string;
+    @Input() user: IUserState;
 
-    public userName: string;
-    public isLoading: Subject<boolean>;
+    private authService: AuthActions;
 
-    private userService: UserService;
-
-    constructor(userService: UserService) {
-        this.userService = userService;
-        this.isLoading = new BehaviorSubject(false);
+    constructor(authService: AuthActions) {
+        this.authService = authService;
     }
 
     public onLogout(): void {
-        this.userService.logout();
-    }
-
-    ngAfterViewInit(): void {
-        if (this.userService.isAuthenticated()) {
-            this.isLoading.next(true);
-            this.userService.getUserInfo().subscribe((userInfo: UserInfo) => {
-                this.userName = userInfo.userName;
-                this.isLoading.next(false);
-            });
-        }
+        this.authService.logout();
     }
 }

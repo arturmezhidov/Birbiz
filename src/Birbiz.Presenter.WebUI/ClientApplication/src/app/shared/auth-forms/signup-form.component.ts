@@ -3,7 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { CustomValidators } from '../../core/forms';
 import { ResourcesService, ResourcesKeys } from '../../core/resx';
-import { AuthService, Register, RegisterResponse, RegisterErrors, Login, LoginResponse, LoginErrors } from '../../core/auth';
+import { AuthService, Register, Login, RegisterErrors, LoginErrors } from '../../core/auth';
+import { AuthActions } from '../../core/state/auth';
 
 @Component({
     selector: 'signup-form',
@@ -15,12 +16,14 @@ export class SignupFormComponent {
     public errors: RegisterErrors;
     public isBusy: boolean;
 
-    private authService: AuthService;
     private resourcesService: ResourcesService;
+    private authService: AuthService;
+    private authActions: AuthActions;
 
-    constructor(authService: AuthService, resourcesService: ResourcesService) {
-        this.authService = authService;
+    constructor(authService: AuthService, authActions: AuthActions, resourcesService: ResourcesService) {
         this.resourcesService = resourcesService;
+        this.authService = authService;
+        this.authActions = authActions;
         this.signupForm = this.createForm();
         this.errors = new RegisterErrors();
         this.isBusy = false;
@@ -39,10 +42,10 @@ export class SignupFormComponent {
     private submit() {
         this.isBusy = true;
         let registerModel: Register = <Register>this.signupForm.value;
-        this.authService.register(registerModel).subscribe((response: RegisterResponse) => {
+        this.authService.register(registerModel).subscribe(() => {
             this.clearForm();
             let login: Login = this.convertToLoginModel(registerModel);
-            this.authService.login(login).subscribe((loginResponse: LoginResponse) => {
+            this.authActions.login(login).subscribe(() => {
                 this.isBusy = false;
             }, (loginErrors: LoginErrors) => {
                 this.errors.loginError = loginErrors.loginError;

@@ -1,20 +1,15 @@
 ﻿import { Component, Input } from '@angular/core';
+import { Observable } from 'rxjs';
+import { select } from 'ng2-redux';
 
-import { UserService } from '../../core/user';
+import { IAuthState } from '../../core/state/auth';
+import { IUserState } from '../../core/state/user';
 
 @Component({
     selector: 'appbar',
     templateUrl: './appbar.component.html'
 })
 export class AppbarComponent {
-
-    private userService: UserService;
-
-    constructor(userService: UserService) {
-        this.userService = userService;
-    }
-
-    public isAuthenticated() {
-        return this.userService.isAuthenticated();
-    }
+    @select() auth$: Observable<IAuthState>;
+    @select() user$: Observable<IUserState>;
 }

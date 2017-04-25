@@ -1,4 +1,5 @@
-﻿import { Token } from './token';
+﻿import { Injectable } from '@angular/core';
+import { Token } from '../../auth';
 
 interface IStorageAdapter {
     setItem(key: string, data: string): void;
@@ -6,32 +7,27 @@ interface IStorageAdapter {
     removeItem(key: string): void;
 } 
 
-export abstract class TokenStorage {
+@Injectable()
+export class TokenStorage {
 
     private itemKey: string;
     private storage: IStorageAdapter;
-    private currentItem: Token = null;
 
-    constructor(storage: IStorageAdapter, itemKey: string) {
-        this.storage = storage;
-        this.itemKey = itemKey;
-        this.currentItem = this.getToken();
+    constructor() {
+        this.itemKey = '___token';
+        this.storage = localStorage;
     }
 
     public getToken(): Token {
-        if (this.currentItem == null) {
-            this.currentItem = this.get<Token>(this.itemKey);
-        }
-        return this.currentItem;
+        let token: Token = this.get<Token>(this.itemKey);
+        return token;
     }
 
     public setToken(token: Token): void {
-        this.currentItem = token;
         this.set<Token>(this.itemKey, token);
     }
 
     public removeToken(): void {
-        this.currentItem = null;
         this.remove(this.itemKey);
     }
 

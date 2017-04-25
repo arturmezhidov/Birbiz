@@ -1,7 +1,3 @@
-﻿export { Token } from './token/token';
-export { TokenService } from './token/token.service';
-
-export { HttpModule } from './http.module';
-export { HttpService } from './http.service';
-export { ErrorResponse } from './error-response';
+﻿export { HttpService } from './http.service';
 export { IRequestOptions } from './request-options';
+export { ErrorResponse } from './responses';

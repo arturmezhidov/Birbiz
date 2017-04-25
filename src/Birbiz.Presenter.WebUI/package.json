@@ -35,6 +35,9 @@
     "zone.js": "^0.7.4",
     "rxjs": "5.0.1",
     "reflect-metadata": "^0.1.8",
+    "@ngrx/core": "1.2.0",
+    "redux": "3.6.0", 
+    "ng2-redux": "5.1.2",
 
     "ie-shim": "^0.1.0"
   },

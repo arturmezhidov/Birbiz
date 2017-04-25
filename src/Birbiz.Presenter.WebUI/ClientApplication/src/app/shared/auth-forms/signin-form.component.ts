@@ -1,9 +1,9 @@
 ﻿import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-
 import { ResourcesService, ResourcesKeys } from '../../core/resx';
-import { AuthService, Login, LoginResponse, LoginErrors } from '../../core/auth';
+import { Login, LoginErrors } from '../../core/auth';
+import { AuthActions } from '../../core/state/auth';
 
 @Component({
     selector: 'signin-form',
@@ -15,12 +15,12 @@ export class SigninFormComponent {
     public errors: LoginErrors;
     public isBusy: boolean;
 
-    private authService: AuthService;
     private resourcesService: ResourcesService;
+    private authActions: AuthActions;
 
-    constructor(authService: AuthService, resourcesService: ResourcesService) {
-        this.authService = authService;
+    constructor(authActions: AuthActions, resourcesService: ResourcesService) {
         this.resourcesService = resourcesService;
+        this.authActions = authActions;
         this.signinForm = this.createForm();
         this.errors = new LoginErrors();
         this.isBusy = false;
@@ -38,7 +38,7 @@ export class SigninFormComponent {
 
     private submit(): void {
         this.isBusy = true;
-        this.authService.login(<Login>this.signinForm.value).subscribe((response: LoginResponse) => {
+        this.authActions.login(<Login>this.signinForm.value).subscribe((response: any) => {
             this.clearForm();
             this.isBusy = false;
         }, (errors: LoginErrors) => {
