@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Birbiz.WebServices.Common.Controllers;
 using Birbiz.WebServices.UserService.Models.User;
+using Birbiz.WebServices.UserService.Converters;
 
 namespace Birbiz.WebServices.UserService.Controllers
 {
@@ -14,10 +15,10 @@ namespace Birbiz.WebServices.UserService.Controllers
             {
                 UserName = ApplicationUser.UserName,
                 Email = ApplicationUser.Email,
-                Roles = UserManager.GetRolesAsync(ApplicationUser).Result
+                Roles = RoleConverter.ToDictionary(UserManager.GetRolesAsync(ApplicationUser).Result)
             };
 
             return JsonOk(userInfo);
-        }        
+        }
     }
 }

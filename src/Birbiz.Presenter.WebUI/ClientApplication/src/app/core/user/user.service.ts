@@ -15,6 +15,26 @@ export class UserService {
     }
 
     public getUserInfo(): Observable<UserInfo> {
-        return this.http.get(HttpConfig.USERINFO_URL, { isSecure: true });
+        return this.http.get(HttpConfig.USERINFO_URL, { isSecure: true }).map((userInfo: UserInfo) => {
+            userInfo.isAdminDashboardAvailable = this.checkAdminDashboardAvailability(userInfo.roles);
+            return userInfo;
+        });
+    }
+
+    private checkAdminDashboardAvailability(roles: any): boolean {
+        if (roles) {
+            let isAdminDashboardAvailable: boolean = roles.superadmin
+                || roles.useradmin
+                || roles.catalogadmin
+                || roles.auctionadmin
+                || roles.automobileadmin
+                || roles.realestateadmin
+                || roles.forumadmin
+                || roles.blogadmin
+                || roles.newsadmin
+                || roles.commentmoderator;
+            return isAdminDashboardAvailable;
+        }
+        return false;
     }
 }

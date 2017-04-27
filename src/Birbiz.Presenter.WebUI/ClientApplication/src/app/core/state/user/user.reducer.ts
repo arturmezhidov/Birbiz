@@ -11,6 +11,7 @@ export function userReducer(state: IUserState = USER_INITIAL_STATE, action: any)
         case USER_LOADED: {
             newState.isLoading = false;
             newState.userName = action.payload.userName;
+            newState.isAdminDashboardAvailable = action.payload.isAdminDashboardAvailable;
             break;
         }
         case USER_CLEAR: {
