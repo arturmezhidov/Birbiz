@@ -9,6 +9,5 @@ export class NavbarItemComponent {
     @Input() text: string;
     @Input() icon: string;
     @Input() color: string;
-    @Input() background: string;
     @Input() isLinkExact: boolean;
 }

@@ -1,7 +1,7 @@
 ﻿<div class="tile-small"
      data-role="tile"
+     active-background
      [style.color]="color"
-     [style.background-color]="background"
      [routerLink]="link"
      routerLinkActive="active"
      [routerLinkActiveOptions]="{ exact: isLinkExact }">
@@ -11,6 +11,6 @@
         <span class="tile-label">{{text}}</span>
     </div>
 
-    <div class="tile-underline" [style.background-color]="background"></div>
+    <div class="tile-underline" active-background></div>
 
 </div>
