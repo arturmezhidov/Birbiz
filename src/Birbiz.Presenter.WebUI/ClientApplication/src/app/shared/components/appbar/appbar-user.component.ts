@@ -1,7 +1,7 @@
 ﻿import { Component, Input } from '@angular/core';
 
-import { IUserState } from '../../core/state/user';
-import { AuthActions } from '../../core/state/auth';
+import { IUserState } from '../../../core/state/user';
+import { AuthActions } from '../../../core/state/auth';
 
 @Component({
     selector: 'appbar-user',

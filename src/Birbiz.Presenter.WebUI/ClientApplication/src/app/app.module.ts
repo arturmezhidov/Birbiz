@@ -6,7 +6,7 @@ import { NgRedux, NgReduxModule} from 'ng2-redux';
 
 import { CoreModule } from './core/core.module';
 import { StateModule, IAppState, APP_INITIAL_STATE, appReducer } from './core/state';
-import { SharedComponents } from './shared';
+import { AppbarModule, NavbarModule } from './shared/components';
 import { HomeModule } from './modules/home/home.module';
 import { AppComponent } from './app.component';
 import { AppRoutes } from './routes';
@@ -18,7 +18,8 @@ import { AppRoutes } from './routes';
         RouterModule.forRoot(AppRoutes),
         CoreModule,
         StateModule,
-        SharedComponents,
+        AppbarModule,
+        NavbarModule,
         NgReduxModule,
         HomeModule],
     declarations: [AppComponent],

@@ -1,10 +1,10 @@
 ﻿import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { CustomValidators } from '../../core/forms';
-import { ResourcesService, ResourcesKeys } from '../../core/resx';
-import { AuthService, Register, Login, RegisterErrors, LoginErrors } from '../../core/auth';
-import { AuthActions } from '../../core/state/auth';
+import { CustomValidators } from '../../../core/forms';
+import { ResourcesService, ResourcesKeys } from '../../../core/resx';
+import { AuthService, Register, Login, RegisterErrors, LoginErrors } from '../../../core/auth';
+import { AuthActions } from '../../../core/state/auth';
 
 @Component({
     selector: 'signup-form',

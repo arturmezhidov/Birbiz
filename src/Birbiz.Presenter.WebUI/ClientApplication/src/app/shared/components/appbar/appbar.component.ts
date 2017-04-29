@@ -2,8 +2,8 @@
 import { Observable } from 'rxjs';
 import { select } from 'ng2-redux';
 
-import { IAuthState } from '../../core/state/auth';
-import { IUserState } from '../../core/state/user';
+import { IAuthState } from '../../../core/state/auth';
+import { IUserState } from '../../../core/state/user';
 
 @Component({
     selector: 'appbar',

@@ -1,9 +1,9 @@
 ﻿import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { ResourcesService, ResourcesKeys } from '../../core/resx';
-import { Login, LoginErrors } from '../../core/auth';
-import { AuthActions } from '../../core/state/auth';
+import { ResourcesService, ResourcesKeys } from '../../../core/resx';
+import { Login, LoginErrors } from '../../../core/auth';
+import { AuthActions } from '../../../core/state/auth';
 
 @Component({
     selector: 'signin-form',
