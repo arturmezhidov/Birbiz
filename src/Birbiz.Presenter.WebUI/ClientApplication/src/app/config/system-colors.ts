@@ -1,4 +1,5 @@
 ﻿export class SystemColors {
+    public static BG_DEFAULT: string = "#FD1";
     public static BG_HOME: string = "#FD1";
     public static BG_CATALOG: string = "#009AD7";
     public static BG_AUCTION: string = "#FFAA31";
