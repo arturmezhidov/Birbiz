@@ -1,16 +1,14 @@
-﻿<div class="tile-small"
-     data-role="tile"
+﻿<div class="navbar-item-container"
      active-background
-     [style.color]="color"
-     [routerLink]="link"
      routerLinkActive="active"
+     [routerLink]="link"
      [routerLinkActiveOptions]="{ exact: isLinkExact }">
     
-    <div class="tile-content iconic">
+    <div class="navbar-item">
         <span [class]="icon"></span>
-        <span class="tile-label">{{text}}</span>
+        <div class="navbar-label">{{text}}</div>
     </div>
 
-    <div class="tile-underline" active-background></div>
+    <div class="navbar-item-underline" active-background></div>
 
 </div>

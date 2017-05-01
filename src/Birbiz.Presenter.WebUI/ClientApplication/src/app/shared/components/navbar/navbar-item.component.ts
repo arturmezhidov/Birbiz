@@ -8,6 +8,5 @@ export class NavbarItemComponent {
     @Input() link: Array<string>;
     @Input() text: string;
     @Input() icon: string;
-    @Input() color: string;
     @Input() isLinkExact: boolean;
 }
