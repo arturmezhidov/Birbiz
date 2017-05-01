@@ -1,7 +1,8 @@
 ﻿<div class="navbar bg-white">
     <div class="container">
         <div class="navbar-items-container">
-            <navbar-item link="" text="Главная" icon="icon mif-home" isLinkExact="true"></navbar-item>
+            <navbar-item link="" text="Главная" icon="icon mif-home" isLinkExact="true" *ngIf="!(user$ | async).isAdminDashboardAvailable"></navbar-item>
+            <navbar-item link="/admin-dashboard" text="Админ" icon="icon mif-home" *ngIf="(user$ | async).isAdminDashboardAvailable"></navbar-item>
             <navbar-item link="/catalog" text="Каталог" icon="icon mif-cart"></navbar-item>
             <navbar-item link="/auction" text="Аукцион" icon="icon mif-justice"></navbar-item>
             <navbar-item link="/automobile" text="Авто и мото" icon="icon mif-automobile"></navbar-item>

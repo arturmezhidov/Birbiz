@@ -86,6 +86,15 @@ export const AppRoutes: Routes = [
         }
     },
     {
+        path: "admin-dashboard",
+        loadChildren: "es6-promise!./modules/admin-dashboard/admin-dashboard.module#AdminDashboardModule",
+        data: {
+            uiSettings: {
+                backgroundColor: SystemColors.BG_DASHBOARD
+            }
+        }
+    },
+    {
         path: '**',
         redirectTo: ''
     }
