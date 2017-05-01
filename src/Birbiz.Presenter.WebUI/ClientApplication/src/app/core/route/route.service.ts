@@ -1,6 +1,6 @@
 ﻿import { Injectable } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class RouteService {
@@ -9,6 +9,18 @@ export class RouteService {
 
     constructor(router: Router) {
         this.router = router;
+    }
+
+    public getCurrentRouteData(): any {
+        let data: any = {};
+        let activatedRoute: ActivatedRoute = this.router.routerState.root.firstChild;
+        if (activatedRoute && activatedRoute.data instanceof BehaviorSubject) {
+            let value: any = (<BehaviorSubject<any>>(activatedRoute.data)).value;
+            if (value) {
+                data = value;
+            }
+        }
+        return data;
     }
 
     public getRouteData(): Observable<any> {

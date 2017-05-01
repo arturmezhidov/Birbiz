@@ -21,13 +21,18 @@ export class ActiveBackgroundDirective implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
+        this.updateState(this.routeService.getCurrentRouteData());
         this.subscription = this.routeService.getRouteData().subscribe((data: any) => {
-            let backgroundColor: string = data && data.uiSettings && data.uiSettings.backgroundColor;
-            this.elementRef.nativeElement.style.backgroundColor = backgroundColor || this.defaultValue || SystemColors.BG_DEFAULT;
+            this.updateState(data);
         });
     }
 
     ngOnDestroy(): void {
         this.subscription.unsubscribe();
+    }
+
+    private updateState(data: any): void {
+        let backgroundColor: string = data && data.uiSettings && data.uiSettings.backgroundColor;
+        this.elementRef.nativeElement.style.backgroundColor = backgroundColor || this.defaultValue || SystemColors.BG_DEFAULT;
     }
 }
