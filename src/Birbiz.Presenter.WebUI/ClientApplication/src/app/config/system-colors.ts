@@ -1,6 +1,6 @@
 ﻿export class SystemColors {
-    public static BG_DEFAULT: string = "#FD1";
-    public static BG_HOME: string = "#FD1";
+    public static BG_DEFAULT: string = "#43588A";
+    public static BG_HOME: string = "#43588A";
     public static BG_CATALOG: string = "#009AD7";
     public static BG_AUCTION: string = "#FFAA31";
     public static BG_AUTOMOBILE: string = "#68AF27";
