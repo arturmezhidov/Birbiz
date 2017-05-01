@@ -8,42 +8,54 @@ export const AppRoutes: Routes = [
         path: '',
         component: HomeContainer,
         data: {
-            backgroundColor: SystemColors.BG_HOME
+            uiSettings: {
+                backgroundColor: SystemColors.BG_HOME
+            }
         }
     },
     {
         path: "catalog",
         loadChildren: "es6-promise!./modules/catalog/catalog.module#CatalogModule",
         data: {
-            backgroundColor: SystemColors.BG_CATALOG
+            uiSettings: {
+                backgroundColor: SystemColors.BG_CATALOG
+            }
         }
     },
     {
         path: "auction",
         loadChildren: "es6-promise!./modules/auction/auction.module#AuctionModule",
         data: {
-            backgroundColor: SystemColors.BG_AUCTION
+            uiSettings: {
+                backgroundColor: SystemColors.BG_AUCTION
+            }
         }
     },
     {
         path: "automobile",
         loadChildren: "es6-promise!./modules/automobile/automobile.module#AutomobileModule",
         data: {
-            backgroundColor: SystemColors.BG_AUTOMOBILE
+            uiSettings: {
+                backgroundColor: SystemColors.BG_AUTOMOBILE
+            }
         }
     },
     {
         path: "real-estate",
         loadChildren: "es6-promise!./modules/real-estate/real-estate.module#RealEstateModule",
         data: {
-            backgroundColor: SystemColors.BG_REAL_ESTATE
+            uiSettings: {
+                backgroundColor: SystemColors.BG_REAL_ESTATE
+            }
         }
     },
     {
         path: "forum",
         loadChildren: "es6-promise!./modules/forum/forum.module#ForumModule",
         data: {
-            backgroundColor: SystemColors.BG_FORUM
+            uiSettings: {
+                backgroundColor: SystemColors.BG_FORUM
+            }
         }
     },
     {
@@ -57,18 +69,22 @@ export const AppRoutes: Routes = [
         path: "news",
         loadChildren: "es6-promise!./modules/news/news.module#NewsModule",
         data: {
-            backgroundColor: SystemColors.BG_NEWS
+            uiSettings: {
+                backgroundColor: SystemColors.BG_NEWS
+            }
         }
     },
     {
         path: "dashboard",
         loadChildren: "es6-promise!./modules/dashboard/dashboard.module#DashboardModule",
         data: {
-            backgroundColor: SystemColors.BG_DASHBOARD
+            uiSettings: {
+                backgroundColor: SystemColors.BG_DASHBOARD
+            }
         }
     },
     {
         path: '**',
-        component: HomeContainer
+        redirectTo: ''
     }
 ];
