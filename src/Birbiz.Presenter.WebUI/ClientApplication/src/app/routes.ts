@@ -62,7 +62,9 @@ export const AppRoutes: Routes = [
         path: "blog",
         loadChildren: "es6-promise!./modules/blog/blog.module#BlogModule",
         data: {
-            backgroundColor: SystemColors.BG_BLOG
+            uiSettings: {
+                backgroundColor: SystemColors.BG_BLOG
+            }
         }
     },
     {
