@@ -1,0 +1,53 @@
+﻿<form class="register-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <p class="hint">Все поля обязательны для заполнения.</p>
+    
+    <div class="form-group" [class.has-error]="signupForm.controls.login.dirtyInvalid" [class.has-success]="signupForm.controls.login.dirtyValid">
+        <label class="control-label visible-ie8 visible-ie9">Логин</label>
+        <div class="input-group input-icon right">
+            <span class="input-group-addon">
+                <i class="fa fa-user"></i>
+            </span>
+            <i class="fa fa-validate fa-warning" *ngIf="signupForm.controls.login.dirtyInvalid"></i>
+            <i class="fa fa-validate fa-check" *ngIf="signupForm.controls.login.dirtyValid"></i>
+            <input class="form-control placeholder-no-fix" type="text" placeholder="Логин" name="login" formControlName="login" />
+        </div>
+        <span *ngIf="signupForm.controls.login.dirtyInvalid" class="help-block" [textContent]="signupForm.controls.login.firstError"></span>
+    </div>
+
+    <div class="form-group" [class.has-error]="signupForm.controls.password.dirtyInvalid" [class.has-success]="signupForm.controls.password.dirtyValid">
+        <label class="control-label visible-ie8 visible-ie9">Пароль</label>
+        <div class="input-group input-icon right">
+            <span class="input-group-addon">
+                <i class="fa fa-key"></i>
+            </span>
+            <i class="fa fa-validate fa-warning" *ngIf="signupForm.controls.password.dirtyInvalid"></i>
+            <i class="fa fa-validate fa-check" *ngIf="signupForm.controls.password.dirtyValid"></i>
+            <input class="form-control placeholder-no-fix" type="password" placeholder="Пароль" name="password" formControlName="password" />
+        </div>
+        <span *ngIf="signupForm.controls.password.dirtyInvalid" class="help-block" [textContent]="signupForm.controls.password.firstError"></span>
+    </div>
+
+    <div class="form-group" [class.has-error]="signupForm.controls.confirmPassword.dirtyInvalid" [class.has-success]="signupForm.controls.confirmPassword.dirtyValid">
+        <label class="control-label visible-ie8 visible-ie9">Повтор пароля</label>
+        <div class="input-group input-icon right">
+            <span class="input-group-addon">
+                <i class="fa fa-key"></i>
+            </span>
+            <i class="fa fa-validate fa-warning" *ngIf="signupForm.controls.confirmPassword.dirtyInvalid"></i>
+            <i class="fa fa-validate fa-check" *ngIf="signupForm.controls.confirmPassword.dirtyValid"></i>
+            <input class="form-control placeholder-no-fix" type="password" placeholder="Повтор пароля" name="confirmPassword" formControlName="confirmPassword" />
+        </div>
+        <span *ngIf="signupForm.controls.confirmPassword.dirtyInvalid" class="help-block" [textContent]="signupForm.controls.confirmPassword.firstError"></span>
+    </div>
+
+    <div class="form-group margin-top-20 margin-bottom-20">
+        Регистрируясь, вы соглашаетесь с <a href="javascript:;">правилами.</a>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" class="btn green btn-outline" routerLink="/account/login">Назад</button>
+        <button type="submit" class="btn green uppercase pull-right" [class.disabled]="signupForm.invalid || isBusy">Создать</button>
+    </div>
+
+</form>

@@ -1,9 +1,15 @@
 ﻿import { NgModule } from '@angular/core';
 
-import { AuthActions } from './auth';
+import { StateService } from './state.service';
 import { UserActions } from './user';
+import { EventActions, EventService } from './event';
 
 @NgModule({
-    providers: [AuthActions, UserActions]
+    providers: [
+        StateService,
+        UserActions,
+        EventActions,
+        EventService
+    ]
 })
 export class StateModule { }

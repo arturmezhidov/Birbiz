@@ -1,0 +1,18 @@
+﻿<div class="inner-content lock-screen">
+    <div class="header">
+        <h3>Экран заблокирован</h3>
+    </div>
+    <div class="body">
+        <div class="inner-body">
+            <div class="lock-item">
+                <img [src]="(user$ | async)?.profile?.avatar" class="lock-avatar">
+            </div>
+            <div class="lock-item">
+                <lock-screen-form [user]="(user$ | async)"></lock-screen-form>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <a href="javascript:;">Вы не <span [textContent]="(user$ | async)?.profile?.userName"></span>?</a>
+    </div>
+</div>

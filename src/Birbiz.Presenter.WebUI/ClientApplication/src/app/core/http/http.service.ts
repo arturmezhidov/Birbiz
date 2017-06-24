@@ -10,11 +10,11 @@ import { IRequestOptions } from './request-options';
 @Injectable()
 export class HttpService extends BaseHttpService {
 
-    private ngRedux: NgRedux<IAppState>;
+    private state: NgRedux<IAppState>;
 
-    constructor(http: Http, ngRedux: NgRedux<IAppState>) {
+    constructor(http: Http, state: NgRedux<IAppState>) {
         super(http);
-        this.ngRedux = ngRedux;
+        this.state = state;
     }
 
     public get<T>(url: string, options?: IRequestOptions): Observable<T> {
@@ -34,7 +34,7 @@ export class HttpService extends BaseHttpService {
     }
 
     protected getToken(): string {
-        let state: IAppState = this.ngRedux.getState();
-        return state.auth.token.accessToken;
+        let state: IAppState = this.state.getState();
+        return state.user.token.accessToken;
     }
 }

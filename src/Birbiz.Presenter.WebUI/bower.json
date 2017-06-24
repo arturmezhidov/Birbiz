@@ -2,7 +2,7 @@
   "name": "Birbiz",
   "private": true,
   "dependencies": {
-    "jquery": "2.2.0",
-    "metro": "3.0.14"
+    "font-awesome": "4.6.1",
+    "bootstrap": "3.3.6"
   }
 }

@@ -1,3 +1,10 @@
-﻿export const USER_LOADING = 'USER_LOADING';
+﻿export const LOGIN_USER = 'LOGIN_USER';
+export const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS';
+export const LOGOUT_USER = 'LOGOUT_USER';
+export const TOKEN_UPDATE = 'TOKEN_UPDATE';
+export const USER_LOADING = 'USER_LOADING';
 export const USER_LOADED = 'USER_LOADED';
-export const USER_CLEAR = 'USER_CLEAR';
+export const SCREEN_LOCK = 'SCREEN_LOCK';
+export const SCREEN_UNLOCK = 'SCREEN_UNLOCK';
+export const ACCOUNT_LOCK = 'ACCOUNT_LOCK';
+export const ACCOUNT_UNLOCK = 'ACCOUNT_UNLOCK';

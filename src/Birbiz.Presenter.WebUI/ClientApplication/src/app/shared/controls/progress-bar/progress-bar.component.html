@@ -1,0 +1,5 @@
+﻿<div class="progress" [class.progress-striped]="isStriped || isAnimated" [class.active]="isAnimated">
+    <div class="progress-bar {{ status ? 'progress-bar-' + status : '' }}" [style.width]="percent | percent">
+        <span class="sr-only"><span [textContent]="percent | percent"></span> выполнено</span>
+    </div>
+</div>

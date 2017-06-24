@@ -3,3 +3,4 @@ export { LoginResponse, RegisterResponse } from './responses';
 export { LoginErrors } from './login-errors';
 export { RegisterErrors } from './register-errors';
 export { AuthService } from './auth.service';
+export { TokenStorage } from './token-storage';

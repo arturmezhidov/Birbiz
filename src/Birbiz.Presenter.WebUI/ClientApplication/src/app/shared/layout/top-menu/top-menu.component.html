@@ -1,0 +1,150 @@
+﻿<div class="top-menu">
+    <ul class="nav navbar-nav pull-right">
+
+        <!-- BEGIN NOTIFICATION DROPDOWN -->
+        <li *ngIf="notifications && notifications.isAvailable" class="dropdown dropdown-extended dropdown-notification" [class.open]="isOpenedItem('notifications')">
+            <a (click)="toggleItem('notifications')" class="dropdown-toggle">
+                <i class="icon-bell"></i>
+                <span *ngIf="notifications.notifications.length > 0" class="badge badge-default" [textContent]="notifications.notifications.length"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li class="external">
+                    <h3>
+                        <span class="bold" [textContent]="notifications.notifications.length"></span> уведомлений
+                    </h3>
+                    <a href="javascript:;">Показать все</a>
+                </li>
+                <li>
+                    <ul class="dropdown-menu-list">
+                        <li *ngFor="let notification of notifications.notifications">
+                            <a href="javascript:;">
+                                <span class="time" [textContent]="notification.date | date:'dd/MM'"></span>
+                                <span class="details">
+                                    <span class="label label-sm label-icon {{notificationsStyles(notification.type).label}}">
+                                        <i class="fa {{notificationsStyles(notification.type).icon}}"></i>
+                                    </span>
+                                    <span [textContent]="notification.title"></span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <!-- END NOTIFICATION DROPDOWN -->
+        
+        <!-- BEGIN INBOX DROPDOWN -->
+        <li *ngIf="messages && messages.isAvailable" class="dropdown dropdown-extended dropdown-inbox" [class.open]="isOpenedItem('messages')">
+            <a (click)="toggleItem('messages')" class="dropdown-toggle">
+                <i class="icon-envelope-open"></i>
+                <span *ngIf="messages.messages.length > 0" class="badge badge-default" [textContent]="messages.messages.length"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li class="external">
+                    <h3>
+                        <span class="bold" [textContent]="messages.messages.length"></span>
+                        <span class="bold">новых</span> сообщений
+                    </h3>
+                    <a href="javascript:;">Показать все</a>
+                </li>
+                <li>
+                    <ul class="dropdown-menu-list">
+                        <li *ngFor="let message of messages.messages">
+                            <a href="javascript:;">
+                                <span class="photo">
+                                    <img [src]="message.avatar" class="img-circle" alt="">
+                                </span>
+                                <span class="subject">
+                                    <span class="from" [textContent]="message.userName"></span>
+                                    <span class="time" [textContent]="message.date | date:'dd/MM'"></span>
+                                </span>
+                                <span class="message" [textContent]="message.text"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <!-- END INBOX DROPDOWN -->
+
+        <!-- BEGIN TODO DROPDOWN -->
+        <li *ngIf="tasks && tasks.isAvailable" class="dropdown dropdown-extended dropdown-tasks" [class.open]="isOpenedItem('tasks')">
+            <a (click)="toggleItem('tasks')" class="dropdown-toggle">
+                <i class="icon-calendar"></i>
+                <span *ngIf="tasks.tasks.length > 0" class="badge badge-default" [textContent]="tasks.tasks.length"></span>
+            </a>
+            <ul class="dropdown-menu extended tasks">
+                <li class="external">
+                    <h3>
+                        <span class="bold" [textContent]="tasks.tasks.length"></span> задач
+                    </h3>
+                    <a href="javascript:;">Показать все</a>
+                </li>
+                <li>
+                    <ul class="dropdown-menu-list">
+                        <li *ngFor="let task of tasks.tasks">
+                            <a href="javascript:;">
+                                <span class="task">
+                                    <span class="desc" [textContent]="task.title"></span>
+                                    <span class="percent" [textContent]="task.progress | percent"></span>
+                                </span>
+                                <progress-bar maxValue="1" [value]="task.progress" isStriped="true" [status]="tasksStyles(task.state)"></progress-bar>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <!-- END TODO DROPDOWN -->
+
+        <!-- BEGIN USER DROPDOWN -->
+        <li *ngIf="user" class="dropdown dropdown-user" [class.open]="isOpenedItem('user')">
+            <a (click)="toggleItem('user')" class="dropdown-toggle">
+                <img alt="" class="img-circle" [src]="user.profile.avatar">
+                <span class="username username-hide-on-mobile" [textContent]="user.profile.userName"></span>
+                <i class="fa fa-angle-down"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-default">
+                <li>
+                    <a href="javascript:;">
+                        <i class="icon-user"></i> Мой профиль
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="icon-calendar"></i> Мой календарь
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="icon-envelope-open"></i> Мои сообщения
+                        <span *ngIf="messages && messages.isAvailable && messages.messages.length > 0"
+                              class="badge badge-danger"
+                              [textContent]="messages.messages.length"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="icon-rocket"></i> Мои задачи
+                        <span *ngIf="tasks && tasks.isAvailable && tasks.tasks.length > 0"
+                              class="badge badge-success"
+                              [textContent]="tasks.tasks.length"></span>
+                    </a>
+                </li>
+                <li class="divider"> </li>
+                <li>
+                    <a (click)="onLockClick()">
+                        <i class="icon-lock"></i> Заблокировать экран
+                    </a>
+                </li>
+                <li>
+                    <a (click)="onLogoutClick()">
+                        <i class="icon-key"></i> Выйти
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- END USER LOGIN DROPDOWN -->
+
+    </ul>
+</div>

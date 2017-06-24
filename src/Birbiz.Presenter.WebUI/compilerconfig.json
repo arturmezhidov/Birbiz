@@ -1,7 +1,57 @@
 ﻿[
   {
-    "outputFile": "wwwroot/assets/css/styles.css",
-    "inputFile": "ClientApplication/src/sass/main.scss",
+    "outputFile": "wwwroot/assets/css/bootstrap.css",
+    "inputFile": "ClientApplication/src/sass/bootstrap.scss",
+    "minify": {
+      "enabled": true
+    },
+    "options": {
+      "sourceMap": true
+    }
+  },
+  {
+    "outputFile": "wwwroot/assets/css/components.css",
+    "inputFile": "ClientApplication/src/sass/global/components.scss",
+    "minify": {
+      "enabled": true
+    },
+    "options": {
+      "sourceMap": true
+    }
+  },
+  {
+    "outputFile": "wwwroot/assets/css/plugins.css",
+    "inputFile": "ClientApplication/src/sass/global/plugins.scss",
+    "minify": {
+      "enabled": true
+    },
+    "options": {
+      "sourceMap": true
+    }
+  },
+  {
+    "outputFile": "wwwroot/assets/css/layout.css",
+    "inputFile": "ClientApplication/src/sass/layouts/layout/layout.scss",
+    "minify": {
+      "enabled": true
+    },
+    "options": {
+      "sourceMap": true
+    }
+  },
+  {
+    "outputFile": "wwwroot/assets/css/darkblue.css",
+    "inputFile": "ClientApplication/src/sass/layouts/layout/themes/darkblue.scss",
+    "minify": {
+      "enabled": true
+    },
+    "options": {
+      "sourceMap": true
+    }
+  },
+  {
+    "outputFile": "wwwroot/assets/css/account.css",
+    "inputFile": "ClientApplication/src/sass/parts/account/account.scss",
     "minify": {
       "enabled": true
     },

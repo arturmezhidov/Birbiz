@@ -1,4 +1,0 @@
-﻿export const LOGIN_USER = 'LOGIN_USER';
-export const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS';
-export const LOGOUT_USER = 'LOGOUT_USER';
-export const TOKEN_UPDATE = 'TOKEN_UPDATE';

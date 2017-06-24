@@ -2,45 +2,69 @@
 import { Subscription } from 'rxjs/Subscription';
 import { NgRedux } from 'ng2-redux';
 
+import { NavigatorService } from './core/routing';
 import { IAppState } from './core/state';
-import { IAuthState, AuthActions, TokenStorage } from './core/state/auth';
-import { UserActions } from './core/state/user';
+import { UserActions, LOGIN_USER_SUCCESS, LOGOUT_USER, SCREEN_LOCK } from './core/state/user';
+import { EventActions, EventService } from './core/state/event';
+import { UserInfo } from './core/user';
+import { TokenStorage, Token } from './core/auth';
 
 @Component({
     selector: 'app',
-    templateUrl: './app.component.html'
+    templateUrl: './app.component.html',
+    host: {
+        '(document:click)': 'onClick($event)'
+    }
 })
 export class AppComponent implements OnInit, OnDestroy {
 
-    private authSubcription: Subscription;
+    private userLoginSubcription: Subscription;
+    private userLogoutSubcription: Subscription;
+    private lockScreenSubcription: Subscription;
+    private eventSubcription: Subscription;
 
     constructor(
+        private navigator: NavigatorService,
         private ngRedux: NgRedux<IAppState>,
         private userActions: UserActions,
-        private authActions: AuthActions,
+        private eventActions: EventActions,
+        private eventService: EventService,
         private tokenStorage: TokenStorage) {
     }
 
     ngOnInit(): void {
-        let token = this.tokenStorage.getToken();
-        this.authSubcription = this.ngRedux.select((state: IAppState) => state.auth).subscribe((authState: IAuthState) => {
-            if (!authState.isLoading) {
-                if (authState.isAuthenticated) {
-                    this.userActions.getUserInfo().subscribe((actionResult: any) => {
-                        this.tokenStorage.setToken(authState.token);
-                    });
-                } else {
-                    this.tokenStorage.removeToken();
-                    this.userActions.clear();
+        this.eventSubcription = this.eventService.watch(LOGIN_USER_SUCCESS).subscribe((token: Token) => {
+            this.tokenStorage.setToken(token);
+            this.unsubscribe(this.userLoginSubcription);
+            this.userLoginSubcription = this.userActions.loadUserInfo().subscribe((actionResult: any) => {
+                let userInfo: UserInfo = <UserInfo>actionResult.payload;
+                if (userInfo.isAdminDashboardAvailable) {
+                    this.navigator.goAdminDashboard();
                 }
-            }
+            });
         });
-        if (token) {
-            this.authActions.updateToken(token);
-        }
+        this.userLogoutSubcription = this.eventService.watch(LOGOUT_USER).subscribe(() => {
+            this.navigator.goLogin();
+        });
+        this.lockScreenSubcription = this.eventService.watch(SCREEN_LOCK).subscribe(() => {
+            this.navigator.goLockScreen();
+        });
     }
 
     ngOnDestroy(): void {
-        this.authSubcription.unsubscribe();
+        this.unsubscribe(this.userLoginSubcription);
+        this.unsubscribe(this.userLogoutSubcription);
+        this.unsubscribe(this.lockScreenSubcription);
+        this.unsubscribe(this.eventSubcription);
+    }
+
+    onClick(event: any): void {
+        this.eventActions.documentClick(event);
+    }
+
+    private unsubscribe(subscription: Subscription): void {
+        if (subscription && !subscription.closed) {
+            subscription.unsubscribe();
+        }
     }
 }

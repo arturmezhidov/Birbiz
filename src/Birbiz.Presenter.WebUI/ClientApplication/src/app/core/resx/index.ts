@@ -1,2 +1,1 @@
-﻿export { ResourcesService } from './resources.service';
-export { ResourcesKeys } from './resources-keys';
+﻿export { AccountResources } from './account-resources';

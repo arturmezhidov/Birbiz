@@ -1,0 +1,155 @@
+﻿@import '../../global/_variables';
+@import '../../global/components/_mixins';
+@import './_variables';
+
+.account {
+    padding: 60px 20px 40px;
+    background-color: $page-bg-color;
+
+    .logo {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .content {
+        margin: 40px 0 10px;
+
+        .inner-content {
+            width: 400px;
+            margin: auto;
+            background-color: #FFFFFF;
+        }
+
+        .header {
+            padding: 30px 20px 20px;
+
+            h3 {
+                margin: 0;
+                color: #4db3a5;
+                text-align: center;
+                font-size: 28px;
+                font-weight: 400 !important;
+            }
+        }
+
+        .body {
+            padding: 0 30px;
+
+            h4 {
+                color: #555;
+            }
+
+            .hint {
+                color: #999;
+                padding: 0;
+                margin: 0 0 10px;
+            }
+
+            form {
+                padding: 0px;
+                margin: 0px;
+            }
+
+            .form-control {
+                border-left: none;
+                height: 43px;
+                color: #8290a3;
+
+                @include placeholder(#8290a3);
+            }
+
+            select.form-control {
+                padding-left: 9px;
+                padding-right: 9px;
+            }
+
+            .form-actions {
+                clear: both;
+                border: 0px;
+                padding: 25px 0;
+
+                > .btn {
+                    margin-top: -2px;
+                }
+
+                .checkbox {
+                    margin-left: 0;
+                    padding-left: 0;
+                }
+
+                .btn {
+                    margin-top: 1px;
+                    font-weight: 600;
+                    padding: 10px 20px !important;
+                }
+
+                .btn-default {
+                    font-weight: 600;
+                    padding: 10px 25px !important;
+                    color: #6c7a8d;
+                    background-color: #ffffff;
+                    border: none;
+                }
+
+                .btn-default:hover {
+                    background-color: #fafaff;
+                    color: #45b6af;
+                }
+            }
+
+            .form-group {
+                .help-block {
+                    font-size: 0.9em;
+                    margin-top: 0;
+                }
+
+                .input-icon {
+                    .fa-validate {
+                        margin-top: 15px;
+                        margin-right: 5px;
+                        z-index: 4;
+                    }
+                }
+
+                .input-group {
+                    .input-group-addon {
+                        .fa {
+                            font-size: 1.2em;
+                        }
+                    }
+                }
+
+                &.has-success {
+                    .form-control,
+                    .input-group-addon {
+                        border-color: $sucess-color;
+                    }
+
+                    .input-icon > .fa {
+                        color: $sucess-color;
+                    }
+                }
+            }
+        }
+
+        .footer {
+            padding: 18px 30px;
+            text-align: center;
+            background-color: #6c7a8d;
+
+            a {
+                display: inline-block;
+                font-weight: 600;
+                font-size: 14px;
+                color: #c3cedd;
+            }
+        }
+    }
+
+    .copyright {
+        text-align: center;
+        padding: 20px;
+        color: lighten($page-bg-color, 30%);
+        font-size: 13px;
+    }
+}

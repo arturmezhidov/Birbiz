@@ -1,0 +1,107 @@
+﻿@import '_variables.scss';
+
+.account {
+    .content {
+        .inner-content.lock-screen {
+            width: 450px;
+            background-color: $lock-screen-bg-color;
+
+            .header {
+                padding: 20px;
+                background-color: #323d4b;
+
+                h3 {
+                    font-size: 22px;
+                }
+            }
+
+            .body {
+                padding: 35px;
+
+                .inner-body {
+                    display: table;
+                    width: 100%;
+
+                    .lock-item {
+                        display: table-cell;
+                        vertical-align: middle;
+                    }
+
+                    .lock-avatar {
+                        margin-top: 15px;
+                        height: 110px;
+                        -webkit-border-radius: 50% !important;
+                        -moz-border-radius: 50% !important;
+                        border-radius: 50% !important;
+                    }
+
+                    .lock-form {
+                        padding-left: 40px;
+
+                        h4 {
+                            margin-top: 0px;
+                            color: #dbe2ea;
+                            font-size: 18px;
+                            font-weight: 400;
+                            display: inline-block;
+                        }
+
+                        .form-group {
+                            margin-top: 20px;
+
+                            .form-control {
+                                background-color: #303a48;
+                                border: none;
+                                width: 100%;
+                                height: 40px;
+                                color: #697687;
+                            }
+
+                            .form-control::-moz-placeholder {
+                                color: #556376;
+                                opacity: 1;
+                            }
+
+                            .form-control:-ms-input-placeholder {
+                                color: #556376;
+                            }
+
+                            .form-control::-webkit-input-placeholder {
+                                color: #556376;
+                            }
+
+                            .form-control:focus {
+                                background-color: #2b3542;
+                            }
+                        }
+
+                        .form-actions {
+                            padding: 0;
+                            margin: 20px 0 0;
+
+                            .btn {
+                                width: 100%;
+                                font-weight: 600;
+                                padding: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .footer {
+                padding: 22px;
+                background-color: #323d4b;
+
+                a {
+                    color: #638cac;
+                    font-weight: 400;
+                }
+
+                a:hover {
+                    color: #7ba2c0;
+                }
+            }
+        }
+    }
+}

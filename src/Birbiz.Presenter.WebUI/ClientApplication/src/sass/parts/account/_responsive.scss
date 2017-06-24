@@ -1,0 +1,86 @@
+﻿@media (max-width: 768px) {
+
+    .account {
+        padding-top: 50px;
+
+        .content {
+            .inner-content.lock-screen {
+                width: 280px;
+
+                .header {
+                    h3 {
+                        font-size: 20px;
+                    }
+                }
+
+                .body {
+                    padding: 20px;
+
+                    .inner-body {
+                        display: block;
+
+                        .lock-item {
+                            display: block;
+                            text-align: center;
+                        }
+
+                        .lock-form {
+                            padding: 0;
+                            margin-top: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .account {
+        padding-top: 40px;
+
+        .content {
+            margin-top: 30px;
+
+            .header {
+                h3 {
+                    font-size: 24px;
+                }
+            }
+
+            .inner-content {
+                width: 100% !important;
+            }
+        }
+    }
+}
+
+@media (max-width: 420px) {
+    .account {
+        .content {
+            .header {
+                h3 {
+                    font-size: 22px;
+                }
+            }
+
+            .body {
+                padding: 0 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .account {
+        .content {
+            .body {
+                .form-actions {
+                    .rememberme {
+                        margin-left: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

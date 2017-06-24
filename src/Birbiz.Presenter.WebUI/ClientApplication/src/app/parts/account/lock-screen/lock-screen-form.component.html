@@ -1,0 +1,19 @@
+﻿<form class="lock-form" [formGroup]="lockScreenForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <h4 [textContent]="user?.profile?.userName"></h4>
+
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">Пароль</label>
+        <div class="input-icon right">
+            <i class="fa fa-validate fa-warning" *ngIf="lockScreenForm.controls.password.dirtyInvalid"></i>
+            <i class="fa fa-validate fa-check" *ngIf="lockScreenForm.controls.password.dirtyValid"></i>
+            <input class="form-control placeholder-no-fix" type="password" placeholder="Пароль" formControlName="password" />
+        </div>
+        <span *ngIf="lockScreenForm.controls.password.dirtyInvalid" class="help-block" [textContent]="lockScreenForm.controls.password.firstError"></span>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn red uppercase"  [class.disabled]="lockScreenForm.invalid || isBusy">Разблокировать</button>
+    </div>
+
+</form>

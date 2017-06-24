@@ -1,0 +1,43 @@
+﻿<form class="login-form" [formGroup]="signinForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <p class="hint">Все поля обязательны для заполнения.</p>
+
+    <div class="form-group" [class.has-error]="signinForm.controls.login.dirtyInvalid" [class.has-success]="signinForm.controls.login.dirtyValid">
+        <label class="control-label visible-ie8 visible-ie9">Логин</label>
+        <div class="input-group input-icon right">
+            <span class="input-group-addon">
+                <i class="fa fa-user"></i>
+            </span>
+            <i class="fa fa-validate fa-warning" *ngIf="signinForm.controls.login.dirtyInvalid"></i>
+            <i class="fa fa-validate fa-check" *ngIf="signinForm.controls.login.dirtyValid"></i>
+            <input class="form-control placeholder-no-fix" type="text" placeholder="Логин" name="login" formControlName="login" />
+        </div>
+        <span *ngIf="signinForm.controls.login.dirtyInvalid" class="help-block" [textContent]="signinForm.controls.login.firstError"></span>
+    </div>
+
+    <div class="form-group" [class.has-error]="signinForm.controls.password.dirtyInvalid" [class.has-success]="signinForm.controls.password.dirtyValid">
+        <label class="control-label visible-ie8 visible-ie9">Пароль</label>
+        <div class="input-group input-icon right">
+            <span class="input-group-addon">
+                <i class="fa fa-user"></i>
+            </span>
+            <i class="fa fa-validate fa-warning" *ngIf="signinForm.controls.password.dirtyInvalid"></i>
+            <i class="fa fa-validate fa-check" *ngIf="signinForm.controls.password.dirtyValid"></i>
+            <input class="form-control placeholder-no-fix" type="password" placeholder="Пароль" name="password" formControlName="password" />
+        </div>
+        <span *ngIf="signinForm.controls.password.dirtyInvalid" class="help-block" [textContent]="signinForm.controls.password.firstError"></span>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn green uppercase" [class.disabled]="signinForm.invalid || isBusy">Войти</button>
+        <label class="rememberme check mt-checkbox mt-checkbox-outline">
+            <input type="checkbox" name="remember" />Запомнить
+            <span></span>
+        </label>
+    </div>
+
+    <div class="forget-password">
+        <a routerLink="/account/forgot-password">Забыли пароль?</a>
+    </div>
+
+</form>
